@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Martium.FuneralServiceHistory.Database;
 
 namespace Martium.FuneralServiceHistory
 {
@@ -7,6 +8,8 @@ namespace Martium.FuneralServiceHistory
         public ServiceListForm()
         {
             InitializeComponent();
+
+            new DatabaseInitializer().InitializeDatabaseIfNotExist();
         }
     }
 }
