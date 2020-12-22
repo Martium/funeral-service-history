@@ -1,67 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using Dapper;
 using Martium.FuneralServiceHistory.Models;
 
-//using System.Reflection;
-
-namespace Martium.FuneralServiceHistory
+namespace Martium.FuneralServiceHistory.Repositories
 {
-    public class FuneralServiceRepository
+    public class DatabaseInitializerRepository
     {
-        private readonly string _dbFolder;
-        private readonly string _dbFile;
-        private readonly string _connectionString;
-
-        public FuneralServiceRepository()
-        {
-            string databaseName = "FuneralServiceHistory";
-            //_dbFolder = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Database";
-            _dbFolder = "C:\\Development\\Github\\funeral-services-history\\Database";
-            _dbFile = $"{_dbFolder}\\{databaseName}.db";
-            _connectionString = $"Data Source={_dbFile};Version=3;UseUTF16Encoding=True;";
-        }
-        
-        public IEnumerable<FuneralServiceModel> GetAll()
-        {
-            using (var dbConnection = new SQLiteConnection(_connectionString))
-            {
-                dbConnection.Open();
-
-                object queryParameters = new { };
-
-                string getAllWordsQuery =
-                    @"SELECT  
-                        FSH.ServiceDates, FSH.OrderNumber, FSH.CustomerNames, FSH.CustomerPhoneNumbers, FSH.DepartedInfo
-                      FROM FuneralServiceHistory FSH";
-
-                IEnumerable<FuneralServiceModel> funeralServices = dbConnection.Query<FuneralServiceModel>(getAllWordsQuery, queryParameters);
-
-                return funeralServices;
-            }
-        }
-
         public void InitializeDatabaseIfNotExist()
         {
-            if (File.Exists(_dbFile))
+            if (File.Exists(AppConfiguration.DatabaseFile))
             {
                 return;
             }
 
-            if (!Directory.Exists(_dbFolder))
+            if (!Directory.Exists(AppConfiguration.DatabaseFolder))
             {
-                Directory.CreateDirectory(_dbFolder);
+                Directory.CreateDirectory(AppConfiguration.DatabaseFolder);
             }
             else
             {
                 DeleteLeftoverFilesAndFoldersBeforeDbCreate();
             }
 
-            SQLiteConnection.CreateFile(_dbFile);
+            SQLiteConnection.CreateFile(AppConfiguration.DatabaseFile);
 
-            using (var dbConnection = new SQLiteConnection(_connectionString))
+            using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
                 dbConnection.Open();
 
@@ -73,7 +38,7 @@ namespace Martium.FuneralServiceHistory
 
         private void DeleteLeftoverFilesAndFoldersBeforeDbCreate()
         {
-            var directory = new DirectoryInfo(_dbFolder);
+            var directory = new DirectoryInfo(AppConfiguration.DatabaseFolder);
 
             foreach (FileInfo file in directory.GetFiles())
             {
