@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using System.IO;
-using Dapper;
-using Martium.FuneralServiceHistory.Models;
 
 namespace Martium.FuneralServiceHistory.Repositories
 {
