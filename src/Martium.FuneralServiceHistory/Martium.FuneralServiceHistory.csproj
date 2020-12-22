@@ -55,7 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DatabaseInitializer.cs" />
+    <Compile Include="FuneralServiceRepository.cs" />
+    <Compile Include="Models\FuneralServiceModel.cs" />
+    <Compile Include="Models\CreatableFuneralServiceModel.cs" />
+    <Compile Include="Models\EditableFuneralServiceModel.cs" />
     <Compile Include="ServiceListForm.cs">
       <SubType>Form</SubType>
     </Compile>

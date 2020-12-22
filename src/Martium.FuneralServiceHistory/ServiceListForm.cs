@@ -1,15 +1,30 @@
-﻿using System.Windows.Forms;
-using Martium.FuneralServiceHistory.Database;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Martium.FuneralServiceHistory
 {
     public partial class ServiceListForm : Form
     {
+        private readonly FuneralServiceRepository _funeralServiceRepository;
+
         public ServiceListForm()
         {
-            InitializeComponent();
+            _funeralServiceRepository = new FuneralServiceRepository();
 
-            new DatabaseInitializer().InitializeDatabaseIfNotExist();
+            InitializeComponent();
+        }
+
+        private void ServiceListForm_Load(object sender, System.EventArgs e)
+        {
+            try
+            {
+                _funeralServiceRepository.InitializeDatabaseIfNotExist();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

@@ -31,13 +31,14 @@ namespace Martium.FuneralServiceHistory
         {
             this.SuspendLayout();
             // 
-            // ServiceList
+            // ServiceListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "ServiceList";
+            this.ClientSize = new System.Drawing.Size(861, 478);
+            this.Name = "ServiceListForm";
             this.Text = "Paslaugų sąrašas";
+            this.Load += new System.EventHandler(this.ServiceListForm_Load);
             this.ResumeLayout(false);
 
         }
