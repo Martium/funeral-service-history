@@ -57,9 +57,8 @@
   <ItemGroup>
     <Compile Include="AppConfiguration.cs" />
     <Compile Include="Repositories\DatabaseInitializerRepository.cs" />
+    <Compile Include="Models\FuneralServiceListModel.cs" />
     <Compile Include="Models\FuneralServiceModel.cs" />
-    <Compile Include="Models\CreatableFuneralServiceModel.cs" />
-    <Compile Include="Models\EditableFuneralServiceModel.cs" />
     <Compile Include="Repositories\FuneralServiceRepository.cs" />
     <Compile Include="ServiceListForm.cs">
       <SubType>Form</SubType>

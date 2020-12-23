@@ -7,7 +7,7 @@ namespace Martium.FuneralServiceHistory.Repositories
 {
     public class FuneralServiceRepository
     {
-        public IEnumerable<FuneralServiceModel> GetAll()
+        public IEnumerable<FuneralServiceListModel> GetAll()
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
@@ -20,8 +20,8 @@ namespace Martium.FuneralServiceHistory.Repositories
                         FSH.ServiceDates, FSH.OrderNumber, FSH.CustomerNames, FSH.CustomerPhoneNumbers, FSH.DepartedInfo
                       FROM FuneralServiceHistory FSH";
 
-                IEnumerable<FuneralServiceModel> funeralServices =
-                    dbConnection.Query<FuneralServiceModel>(getAllWordsQuery, queryParameters);
+                IEnumerable<FuneralServiceListModel> funeralServices =
+                    dbConnection.Query<FuneralServiceListModel>(getAllWordsQuery, queryParameters);
 
                 return funeralServices;
             }
