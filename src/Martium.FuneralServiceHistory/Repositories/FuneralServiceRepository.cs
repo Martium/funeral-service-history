@@ -18,7 +18,8 @@ namespace Martium.FuneralServiceHistory.Repositories
                 string getAllWordsQuery =
                     @"SELECT  
                         FSH.ServiceDates, FSH.OrderNumber, FSH.CustomerNames, FSH.CustomerPhoneNumbers, FSH.DepartedInfo
-                      FROM FuneralServiceHistory FSH";
+                      FROM FuneralServiceHistory FSH
+                      ORDER BY FSH.OrderNumber DESC";
 
                 IEnumerable<FuneralServiceListModel> funeralServices =
                     dbConnection.Query<FuneralServiceListModel>(getAllWordsQuery, queryParameters);
