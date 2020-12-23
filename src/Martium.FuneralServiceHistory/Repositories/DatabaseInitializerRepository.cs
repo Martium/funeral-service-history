@@ -92,8 +92,14 @@ namespace Martium.FuneralServiceHistory.Repositories
             const string fillFuneralServiceHistoryTableQuery =
                 @"BEGIN TRANSACTION;
 	                INSERT INTO 'FuneralServiceHistory' 
-                           (OrderDate, ServiceDates, CustomerNames, CustomerPhoneNumbers, DepartedInfo)
-	                VALUES ('2020-12-23 10:09:03', '2020-12-22 10:09:03', 'Martynas Gedutis', '+37062505181', 'Balandis Petras');
+		                   (OrderDate, ServiceDates, CustomerNames, CustomerPhoneNumbers, DepartedInfo)
+	                VALUES ('2020-05-23 10:09:03', '2020-12-22 10:09:03', 'Martynas Gedutis', '+37064432380', 'Balandis Petras');
+	                INSERT INTO 'FuneralServiceHistory' 
+		                   (OrderDate, ServiceDates, CustomerNames, CustomerPhoneNumbers, DepartedInfo)
+	                VALUES ('2020-06-23 12:09:03', '2020-12-22 10:09:03', 'Erikas Neverdauskas', '+37062505181', 'Katė Smiltė');
+	                INSERT INTO 'FuneralServiceHistory' 
+		                   (OrderDate, ServiceDates, CustomerNames, CustomerPhoneNumbers, DepartedInfo)
+	                VALUES ('2020-12-23 10:09:03', '2020-12-22 10:09:03', 'Erikas Neverdauskas, Martynas Gedutis', '+37062505181, +37064432380', 'Katė Smiltė (2015-2020), Balandis Petras (2019-2020)');
                 COMMIT;";
             SQLiteCommand fillFuneralServiceHistoryTableCommand = new SQLiteCommand(fillFuneralServiceHistoryTableQuery, dbConnection);
             fillFuneralServiceHistoryTableCommand.ExecuteNonQuery();
