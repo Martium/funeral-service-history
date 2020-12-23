@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Martium.FuneralServiceHistory
+namespace Martium.FuneralServiceHistory.Forms
 {
     public partial class ServiceListForm : Form
     {

@@ -60,15 +60,15 @@
     <Compile Include="Models\FuneralServiceListModel.cs" />
     <Compile Include="Models\FuneralServiceModel.cs" />
     <Compile Include="Repositories\FuneralServiceRepository.cs" />
-    <Compile Include="ServiceListForm.cs">
+    <Compile Include="Forms\ServiceListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceListForm.Designer.cs">
+    <Compile Include="Forms\ServiceListForm.Designer.cs">
       <DependentUpon>ServiceListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ServiceListForm.resx">
+    <EmbeddedResource Include="Forms\ServiceListForm.resx">
       <DependentUpon>ServiceListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

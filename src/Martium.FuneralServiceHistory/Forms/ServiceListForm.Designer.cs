@@ -1,5 +1,5 @@
 ﻿
-namespace Martium.FuneralServiceHistory
+namespace Martium.FuneralServiceHistory.Forms
 {
     partial class ServiceListForm
     {

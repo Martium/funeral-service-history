@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Martium.FuneralServiceHistory.Forms;
 using Martium.FuneralServiceHistory.Repositories;
 
 namespace Martium.FuneralServiceHistory
