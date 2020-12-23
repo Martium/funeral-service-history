@@ -57,19 +57,18 @@
   <ItemGroup>
     <Compile Include="AppConfiguration.cs" />
     <Compile Include="Repositories\DatabaseInitializerRepository.cs" />
+    <Compile Include="Models\FuneralServiceListModel.cs" />
     <Compile Include="Models\FuneralServiceModel.cs" />
-    <Compile Include="Models\CreatableFuneralServiceModel.cs" />
-    <Compile Include="Models\EditableFuneralServiceModel.cs" />
     <Compile Include="Repositories\FuneralServiceRepository.cs" />
-    <Compile Include="ServiceListForm.cs">
+    <Compile Include="Forms\ServiceListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceListForm.Designer.cs">
+    <Compile Include="Forms\ServiceListForm.Designer.cs">
       <DependentUpon>ServiceListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ServiceListForm.resx">
+    <EmbeddedResource Include="Forms\ServiceListForm.resx">
       <DependentUpon>ServiceListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -83,6 +82,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Martium.FuneralServiceHistory.Models.FuneralServiceListModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
