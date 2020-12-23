@@ -8,9 +8,6 @@ namespace Martium.FuneralServiceHistory
     {
         private static readonly DatabaseInitializerRepository DatabaseInitializerRepository = new DatabaseInitializerRepository();
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
