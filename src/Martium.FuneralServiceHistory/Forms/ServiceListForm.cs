@@ -6,14 +6,29 @@ namespace Martium.FuneralServiceHistory.Forms
 {
     public partial class ServiceListForm : Form
     {
+        private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
+
         public ServiceListForm()
         { 
             InitializeComponent();
+
+            SetControlsInitialState();
         }
 
         private void ServiceListForm_Load(object sender, System.EventArgs e)
         {
             SetFakeDataToList();
+        }
+
+        private void SetControlsInitialState()
+        {
+            ActiveControl = CreateNewFuneralServiceButton;
+
+            FuneralServiceSearchTextBox.Text = SearchTextBoxPlaceholderText;
+            FuneralServiceSearchButton.Enabled = false;
+
+            EditFuneralServiceButton.Enabled = false;
+            CopyFuneralServiceButton.Enabled = false;
         }
 
         private void SetFakeDataToList()
