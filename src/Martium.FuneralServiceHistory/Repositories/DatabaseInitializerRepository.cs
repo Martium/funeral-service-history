@@ -19,7 +19,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             }
             else
             {
-                DeleteLeftoverFilesAndFoldersBeforeDbCreate();
+                DeleteLeftoverFilesAndFolders();
             }
 
             SQLiteConnection.CreateFile(AppConfiguration.DatabaseFile);
@@ -34,7 +34,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             }
         }
 
-        private void DeleteLeftoverFilesAndFoldersBeforeDbCreate()
+        private void DeleteLeftoverFilesAndFolders()
         {
             var directory = new DirectoryInfo(AppConfiguration.DatabaseFolder);
 

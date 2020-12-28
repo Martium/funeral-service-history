@@ -15,21 +15,30 @@ namespace Martium.FuneralServiceHistory
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            InitializeDatabase();
+            bool success = InitializeDatabase();
 
-            Application.Run(new FuneralServiceListForm());
+            if (success)
+            {
+                Application.Run(new FuneralServiceListForm());
+            }
         }
-
-        private static void InitializeDatabase()
+        
+        private static bool InitializeDatabase()
         {
+            bool success = true;
+
             try
             {
                 DatabaseInitializerRepository.InitializeDatabaseIfNotExist();
             }
             catch (Exception exception)
             {
+                success = false;
+
                 MessageBox.Show(exception.Message, "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return success;
         }
     }
 }
