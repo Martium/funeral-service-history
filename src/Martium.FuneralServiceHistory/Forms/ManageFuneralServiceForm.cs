@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Enums;
 using Martium.FuneralServiceHistory.Models;
@@ -17,14 +16,22 @@ namespace Martium.FuneralServiceHistory.Forms
             _funeralServiceListModel = funeralServiceListModel;
 
             InitializeComponent();
-            SetControlsInitialState();
 
-            this.StartPosition = FormStartPosition.CenterScreen;
+            SetControlsInitialState();
         }
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
         {
             ResolveFormText();
+        }
+
+        private void SetControlsInitialState()
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            ActiveControl = OrderNumberLabel;
+
+            SaveFuneralServiceChangesButton.Enabled = false;
         }
 
         private void ResolveFormText()
@@ -45,13 +52,6 @@ namespace Martium.FuneralServiceHistory.Forms
             {
                 throw new Exception($"Paslaugų valdymo formoje gauta nežinoma opercija: '{_funeralServiceOperation}'");
             }
-        }
-
-        private void SetControlsInitialState()
-        {
-            ActiveControl = OrderNumberLabel;
-
-            SaveFuneralServiceChangesButton.Enabled = false;
         }
     }
 }

@@ -8,25 +8,29 @@ namespace Martium.FuneralServiceHistory.Forms
 {
     public partial class FuneralServiceListForm : Form
     {
+        private readonly FuneralServiceRepository _funeralServiceRepository;
+
         private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
-        private readonly FuneralServiceRepository _funeralServiceRepository = new FuneralServiceRepository();
+        
 
         public FuneralServiceListForm()
-        { 
+        {
+            _funeralServiceRepository = new FuneralServiceRepository();
+
             InitializeComponent();
 
             SetControlsInitialState();
-
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void ServiceListForm_Load(object sender, System.EventArgs e)
         {
-            SetServiceList();
+            LoadFuneralServiceList();
         }
 
         private void SetControlsInitialState()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             ActiveControl = CreateNewFuneralServiceButton;
 
             FuneralServiceSearchTextBox.Text = SearchTextBoxPlaceholderText;
@@ -37,7 +41,7 @@ namespace Martium.FuneralServiceHistory.Forms
             
         }
 
-        private void SetServiceList()
+        private void LoadFuneralServiceList()
         { 
             FuneralServiceBindingSource.DataSource = _funeralServiceRepository.GetAll();
             FuneralServiceDataGridView.DataSource = FuneralServiceBindingSource;
