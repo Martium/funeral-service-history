@@ -30,7 +30,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.FuneralServiceSearchTextBox = new System.Windows.Forms.TextBox();
             this.FuneralServiceSearchButton = new System.Windows.Forms.Button();
             this.CreateNewFuneralServiceButton = new System.Windows.Forms.Button();
@@ -57,6 +57,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // FuneralServiceSearchButton
             // 
+            this.FuneralServiceSearchButton.Enabled = false;
             this.FuneralServiceSearchButton.Location = new System.Drawing.Point(166, 16);
             this.FuneralServiceSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.FuneralServiceSearchButton.Name = "FuneralServiceSearchButton";
@@ -90,14 +91,14 @@ namespace Martium.FuneralServiceHistory.Forms
             this.customerPhoneNumbersDataGridViewTextBoxColumn,
             this.departedInfoDataGridViewTextBoxColumn});
             this.FuneralServiceDataGridView.DataSource = this.FuneralServiceBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FuneralServiceDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FuneralServiceDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.FuneralServiceDataGridView.Location = new System.Drawing.Point(14, 57);
             this.FuneralServiceDataGridView.MultiSelect = false;
             this.FuneralServiceDataGridView.Name = "FuneralServiceDataGridView";
@@ -151,6 +152,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // EditFuneralServiceButton
             // 
+            this.EditFuneralServiceButton.Enabled = false;
             this.EditFuneralServiceButton.Location = new System.Drawing.Point(14, 705);
             this.EditFuneralServiceButton.Name = "EditFuneralServiceButton";
             this.EditFuneralServiceButton.Size = new System.Drawing.Size(96, 44);
@@ -161,6 +163,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // CopyFuneralServiceButton
             // 
+            this.CopyFuneralServiceButton.Enabled = false;
             this.CopyFuneralServiceButton.Location = new System.Drawing.Point(133, 705);
             this.CopyFuneralServiceButton.Name = "CopyFuneralServiceButton";
             this.CopyFuneralServiceButton.Size = new System.Drawing.Size(106, 44);
