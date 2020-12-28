@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Enums;
-using Martium.FuneralServiceHistory.Models;
 using Martium.FuneralServiceHistory.Repositories;
 
 namespace Martium.FuneralServiceHistory.Forms
@@ -44,6 +42,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private void LoadFuneralServiceList()
         { 
             FuneralServiceBindingSource.DataSource = _funeralServiceRepository.GetAll();
+
             FuneralServiceDataGridView.DataSource = FuneralServiceBindingSource;
         }
 
@@ -52,11 +51,6 @@ namespace Martium.FuneralServiceHistory.Forms
             var createForm = new ManageFuneralServiceForm(FuneralServiceOperation.Create);
 
             createForm.Show(this);
-        }
-
-        private void EditFuneralServiceButton_Click(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

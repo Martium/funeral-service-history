@@ -35,43 +35,40 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceSearchButton = new System.Windows.Forms.Button();
             this.CreateNewFuneralServiceButton = new System.Windows.Forms.Button();
             this.FuneralServiceDataGridView = new System.Windows.Forms.DataGridView();
+            this.EditFuneralServiceButton = new System.Windows.Forms.Button();
+            this.CopyFuneralServiceButton = new System.Windows.Forms.Button();
+            this.FuneralServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDatesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNamesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerPhoneNumbersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departedInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FuneralServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.EditFuneralServiceButton = new System.Windows.Forms.Button();
-            this.CopyFuneralServiceButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FuneralServiceSearchTextBox
             // 
-            this.FuneralServiceSearchTextBox.Location = new System.Drawing.Point(9, 20);
-            this.FuneralServiceSearchTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.FuneralServiceSearchTextBox.Location = new System.Drawing.Point(13, 30);
             this.FuneralServiceSearchTextBox.Name = "FuneralServiceSearchTextBox";
-            this.FuneralServiceSearchTextBox.Size = new System.Drawing.Size(153, 20);
+            this.FuneralServiceSearchTextBox.Size = new System.Drawing.Size(228, 26);
             this.FuneralServiceSearchTextBox.TabIndex = 0;
             // 
             // FuneralServiceSearchButton
             // 
             this.FuneralServiceSearchButton.Enabled = false;
-            this.FuneralServiceSearchButton.Location = new System.Drawing.Point(166, 16);
-            this.FuneralServiceSearchButton.Margin = new System.Windows.Forms.Padding(2);
+            this.FuneralServiceSearchButton.Location = new System.Drawing.Point(249, 23);
             this.FuneralServiceSearchButton.Name = "FuneralServiceSearchButton";
-            this.FuneralServiceSearchButton.Size = new System.Drawing.Size(50, 26);
+            this.FuneralServiceSearchButton.Size = new System.Drawing.Size(75, 38);
             this.FuneralServiceSearchButton.TabIndex = 1;
             this.FuneralServiceSearchButton.Text = "Ieškoti";
             this.FuneralServiceSearchButton.UseVisualStyleBackColor = true;
             // 
             // CreateNewFuneralServiceButton
             // 
-            this.CreateNewFuneralServiceButton.Location = new System.Drawing.Point(783, 9);
-            this.CreateNewFuneralServiceButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CreateNewFuneralServiceButton.Location = new System.Drawing.Point(1174, 14);
             this.CreateNewFuneralServiceButton.Name = "CreateNewFuneralServiceButton";
-            this.CreateNewFuneralServiceButton.Size = new System.Drawing.Size(79, 40);
+            this.CreateNewFuneralServiceButton.Size = new System.Drawing.Size(118, 58);
             this.CreateNewFuneralServiceButton.TabIndex = 2;
             this.CreateNewFuneralServiceButton.Text = "Įvesti naują paslaugą";
             this.CreateNewFuneralServiceButton.UseVisualStyleBackColor = true;
@@ -93,19 +90,46 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceDataGridView.DataSource = this.FuneralServiceBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.FuneralServiceDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.FuneralServiceDataGridView.Location = new System.Drawing.Point(14, 57);
+            this.FuneralServiceDataGridView.Location = new System.Drawing.Point(21, 82);
+            this.FuneralServiceDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FuneralServiceDataGridView.MultiSelect = false;
             this.FuneralServiceDataGridView.Name = "FuneralServiceDataGridView";
             this.FuneralServiceDataGridView.ReadOnly = true;
             this.FuneralServiceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.FuneralServiceDataGridView.Size = new System.Drawing.Size(850, 642);
+            this.FuneralServiceDataGridView.Size = new System.Drawing.Size(1275, 831);
             this.FuneralServiceDataGridView.TabIndex = 3;
+            // 
+            // EditFuneralServiceButton
+            // 
+            this.EditFuneralServiceButton.Enabled = false;
+            this.EditFuneralServiceButton.Location = new System.Drawing.Point(21, 921);
+            this.EditFuneralServiceButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EditFuneralServiceButton.Name = "EditFuneralServiceButton";
+            this.EditFuneralServiceButton.Size = new System.Drawing.Size(144, 63);
+            this.EditFuneralServiceButton.TabIndex = 4;
+            this.EditFuneralServiceButton.Text = "Pakeisti esamą paslaugą";
+            this.EditFuneralServiceButton.UseVisualStyleBackColor = true;
+            // 
+            // CopyFuneralServiceButton
+            // 
+            this.CopyFuneralServiceButton.Enabled = false;
+            this.CopyFuneralServiceButton.Location = new System.Drawing.Point(200, 921);
+            this.CopyFuneralServiceButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CopyFuneralServiceButton.Name = "CopyFuneralServiceButton";
+            this.CopyFuneralServiceButton.Size = new System.Drawing.Size(159, 63);
+            this.CopyFuneralServiceButton.TabIndex = 5;
+            this.CopyFuneralServiceButton.Text = "Kopijuoti paslaugą (sukurti naują)";
+            this.CopyFuneralServiceButton.UseVisualStyleBackColor = true;
+            // 
+            // FuneralServiceBindingSource
+            // 
+            this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
             // 
             // orderNumberDataGridViewTextBoxColumn
             // 
@@ -113,7 +137,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.orderNumberDataGridViewTextBoxColumn.HeaderText = "Užsakymo numeris";
             this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
             this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.orderNumberDataGridViewTextBoxColumn.Width = 80;
+            this.orderNumberDataGridViewTextBoxColumn.Width = 110;
             // 
             // serviceDatesDataGridViewTextBoxColumn
             // 
@@ -121,7 +145,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.serviceDatesDataGridViewTextBoxColumn.HeaderText = "Paslaugos data(-os)";
             this.serviceDatesDataGridViewTextBoxColumn.Name = "serviceDatesDataGridViewTextBoxColumn";
             this.serviceDatesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.serviceDatesDataGridViewTextBoxColumn.Width = 110;
+            this.serviceDatesDataGridViewTextBoxColumn.Width = 150;
             // 
             // customerNamesDataGridViewTextBoxColumn
             // 
@@ -129,7 +153,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.customerNamesDataGridViewTextBoxColumn.HeaderText = "Užsakovo vardas(-ai) / Įmonės pavadinimas(-ai)";
             this.customerNamesDataGridViewTextBoxColumn.Name = "customerNamesDataGridViewTextBoxColumn";
             this.customerNamesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerNamesDataGridViewTextBoxColumn.Width = 250;
+            this.customerNamesDataGridViewTextBoxColumn.Width = 395;
             // 
             // customerPhoneNumbersDataGridViewTextBoxColumn
             // 
@@ -137,6 +161,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.customerPhoneNumbersDataGridViewTextBoxColumn.HeaderText = "Telefono numeris(-iai)";
             this.customerPhoneNumbersDataGridViewTextBoxColumn.Name = "customerPhoneNumbersDataGridViewTextBoxColumn";
             this.customerPhoneNumbersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerPhoneNumbersDataGridViewTextBoxColumn.Width = 160;
             // 
             // departedInfoDataGridViewTextBoxColumn
             // 
@@ -144,46 +169,21 @@ namespace Martium.FuneralServiceHistory.Forms
             this.departedInfoDataGridViewTextBoxColumn.HeaderText = "Mirusiojo(-ių) informacija";
             this.departedInfoDataGridViewTextBoxColumn.Name = "departedInfoDataGridViewTextBoxColumn";
             this.departedInfoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.departedInfoDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // FuneralServiceBindingSource
-            // 
-            this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
-            // 
-            // EditFuneralServiceButton
-            // 
-            this.EditFuneralServiceButton.Enabled = false;
-            this.EditFuneralServiceButton.Location = new System.Drawing.Point(14, 705);
-            this.EditFuneralServiceButton.Name = "EditFuneralServiceButton";
-            this.EditFuneralServiceButton.Size = new System.Drawing.Size(96, 44);
-            this.EditFuneralServiceButton.TabIndex = 4;
-            this.EditFuneralServiceButton.Text = "Pakeisti esamą paslaugą";
-            this.EditFuneralServiceButton.UseVisualStyleBackColor = true;
-            this.EditFuneralServiceButton.Click += new System.EventHandler(this.EditFuneralServiceButton_Click);
-            // 
-            // CopyFuneralServiceButton
-            // 
-            this.CopyFuneralServiceButton.Enabled = false;
-            this.CopyFuneralServiceButton.Location = new System.Drawing.Point(133, 705);
-            this.CopyFuneralServiceButton.Name = "CopyFuneralServiceButton";
-            this.CopyFuneralServiceButton.Size = new System.Drawing.Size(106, 44);
-            this.CopyFuneralServiceButton.TabIndex = 5;
-            this.CopyFuneralServiceButton.Text = "Kopijuoti paslaugą (sukurti naują)";
-            this.CopyFuneralServiceButton.UseVisualStyleBackColor = true;
+            this.departedInfoDataGridViewTextBoxColumn.Width = 395;
             // 
             // FuneralServiceListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 761);
+            this.ClientSize = new System.Drawing.Size(1311, 992);
             this.Controls.Add(this.CopyFuneralServiceButton);
             this.Controls.Add(this.EditFuneralServiceButton);
             this.Controls.Add(this.FuneralServiceDataGridView);
             this.Controls.Add(this.CreateNewFuneralServiceButton);
             this.Controls.Add(this.FuneralServiceSearchButton);
             this.Controls.Add(this.FuneralServiceSearchTextBox);
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FuneralServiceListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -203,13 +203,13 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.Button CreateNewFuneralServiceButton;
         private System.Windows.Forms.BindingSource FuneralServiceBindingSource;
         private System.Windows.Forms.DataGridView FuneralServiceDataGridView;
+        private System.Windows.Forms.Button EditFuneralServiceButton;
+        private System.Windows.Forms.Button CopyFuneralServiceButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceDatesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNamesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerPhoneNumbersDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departedInfoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button EditFuneralServiceButton;
-        private System.Windows.Forms.Button CopyFuneralServiceButton;
     }
 }
 
