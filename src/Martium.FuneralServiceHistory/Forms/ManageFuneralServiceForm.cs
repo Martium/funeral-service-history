@@ -49,9 +49,9 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void SetControlsInitialState()
         {
+            ActiveControl = OrderNumberLabel;
+
             SaveFuneralServiceChangesButton.Enabled = false;
         }
-
-       
     }
 }
