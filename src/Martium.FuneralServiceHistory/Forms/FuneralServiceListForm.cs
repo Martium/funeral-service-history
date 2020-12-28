@@ -9,7 +9,7 @@ namespace Martium.FuneralServiceHistory.Forms
     public partial class FuneralServiceListForm : Form
     {
         private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
-        private readonly FuneralServiceRepository _funeralHistory = new FuneralServiceRepository();
+        private readonly FuneralServiceRepository _funeralServiceRepository = new FuneralServiceRepository();
 
         public FuneralServiceListForm()
         { 
@@ -39,7 +39,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void SetServiceList()
         { 
-            FuneralServiceBindingSource.DataSource = _funeralHistory.GetAll();
+            FuneralServiceBindingSource.DataSource = _funeralServiceRepository.GetAll();
             FuneralServiceDataGridView.DataSource = FuneralServiceBindingSource;
         }
 
