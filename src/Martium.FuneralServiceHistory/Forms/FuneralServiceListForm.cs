@@ -9,6 +9,7 @@ namespace Martium.FuneralServiceHistory.Forms
     public partial class FuneralServiceListForm : Form
     {
         private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
+        private readonly FuneralServiceRepository _funeralHistory = new FuneralServiceRepository();
 
         public FuneralServiceListForm()
         { 
@@ -21,9 +22,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void ServiceListForm_Load(object sender, System.EventArgs e)
         {
-            SetFakeDataToList();
-          /* var FuneralHistory = new FuneralServiceRepository();
-           FuneralHistory.GetAll();*/
+            SetServiceList();
         }
 
         private void SetControlsInitialState()
@@ -38,34 +37,9 @@ namespace Martium.FuneralServiceHistory.Forms
             
         }
 
-        private void SetFakeDataToList()
-        {
-            var funeralServiceModelForDataGridViews = new List<FuneralServiceListModel>
-            {
-                new FuneralServiceListModel
-                {
-                    OrderNumber = 200,
-                    ServiceDates = "2020-12-22 10:00, 2020-12-22 10:00, 2020-12-22 10:00",
-                    CustomerNames = "Erikas Neverdauskas, Sandra Neverdauskienė",
-                    CustomerPhoneNumbers = "+37062505181, +37062505181",
-                    DepartedInfo = "Katė Smiltė"
-                }
-            };
-
-
-            for (int i = 199; i >= 1; i--)
-            {
-                funeralServiceModelForDataGridViews.Add(new FuneralServiceListModel
-                {
-                    OrderNumber = i,
-                    ServiceDates = "2020-12-22 10:00",
-                    CustomerNames = $"Martynas Gedutis-{i}",
-                    CustomerPhoneNumbers = "+37062505181",
-                    DepartedInfo = $"Balandis Petras-{i}"
-                });
-            }
-
-            FuneralServiceBindingSource.DataSource = funeralServiceModelForDataGridViews;
+        private void SetServiceList()
+        { 
+            FuneralServiceBindingSource.DataSource = _funeralHistory.GetAll();
             FuneralServiceDataGridView.DataSource = FuneralServiceBindingSource;
         }
 
