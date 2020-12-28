@@ -149,7 +149,6 @@ namespace Martium.FuneralServiceHistory.Forms
             // FuneralServiceBindingSource
             // 
             this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
-            this.FuneralServiceBindingSource.CurrentChanged += new System.EventHandler(this.FuneralServiceBindingSource_CurrentChanged);
             // 
             // EditFuneralServiceButton
             // 

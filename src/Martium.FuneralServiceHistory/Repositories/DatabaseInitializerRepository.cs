@@ -78,7 +78,7 @@ namespace Martium.FuneralServiceHistory.Repositories
                      [ServicePaymentAmount] [decimal](18, 2) NULL,
                      [ServicePaymentCurrencyCode] [nvarchar](3) NULL,
                      [ServicePaymentType] [nvarchar](100) NULL,
-                     [ServiceDescription] [nvarchar](1000) NULL,
+                     [ServiceDescription] [nvarchar](1000) NULL
                   );
                 ";
             SQLiteCommand createFuneralServiceHistoryTableCommand = new SQLiteCommand(createFuneralServiceHistoryTableQuery, dbConnection);
