@@ -17,7 +17,7 @@ namespace Martium.FuneralServiceHistory
 
             InitializeDatabase();
 
-            Application.Run(new ServiceListForm());
+            Application.Run(new FuneralServiceListForm());
         }
 
         private static void InitializeDatabase()
