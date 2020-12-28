@@ -49,7 +49,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.AdditionalInfoLabel = new System.Windows.Forms.Label();
             this.ServicePaymentTypeRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.label1ServicePaymentTypLabel = new System.Windows.Forms.Label();
+            this.ServicePaymentTypeLabel = new System.Windows.Forms.Label();
             this.ServicePaymentAmountRichTextBox = new System.Windows.Forms.RichTextBox();
             this.ServicePaymentAmountLabel = new System.Windows.Forms.Label();
             this.ServiceDiscountPercentageRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -57,15 +57,15 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusicianUnitPricesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.ServiceMusicianUnitPricesLabel = new System.Windows.Forms.Label();
             this.PaymentsLabel = new System.Windows.Forms.Label();
-            this.DepartedRemainsRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.DepartedRemainsTypeRichTextBox = new System.Windows.Forms.RichTextBox();
             this.DepartedRemainsTypeLabel = new System.Windows.Forms.Label();
             this.DepartedConfessionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.DepartedConfessionLabel = new System.Windows.Forms.Label();
             this.DepartedInfoRichTextBox = new System.Windows.Forms.RichTextBox();
             this.DepartedInfoLabel = new System.Windows.Forms.Label();
             this.DepartedInformationsLabel = new System.Windows.Forms.Label();
-            this.ServiceMusicRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.ServiceMusicLabel = new System.Windows.Forms.Label();
+            this.ServiceMusicProgramRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.ServiceMusicProgramLabel = new System.Windows.Forms.Label();
             this.ServiceMusiciansCountRichTextBox = new System.Windows.Forms.RichTextBox();
             this.ServiceMusiciansCountLabel = new System.Windows.Forms.Label();
             this.ServiceDurationRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -243,7 +243,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceDescriptionRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.AdditionalInfoLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentTypeRichTextBox);
-            this.FuneralSericePrintPanel.Controls.Add(this.label1ServicePaymentTypLabel);
+            this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentTypeLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentAmountRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentAmountLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceDiscountPercentageRichTextBox);
@@ -251,15 +251,15 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusicianUnitPricesRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusicianUnitPricesLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.PaymentsLabel);
-            this.FuneralSericePrintPanel.Controls.Add(this.DepartedRemainsRichTextBox);
+            this.FuneralSericePrintPanel.Controls.Add(this.DepartedRemainsTypeRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.DepartedRemainsTypeLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.DepartedConfessionRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.DepartedConfessionLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.DepartedInfoRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.DepartedInfoLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.DepartedInformationsLabel);
-            this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusicRichTextBox);
-            this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusicLabel);
+            this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusicProgramRichTextBox);
+            this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusicProgramLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusiciansCountRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceMusiciansCountLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceDurationRichTextBox);
@@ -330,17 +330,17 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePaymentTypeRichTextBox.TabIndex = 42;
             this.ServicePaymentTypeRichTextBox.Text = "Sąskaita faktūra, bei pavedimas per banka, bei mokėjimas vietoj";
             // 
-            // label1ServicePaymentTypLabel
+            // ServicePaymentTypeLabel
             // 
-            this.label1ServicePaymentTypLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.label1ServicePaymentTypLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1ServicePaymentTypLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1ServicePaymentTypLabel.Location = new System.Drawing.Point(624, 672);
-            this.label1ServicePaymentTypLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1ServicePaymentTypLabel.Name = "label1ServicePaymentTypLabel";
-            this.label1ServicePaymentTypLabel.Size = new System.Drawing.Size(95, 66);
-            this.label1ServicePaymentTypLabel.TabIndex = 41;
-            this.label1ServicePaymentTypLabel.Text = "Atsiskaitymo\r\nrūšis, data";
+            this.ServicePaymentTypeLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.ServicePaymentTypeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ServicePaymentTypeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServicePaymentTypeLabel.Location = new System.Drawing.Point(624, 672);
+            this.ServicePaymentTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ServicePaymentTypeLabel.Name = "ServicePaymentTypeLabel";
+            this.ServicePaymentTypeLabel.Size = new System.Drawing.Size(95, 66);
+            this.ServicePaymentTypeLabel.TabIndex = 41;
+            this.ServicePaymentTypeLabel.Text = "Atsiskaitymo\r\nrūšis, data";
             // 
             // ServicePaymentAmountRichTextBox
             // 
@@ -422,16 +422,16 @@ namespace Martium.FuneralServiceHistory.Forms
             this.PaymentsLabel.TabIndex = 34;
             this.PaymentsLabel.Text = "4.    APMOKĖJIMAS";
             // 
-            // DepartedRemainsRichTextBox
+            // DepartedRemainsTypeRichTextBox
             // 
-            this.DepartedRemainsRichTextBox.AutoWordSelection = true;
-            this.DepartedRemainsRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DepartedRemainsRichTextBox.Location = new System.Drawing.Point(865, 549);
-            this.DepartedRemainsRichTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.DepartedRemainsRichTextBox.Name = "DepartedRemainsRichTextBox";
-            this.DepartedRemainsRichTextBox.Size = new System.Drawing.Size(174, 66);
-            this.DepartedRemainsRichTextBox.TabIndex = 33;
-            this.DepartedRemainsRichTextBox.Text = "Ąžuolinis karstas";
+            this.DepartedRemainsTypeRichTextBox.AutoWordSelection = true;
+            this.DepartedRemainsTypeRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DepartedRemainsTypeRichTextBox.Location = new System.Drawing.Point(865, 549);
+            this.DepartedRemainsTypeRichTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.DepartedRemainsTypeRichTextBox.Name = "DepartedRemainsTypeRichTextBox";
+            this.DepartedRemainsTypeRichTextBox.Size = new System.Drawing.Size(174, 66);
+            this.DepartedRemainsTypeRichTextBox.TabIndex = 33;
+            this.DepartedRemainsTypeRichTextBox.Text = "Ąžuolinis karstas";
             // 
             // DepartedRemainsTypeLabel
             // 
@@ -502,29 +502,29 @@ namespace Martium.FuneralServiceHistory.Forms
             this.DepartedInformationsLabel.TabIndex = 27;
             this.DepartedInformationsLabel.Text = "3.    INFORMACIJA APIE  MIRUSĮ  (-SIUS)";
             // 
-            // ServiceMusicRichTextBox
+            // ServiceMusicProgramRichTextBox
             // 
-            this.ServiceMusicRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceMusicRichTextBox.Location = new System.Drawing.Point(423, 393);
-            this.ServiceMusicRichTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.ServiceMusicRichTextBox.Name = "ServiceMusicRichTextBox";
-            this.ServiceMusicRichTextBox.Size = new System.Drawing.Size(616, 82);
-            this.ServiceMusicRichTextBox.TabIndex = 26;
-            this.ServiceMusicRichTextBox.Text = "Tarp giesmių ir klasikos.Violančelės ir vargonų dueto spindesys giedosim \nvargonų" +
+            this.ServiceMusicProgramRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ServiceMusicProgramRichTextBox.Location = new System.Drawing.Point(423, 393);
+            this.ServiceMusicProgramRichTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ServiceMusicProgramRichTextBox.Name = "ServiceMusicProgramRichTextBox";
+            this.ServiceMusicProgramRichTextBox.Size = new System.Drawing.Size(616, 82);
+            this.ServiceMusicProgramRichTextBox.TabIndex = 26;
+            this.ServiceMusicProgramRichTextBox.Text = "Tarp giesmių ir klasikos.Violančelės ir vargonų dueto spindesys giedosim \nvargonų" +
     " dueto spindesys giedosim jezaus vardo litanija. Dienoje- tarp giesmiu\nir klasik" +
     "os\n";
             // 
-            // ServiceMusicLabel
+            // ServiceMusicProgramLabel
             // 
-            this.ServiceMusicLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.ServiceMusicLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceMusicLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceMusicLabel.Location = new System.Drawing.Point(342, 393);
-            this.ServiceMusicLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ServiceMusicLabel.Name = "ServiceMusicLabel";
-            this.ServiceMusicLabel.Size = new System.Drawing.Size(82, 82);
-            this.ServiceMusicLabel.TabIndex = 25;
-            this.ServiceMusicLabel.Text = "Programa";
+            this.ServiceMusicProgramLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.ServiceMusicProgramLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ServiceMusicProgramLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServiceMusicProgramLabel.Location = new System.Drawing.Point(342, 393);
+            this.ServiceMusicProgramLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ServiceMusicProgramLabel.Name = "ServiceMusicProgramLabel";
+            this.ServiceMusicProgramLabel.Size = new System.Drawing.Size(82, 82);
+            this.ServiceMusicProgramLabel.TabIndex = 25;
+            this.ServiceMusicProgramLabel.Text = "Programa";
             // 
             // ServiceMusiciansCountRichTextBox
             // 
@@ -708,15 +708,15 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.RichTextBox ServiceDurationRichTextBox;
         private System.Windows.Forms.Label ServiceMusiciansCountLabel;
         private System.Windows.Forms.RichTextBox ServiceMusiciansCountRichTextBox;
-        private System.Windows.Forms.Label ServiceMusicLabel;
-        private System.Windows.Forms.RichTextBox ServiceMusicRichTextBox;
+        private System.Windows.Forms.Label ServiceMusicProgramLabel;
+        private System.Windows.Forms.RichTextBox ServiceMusicProgramRichTextBox;
         private System.Windows.Forms.Label DepartedInformationsLabel;
         private System.Windows.Forms.Label DepartedInfoLabel;
         private System.Windows.Forms.Label DepartedConfessionLabel;
         private System.Windows.Forms.RichTextBox DepartedInfoRichTextBox;
         private System.Windows.Forms.RichTextBox DepartedConfessionRichTextBox;
         private System.Windows.Forms.Label DepartedRemainsTypeLabel;
-        private System.Windows.Forms.RichTextBox DepartedRemainsRichTextBox;
+        private System.Windows.Forms.RichTextBox DepartedRemainsTypeRichTextBox;
         private System.Windows.Forms.Label ServiceMusicianUnitPricesLabel;
         private System.Windows.Forms.Label PaymentsLabel;
         private System.Windows.Forms.RichTextBox ServiceMusicianUnitPricesRichTextBox;
@@ -725,7 +725,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.RichTextBox ServicePaymentAmountRichTextBox;
         private System.Windows.Forms.Label ServicePaymentAmountLabel;
         private System.Windows.Forms.RichTextBox ServicePaymentTypeRichTextBox;
-        private System.Windows.Forms.Label label1ServicePaymentTypLabel;
+        private System.Windows.Forms.Label ServicePaymentTypeLabel;
         private System.Windows.Forms.Label AdditionalInfoLabel;
         private System.Windows.Forms.RichTextBox ServiceDescriptionRichTextBox;
         private System.Windows.Forms.ComboBox ServicePaymentCurrencyCodeComboBox;

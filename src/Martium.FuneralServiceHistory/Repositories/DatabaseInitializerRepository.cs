@@ -67,7 +67,7 @@ namespace Martium.FuneralServiceHistory.Repositories
                      [ServiceDates] [nvarchar](150) NULL,
                      [ServicePlaces] [nvarchar](300) NULL,
                      [ServiceTypes] [nvarchar](300) NULL,
-                     [ServiceDuration] [decimal](18, 1) NULL,
+                     [ServiceDuration] [nvarchar](50) NULL,
                      [ServiceMusiciansCount] [int] NULL,
                      [ServiceMusicProgram] [nvarchar](200) NULL,
                      [DepartedInfo] [nvarchar](810) NULL,
@@ -79,8 +79,6 @@ namespace Martium.FuneralServiceHistory.Repositories
                      [ServicePaymentCurrencyCode] [nvarchar](3) NULL,
                      [ServicePaymentType] [nvarchar](100) NULL,
                      [ServiceDescription] [nvarchar](1000) NULL,
-                     [ServiceReviewScore] [nvarchar](50) NULL,
-                     [ServiceReviewComments] [nvarchar](800) NULL
                   );
                 ";
             SQLiteCommand createFuneralServiceHistoryTableCommand = new SQLiteCommand(createFuneralServiceHistoryTableQuery, dbConnection);
