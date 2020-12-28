@@ -77,6 +77,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDatesLabel = new System.Windows.Forms.Label();
             this.ServiceInformationLabel = new System.Windows.Forms.Label();
             this.SaveFuneralServiceChangesButton = new System.Windows.Forms.Button();
+            this.ServicePaymentCurrencyCodeComboBox = new System.Windows.Forms.ComboBox();
             this.FuneralSericePrintPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -236,6 +237,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // FuneralSericePrintPanel
             // 
+            this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentCurrencyCodeComboBox);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceDescriptionRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.AdditionalInfoLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentTypeRichTextBox);
@@ -291,7 +293,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDescriptionRichTextBox.Location = new System.Drawing.Point(5, 785);
             this.ServiceDescriptionRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDescriptionRichTextBox.Name = "ServiceDescriptionRichTextBox";
-            this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(1034, 32);
+            this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(1034, 120);
             this.ServiceDescriptionRichTextBox.TabIndex = 45;
             this.ServiceDescriptionRichTextBox.Text = "bla bla bla bla bla bla ballum ballum bala baba gagag dada";
             this.ServiceDescriptionRichTextBox.TextChanged += new System.EventHandler(this.ServiceDescriptionRichTextBox_TextChanged);
@@ -311,10 +313,10 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.ServicePaymentTypeRichTextBox.AutoWordSelection = true;
             this.ServicePaymentTypeRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(682, 673);
+            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(720, 671);
             this.ServicePaymentTypeRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePaymentTypeRichTextBox.Name = "ServicePaymentTypeRichTextBox";
-            this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(357, 66);
+            this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(319, 66);
             this.ServicePaymentTypeRichTextBox.TabIndex = 42;
             this.ServicePaymentTypeRichTextBox.Text = "Sąskaita faktūra, bei pavedimas per banka, bei mokėjimas vietoj";
             this.ServicePaymentTypeRichTextBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged_1);
@@ -324,7 +326,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.label1ServicePaymentTypLabel.BackColor = System.Drawing.SystemColors.Control;
             this.label1ServicePaymentTypLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1ServicePaymentTypLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1ServicePaymentTypLabel.Location = new System.Drawing.Point(586, 673);
+            this.label1ServicePaymentTypLabel.Location = new System.Drawing.Point(626, 671);
             this.label1ServicePaymentTypLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1ServicePaymentTypLabel.Name = "label1ServicePaymentTypLabel";
             this.label1ServicePaymentTypLabel.Size = new System.Drawing.Size(95, 66);
@@ -338,7 +340,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePaymentAmountRichTextBox.Location = new System.Drawing.Point(511, 672);
             this.ServicePaymentAmountRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePaymentAmountRichTextBox.Name = "ServicePaymentAmountRichTextBox";
-            this.ServicePaymentAmountRichTextBox.Size = new System.Drawing.Size(77, 66);
+            this.ServicePaymentAmountRichTextBox.Size = new System.Drawing.Size(56, 66);
             this.ServicePaymentAmountRichTextBox.TabIndex = 40;
             this.ServicePaymentAmountRichTextBox.Text = "350 EUR";
             // 
@@ -570,8 +572,8 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceTypesRichTextBox.Name = "ServiceTypesRichTextBox";
             this.ServiceTypesRichTextBox.Size = new System.Drawing.Size(920, 32);
             this.ServiceTypesRichTextBox.TabIndex = 20;
-            this.ServiceTypesRichTextBox.Text = "Muzikavimas laidutuvėse, kapuose bei pagerbiant pavardenio urna jei nusilenkiant " +
-    "tik nezvenkit chebra vieni debilai debilai";
+            this.ServiceTypesRichTextBox.Text = "Muzikavimas laidutuvėse, kapuose bei pagerbiant pavardenio urna jam nusilenkiant " +
+    "tik nezvenkit chebra ";
             // 
             // ServiceTypesLabel
             // 
@@ -650,6 +652,15 @@ namespace Martium.FuneralServiceHistory.Forms
             this.SaveFuneralServiceChangesButton.Text = "Išsaugoti pakeitimus";
             this.SaveFuneralServiceChangesButton.UseVisualStyleBackColor = true;
             // 
+            // ServicePaymentCurrencyCodeComboBox
+            // 
+            this.ServicePaymentCurrencyCodeComboBox.FormattingEnabled = true;
+            this.ServicePaymentCurrencyCodeComboBox.Location = new System.Drawing.Point(565, 672);
+            this.ServicePaymentCurrencyCodeComboBox.Name = "ServicePaymentCurrencyCodeComboBox";
+            this.ServicePaymentCurrencyCodeComboBox.Size = new System.Drawing.Size(60, 27);
+            this.ServicePaymentCurrencyCodeComboBox.TabIndex = 46;
+            this.ServicePaymentCurrencyCodeComboBox.Text = "EUR";
+            // 
             // ManageFuneralServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -718,5 +729,6 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.Label label1ServicePaymentTypLabel;
         private System.Windows.Forms.Label AdditionalInfoLabel;
         private System.Windows.Forms.RichTextBox ServiceDescriptionRichTextBox;
+        private System.Windows.Forms.ComboBox ServicePaymentCurrencyCodeComboBox;
     }
 }

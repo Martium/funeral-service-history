@@ -25,8 +25,6 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void SetControlsInitialState()
         {
-            
-
             ActiveControl = CreateNewFuneralServiceButton;
 
             FuneralServiceSearchTextBox.Text = SearchTextBoxPlaceholderText;
@@ -34,6 +32,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
             EditFuneralServiceButton.Enabled = false;
             CopyFuneralServiceButton.Enabled = false;
+            
         }
 
         private void SetFakeDataToList()
@@ -72,6 +71,11 @@ namespace Martium.FuneralServiceHistory.Forms
             var createForm = new ManageFuneralServiceForm(FuneralServiceOperation.Create);
 
             createForm.Show(this);
+        }
+
+        private void EditFuneralServiceButton_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Martium.FuneralServiceHistory.Forms
             _funeralServiceListModel = funeralServiceListModel;
 
             InitializeComponent();
+            SetControlsInitialState();
 
             this.StartPosition = FormStartPosition.CenterScreen;
         }
@@ -44,6 +45,11 @@ namespace Martium.FuneralServiceHistory.Forms
             {
                 throw new Exception($"Paslaugų valdymo formoje gauta nežinoma opercija: '{_funeralServiceOperation}'");
             }
+        }
+
+        private void SetControlsInitialState()
+        {
+            SaveFuneralServiceChangesButton.Enabled = false;
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
