@@ -52,34 +52,6 @@ namespace Martium.FuneralServiceHistory.Forms
             SaveFuneralServiceChangesButton.Enabled = false;
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ServiceMusicianUnitPricesRichTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ServiceDescriptionRichTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DepartedRemainsRichTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
