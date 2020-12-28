@@ -609,10 +609,10 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePlacesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServicePlacesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServicePlacesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServicePlacesLabel.Location = new System.Drawing.Point(365, 261);
+            this.ServicePlacesLabel.Location = new System.Drawing.Point(362, 261);
             this.ServicePlacesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServicePlacesLabel.Name = "ServicePlacesLabel";
-            this.ServicePlacesLabel.Size = new System.Drawing.Size(156, 66);
+            this.ServicePlacesLabel.Size = new System.Drawing.Size(159, 66);
             this.ServicePlacesLabel.TabIndex = 17;
             this.ServicePlacesLabel.Text = "Adresas";
             // 
