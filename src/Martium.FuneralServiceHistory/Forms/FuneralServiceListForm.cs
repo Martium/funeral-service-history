@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Enums;
 using Martium.FuneralServiceHistory.Models;
+using Martium.FuneralServiceHistory.Repositories;
 
 namespace Martium.FuneralServiceHistory.Forms
 {
@@ -21,6 +22,8 @@ namespace Martium.FuneralServiceHistory.Forms
         private void ServiceListForm_Load(object sender, System.EventArgs e)
         {
             SetFakeDataToList();
+          /* var FuneralHistory = new FuneralServiceRepository();
+           FuneralHistory.GetAll();*/
         }
 
         private void SetControlsInitialState()
