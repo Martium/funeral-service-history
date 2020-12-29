@@ -33,24 +33,33 @@ namespace Martium.FuneralServiceHistory.Forms
             if (string.IsNullOrWhiteSpace(OrderDateTextBox.Text))
             {
                 e.Cancel = true;
-                DisplayOrderDateTextBoxError("Negali būti tuščias!");
+                DisplayLabelAndTextBoxError($"Negali būti tuščias! pvz {DateTime.Now.ToString("yyyy - MM - dd")}", OrderDateTextBox, OrderDateErrorMessageLabel);
             }
             else if (!DateTime.TryParseExact(OrderDateTextBox.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {
                 e.Cancel = true;
-                DisplayOrderDateTextBoxError("Įveskite teisingą datą (formatas turi buti: yyyy-MM-dd)");
+                DisplayLabelAndTextBoxError($"Įveskite teisingą datą pvz {DateTime.Now.ToString("yyyy-MM-dd")}", OrderDateTextBox, OrderDateErrorMessageLabel);
             }
             else
             {
                 e.Cancel = false;
-                OrderDateErrorMessageLabel.Visible = false;
-                OrderDateTextBox.BackColor = Color.White;
+                DisplayCorrectLabelAndTextBox(OrderDateErrorMessageLabel, OrderDateTextBox);
             }
         }
 
         private void CustomerPhoneNumbersRichTextBox_Validating(object sender, CancelEventArgs e)
         {
             // TODO: validate if phone number is not empty or white space
+            if (string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text))
+            {
+                e.Cancel = true;
+                DisplayLabelAndTextBoxError("Kad išsaugoti duomenis būtina užpildyti šį langelį", CustomerPhoneNumbersRichTextBox, CustomerPhoneNumbersErrorMessageLabel);
+            }
+            else
+            {
+                e.Cancel = false;
+                DisplayCorrectLabelAndTextBox(CustomerPhoneNumbersErrorMessageLabel, CustomerPhoneNumbersRichTextBox);
+            }
         }
 
         #region Helpers
@@ -66,6 +75,8 @@ namespace Martium.FuneralServiceHistory.Forms
             SaveFuneralServiceChangesButton.Enabled = false;
 
             OrderDateErrorMessageLabel.Visible = false;
+
+            CustomerPhoneNumbersErrorMessageLabel.Visible = false;
         }
 
         private void ResolveFormText()
@@ -88,11 +99,17 @@ namespace Martium.FuneralServiceHistory.Forms
             }
         }
 
-        private void DisplayOrderDateTextBoxError(string errorText) // use same method for both text boxes: TextBoxBase
+        private void DisplayLabelAndTextBoxError(string errorText,TextBoxBase textBoxBase, Label label) // use same method for both text boxes: TextBoxBase
         {
-            OrderDateTextBox.BackColor = Color.Red;
-            OrderDateErrorMessageLabel.Visible = true;
-            OrderDateErrorMessageLabel.Text = errorText;
+            textBoxBase.BackColor = Color.Red;
+            label.Visible = true;
+            label.Text = errorText;
+        }
+
+        private void DisplayCorrectLabelAndTextBox(Label label, TextBoxBase textBoxBase)
+        {
+            label.Visible = false;
+            textBoxBase.BackColor = Color.White;
         }
 
         #endregion
