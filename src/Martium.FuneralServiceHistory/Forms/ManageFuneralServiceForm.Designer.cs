@@ -160,7 +160,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerNamesRichTextBox.Name = "CustomerNamesRichTextBox";
             this.CustomerNamesRichTextBox.Size = new System.Drawing.Size(511, 45);
             this.CustomerNamesRichTextBox.TabIndex = 6;
-            this.CustomerNamesRichTextBox.Text = "Vardas Vardenis / UAB XXXXXXXXXX\n";
+            this.CustomerNamesRichTextBox.Text = "\n";
             // 
             // CustomerNamesLabel
             // 
@@ -217,7 +217,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerEmailsRichTextBox.Name = "CustomerEmailsRichTextBox";
             this.CustomerEmailsRichTextBox.Size = new System.Drawing.Size(307, 45);
             this.CustomerEmailsRichTextBox.TabIndex = 11;
-            this.CustomerEmailsRichTextBox.Text = "vard.vardenis@one.lt\npavardenis.pavardenis@gmail.com";
+            this.CustomerEmailsRichTextBox.Text = "";
             // 
             // CustomerAddressesLabel
             // 
@@ -239,7 +239,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerAddressesRichTextBox.Name = "CustomerAddressesRichTextBox";
             this.CustomerAddressesRichTextBox.Size = new System.Drawing.Size(239, 45);
             this.CustomerAddressesRichTextBox.TabIndex = 13;
-            this.CustomerAddressesRichTextBox.Text = "Vilnius ";
+            this.CustomerAddressesRichTextBox.Text = "";
             // 
             // FuneralSericePrintPanel
             // 
@@ -322,7 +322,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDescriptionRichTextBox.Name = "ServiceDescriptionRichTextBox";
             this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(1034, 120);
             this.ServiceDescriptionRichTextBox.TabIndex = 45;
-            this.ServiceDescriptionRichTextBox.Text = "bla bla bla bla bla bla ballum ballum bala baba gagag dada";
+            this.ServiceDescriptionRichTextBox.Text = "";
             // 
             // AdditionalInfoLabel
             // 
@@ -344,7 +344,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePaymentTypeRichTextBox.Name = "ServicePaymentTypeRichTextBox";
             this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(439, 47);
             this.ServicePaymentTypeRichTextBox.TabIndex = 42;
-            this.ServicePaymentTypeRichTextBox.Text = "Sąskaita faktūra, bei pavedimas per banka, bei mokėjimas vietoj";
+            this.ServicePaymentTypeRichTextBox.Text = "";
             // 
             // ServicePaymentTypeLabel
             // 
@@ -367,7 +367,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePaymentAmountRichTextBox.Name = "ServicePaymentAmountRichTextBox";
             this.ServicePaymentAmountRichTextBox.Size = new System.Drawing.Size(901, 47);
             this.ServicePaymentAmountRichTextBox.TabIndex = 40;
-            this.ServicePaymentAmountRichTextBox.Text = "350";
+            this.ServicePaymentAmountRichTextBox.Text = "";
             // 
             // ServicePaymentAmountLabel
             // 
@@ -413,7 +413,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusicianUnitPricesRichTextBox.Name = "ServiceMusicianUnitPricesRichTextBox";
             this.ServiceMusicianUnitPricesRichTextBox.Size = new System.Drawing.Size(128, 47);
             this.ServiceMusicianUnitPricesRichTextBox.TabIndex = 36;
-            this.ServiceMusicianUnitPricesRichTextBox.Text = "100.00, 100.00, 100.00, 50.00";
+            this.ServiceMusicianUnitPricesRichTextBox.Text = "";
             // 
             // ServiceMusicianUnitPricesLabel
             // 
@@ -447,7 +447,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.DepartedRemainsTypeRichTextBox.Name = "DepartedRemainsTypeRichTextBox";
             this.DepartedRemainsTypeRichTextBox.Size = new System.Drawing.Size(174, 66);
             this.DepartedRemainsTypeRichTextBox.TabIndex = 33;
-            this.DepartedRemainsTypeRichTextBox.Text = "Ąžuolinis karstas";
+            this.DepartedRemainsTypeRichTextBox.Text = "";
             // 
             // DepartedRemainsTypeLabel
             // 
@@ -470,7 +470,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.DepartedConfessionRichTextBox.Name = "DepartedConfessionRichTextBox";
             this.DepartedConfessionRichTextBox.Size = new System.Drawing.Size(169, 66);
             this.DepartedConfessionRichTextBox.TabIndex = 31;
-            this.DepartedConfessionRichTextBox.Text = "Romos Katalikas";
+            this.DepartedConfessionRichTextBox.Text = "";
             // 
             // DepartedConfessionLabel
             // 
@@ -493,7 +493,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.DepartedInfoRichTextBox.Name = "DepartedInfoRichTextBox";
             this.DepartedInfoRichTextBox.Size = new System.Drawing.Size(339, 66);
             this.DepartedInfoRichTextBox.TabIndex = 29;
-            this.DepartedInfoRichTextBox.Text = "Vardenis pavardenis vardeninis\n1555-2222";
+            this.DepartedInfoRichTextBox.Text = "";
             // 
             // DepartedInfoLabel
             // 
@@ -526,9 +526,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusicProgramRichTextBox.Name = "ServiceMusicProgramRichTextBox";
             this.ServiceMusicProgramRichTextBox.Size = new System.Drawing.Size(616, 82);
             this.ServiceMusicProgramRichTextBox.TabIndex = 26;
-            this.ServiceMusicProgramRichTextBox.Text = "Tarp giesmių ir klasikos.Violančelės ir vargonų dueto spindesys giedosim \nvargonų" +
-    " dueto spindesys giedosim jezaus vardo litanija. Dienoje- tarp giesmiu\nir klasik" +
-    "os\n";
+            this.ServiceMusicProgramRichTextBox.Text = "\n";
             // 
             // ServiceMusicProgramLabel
             // 
@@ -550,7 +548,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusiciansCountRichTextBox.Name = "ServiceMusiciansCountRichTextBox";
             this.ServiceMusiciansCountRichTextBox.Size = new System.Drawing.Size(69, 83);
             this.ServiceMusiciansCountRichTextBox.TabIndex = 24;
-            this.ServiceMusiciansCountRichTextBox.Text = "3";
+            this.ServiceMusiciansCountRichTextBox.Text = "";
             // 
             // ServiceMusiciansCountLabel
             // 
@@ -572,7 +570,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDurationRichTextBox.Name = "ServiceDurationRichTextBox";
             this.ServiceDurationRichTextBox.Size = new System.Drawing.Size(90, 84);
             this.ServiceDurationRichTextBox.TabIndex = 22;
-            this.ServiceDurationRichTextBox.Text = "2 valandos";
+            this.ServiceDurationRichTextBox.Text = "";
             // 
             // ServiceDurationLabel
             // 
@@ -594,8 +592,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceTypesRichTextBox.Name = "ServiceTypesRichTextBox";
             this.ServiceTypesRichTextBox.Size = new System.Drawing.Size(921, 32);
             this.ServiceTypesRichTextBox.TabIndex = 20;
-            this.ServiceTypesRichTextBox.Text = "Muzikavimas laidutuvėse, kapuose bei pagerbiant pavardenio urna jam nusilenkiant " +
-    "tik nezvenkit chebra ";
+            this.ServiceTypesRichTextBox.Text = " ";
             // 
             // ServiceTypesLabel
             // 
@@ -617,8 +614,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePlacesRichTextBox.Name = "ServicePlacesRichTextBox";
             this.ServicePlacesRichTextBox.Size = new System.Drawing.Size(520, 66);
             this.ServicePlacesRichTextBox.TabIndex = 18;
-            this.ServicePlacesRichTextBox.Text = "Atsisveikinimo namai, \"Amžinasis aukuras\"\n(Šiltnamių g. 8, Prienai. Prienų rajono" +
-    " ir\nBirštono miesto civilinės kapinės)";
+            this.ServicePlacesRichTextBox.Text = "";
             // 
             // ServicePlacesLabel
             // 
@@ -640,7 +636,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDatesRichTextBox.Name = "ServiceDatesRichTextBox";
             this.ServiceDatesRichTextBox.Size = new System.Drawing.Size(204, 66);
             this.ServiceDatesRichTextBox.TabIndex = 16;
-            this.ServiceDatesRichTextBox.Text = "2021-00-00, 19:00\n2021-00-00, 11:30\n";
+            this.ServiceDatesRichTextBox.Text = "\n";
             // 
             // ServiceDatesLabel
             // 
