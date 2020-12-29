@@ -33,7 +33,7 @@ namespace Martium.FuneralServiceHistory.Forms
             if (string.IsNullOrWhiteSpace(OrderDateTextBox.Text))
             {
                 e.Cancel = true;
-                DisplayOrderDateTextboxError("Negali būti tuščias!");
+                DisplayOrderDateTextBoxError("Negali būti tuščias!");
             }
             else if (!DateTime.TryParseExact(OrderDateTextBox.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {

@@ -81,7 +81,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDatesLabel = new System.Windows.Forms.Label();
             this.ServiceInformationLabel = new System.Windows.Forms.Label();
             this.SaveFuneralServiceChangesButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.CustomerPhoneNumbersErrorMessageLabel = new System.Windows.Forms.Label();
             this.FuneralSericePrintPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -244,7 +244,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // FuneralSericePrintPanel
             // 
-            this.FuneralSericePrintPanel.Controls.Add(this.label1);
+            this.FuneralSericePrintPanel.Controls.Add(this.CustomerPhoneNumbersErrorMessageLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.OrderDateErrorMessageLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentCurrencyCodeComboBox);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceDescriptionRichTextBox);
@@ -300,7 +300,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.OrderDateErrorMessageLabel.AutoSize = true;
             this.OrderDateErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.OrderDateErrorMessageLabel.Location = new System.Drawing.Point(396, 37);
+            this.OrderDateErrorMessageLabel.Location = new System.Drawing.Point(389, 35);
             this.OrderDateErrorMessageLabel.Name = "OrderDateErrorMessageLabel";
             this.OrderDateErrorMessageLabel.Size = new System.Drawing.Size(67, 19);
             this.OrderDateErrorMessageLabel.TabIndex = 47;
@@ -676,15 +676,15 @@ namespace Martium.FuneralServiceHistory.Forms
             this.SaveFuneralServiceChangesButton.Text = "Išsaugoti pakeitimus";
             this.SaveFuneralServiceChangesButton.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // CustomerPhoneNumbersErrorMessageLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(139, 201);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 19);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Error text";
+            this.CustomerPhoneNumbersErrorMessageLabel.AutoSize = true;
+            this.CustomerPhoneNumbersErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
+            this.CustomerPhoneNumbersErrorMessageLabel.Location = new System.Drawing.Point(134, 199);
+            this.CustomerPhoneNumbersErrorMessageLabel.Name = "CustomerPhoneNumbersErrorMessageLabel";
+            this.CustomerPhoneNumbersErrorMessageLabel.Size = new System.Drawing.Size(67, 19);
+            this.CustomerPhoneNumbersErrorMessageLabel.TabIndex = 48;
+            this.CustomerPhoneNumbersErrorMessageLabel.Text = "Error text";
             // 
             // ManageFuneralServiceForm
             // 
@@ -757,6 +757,6 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.RichTextBox ServiceDescriptionRichTextBox;
         private System.Windows.Forms.ComboBox ServicePaymentCurrencyCodeComboBox;
         private System.Windows.Forms.Label OrderDateErrorMessageLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label CustomerPhoneNumbersErrorMessageLabel;
     }
 }
