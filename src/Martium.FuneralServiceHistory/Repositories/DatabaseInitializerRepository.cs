@@ -68,15 +68,14 @@ namespace Martium.FuneralServiceHistory.Repositories
                      [ServicePlaces] [nvarchar](300) NULL,
                      [ServiceTypes] [nvarchar](300) NULL,
                      [ServiceDuration] [nvarchar](50) NULL,
-                     [ServiceMusiciansCount] [int] NULL,
+                     [ServiceMusiciansCount] [nvarchar] NULL,
                      [ServiceMusicProgram] [nvarchar](200) NULL,
                      [DepartedInfo] [nvarchar](810) NULL,
                      [DepartedConfession] [nvarchar](100) NULL,
                      [DepartedRemainsType] [nvarchar](50) NULL,
                      [ServiceMusicianUnitPrices] [nvarchar](200) NULL,
-                     [ServiceDiscountPercentage] [int] NULL,
-                     [ServicePaymentAmount] [decimal](18, 2) NULL,
-                     [ServicePaymentCurrencyCode] [nvarchar](3) NULL,
+                     [ServiceDiscountPercentage] [nvarchar](50) NULL,
+                     [ServicePaymentAmount] [nvarchar](200) NULL,
                      [ServicePaymentType] [nvarchar](100) NULL,
                      [ServiceDescription] [nvarchar](1000) NULL
                   );
