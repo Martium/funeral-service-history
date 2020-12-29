@@ -1,5 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Enums;
+using Martium.FuneralServiceHistory.Models;
 using Martium.FuneralServiceHistory.Repositories;
 
 namespace Martium.FuneralServiceHistory.Forms
@@ -25,6 +28,24 @@ namespace Martium.FuneralServiceHistory.Forms
             LoadFuneralServiceList();
         }
 
+        private void CreateNewFuneralServiceButton_Click(object sender, System.EventArgs e)
+        {
+            var createForm = new ManageFuneralServiceForm(FuneralServiceOperation.Create);
+
+            createForm.Show(this);
+        }
+
+        private void EditFuneralServiceButton_Click(object sender, System.EventArgs e)
+        {
+            int selectedOrderNumber = (int) FuneralServiceDataGridView.SelectedRows[0].Cells[0].Value;
+
+            var editForm = new ManageFuneralServiceForm(FuneralServiceOperation.Edit, selectedOrderNumber);
+
+            editForm.Show(this);
+        }
+
+        #region Helpers
+
         private void SetControlsInitialState()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -33,24 +54,39 @@ namespace Martium.FuneralServiceHistory.Forms
 
             FuneralServiceSearchTextBox.Text = SearchTextBoxPlaceholderText;
             FuneralServiceSearchButton.Enabled = false;
-
-            EditFuneralServiceButton.Enabled = false;
-            CopyFuneralServiceButton.Enabled = false;
-            
         }
 
         private void LoadFuneralServiceList()
-        { 
-            FuneralServiceBindingSource.DataSource = _funeralServiceRepository.GetAll();
+        {
+            IEnumerable<FuneralServiceListModel> funeralServiceListModels = _funeralServiceRepository.GetAll();
+
+            if (!funeralServiceListModels.Any())
+            {
+                DisableExistingListManaging();
+            }
+
+            FuneralServiceBindingSource.DataSource = funeralServiceListModels;
 
             FuneralServiceDataGridView.DataSource = FuneralServiceBindingSource;
         }
 
-        private void CreateNewFuneralServiceButton_Click(object sender, System.EventArgs e)
+        private void DisableExistingListManaging()
         {
-            var createForm = new ManageFuneralServiceForm(FuneralServiceOperation.Create);
+            FuneralServiceSearchTextBox.Enabled = false;
 
-            createForm.Show(this);
+            EditFuneralServiceButton.Enabled = false;
+            CopyFuneralServiceButton.Enabled = false;
+        }
+
+        #endregion
+
+        private void CopyFuneralServiceButton_Click(object sender, System.EventArgs e)
+        {
+            int selectedOrderNumber = (int)FuneralServiceDataGridView.SelectedRows[0].Cells[0].Value;
+
+            var copyForm = new ManageFuneralServiceForm(FuneralServiceOperation.Copy, selectedOrderNumber);
+
+            copyForm.Show(this);
         }
     }
 }

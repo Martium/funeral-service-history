@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel;
+
 namespace Martium.FuneralServiceHistory.Forms
 {
     partial class ManageFuneralServiceForm
@@ -45,6 +47,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerAddressesLabel = new System.Windows.Forms.Label();
             this.CustomerAddressesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.FuneralSericePrintPanel = new System.Windows.Forms.Panel();
+            this.OrderDateErrorMessageLabel = new System.Windows.Forms.Label();
             this.ServicePaymentCurrencyCodeComboBox = new System.Windows.Forms.ComboBox();
             this.ServiceDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.AdditionalInfoLabel = new System.Windows.Forms.Label();
@@ -78,6 +81,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDatesLabel = new System.Windows.Forms.Label();
             this.ServiceInformationLabel = new System.Windows.Forms.Label();
             this.SaveFuneralServiceChangesButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.FuneralSericePrintPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,10 +132,10 @@ namespace Martium.FuneralServiceHistory.Forms
             this.OrderDateTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.OrderDateTextBox.Multiline = true;
             this.OrderDateTextBox.Name = "OrderDateTextBox";
-            this.OrderDateTextBox.ReadOnly = true;
             this.OrderDateTextBox.Size = new System.Drawing.Size(328, 31);
             this.OrderDateTextBox.TabIndex = 3;
             this.OrderDateTextBox.Text = "2020-12-28";
+            this.OrderDateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OrderDateTextBox_Validating);
             // 
             // CustomerInformationLabel
             // 
@@ -192,6 +196,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerPhoneNumbersRichTextBox.Size = new System.Drawing.Size(143, 45);
             this.CustomerPhoneNumbersRichTextBox.TabIndex = 9;
             this.CustomerPhoneNumbersRichTextBox.Text = "0 000 00000\n1 111 11111";
+            this.CustomerPhoneNumbersRichTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CustomerPhoneNumbersRichTextBox_Validating);
             // 
             // CustomerEmailsLabel
             // 
@@ -239,6 +244,8 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // FuneralSericePrintPanel
             // 
+            this.FuneralSericePrintPanel.Controls.Add(this.label1);
+            this.FuneralSericePrintPanel.Controls.Add(this.OrderDateErrorMessageLabel);
             this.FuneralSericePrintPanel.Controls.Add(this.ServicePaymentCurrencyCodeComboBox);
             this.FuneralSericePrintPanel.Controls.Add(this.ServiceDescriptionRichTextBox);
             this.FuneralSericePrintPanel.Controls.Add(this.AdditionalInfoLabel);
@@ -288,6 +295,16 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralSericePrintPanel.Name = "FuneralSericePrintPanel";
             this.FuneralSericePrintPanel.Size = new System.Drawing.Size(1044, 923);
             this.FuneralSericePrintPanel.TabIndex = 14;
+            // 
+            // OrderDateErrorMessageLabel
+            // 
+            this.OrderDateErrorMessageLabel.AutoSize = true;
+            this.OrderDateErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
+            this.OrderDateErrorMessageLabel.Location = new System.Drawing.Point(396, 37);
+            this.OrderDateErrorMessageLabel.Name = "OrderDateErrorMessageLabel";
+            this.OrderDateErrorMessageLabel.Size = new System.Drawing.Size(67, 19);
+            this.OrderDateErrorMessageLabel.TabIndex = 47;
+            this.OrderDateErrorMessageLabel.Text = "Error text";
             // 
             // ServicePaymentCurrencyCodeComboBox
             // 
@@ -642,7 +659,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.ServiceInformationLabel.AutoSize = true;
             this.ServiceInformationLabel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceInformationLabel.Location = new System.Drawing.Point(5, 215);
+            this.ServiceInformationLabel.Location = new System.Drawing.Point(5, 222);
             this.ServiceInformationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceInformationLabel.Name = "ServiceInformationLabel";
             this.ServiceInformationLabel.Size = new System.Drawing.Size(472, 22);
@@ -658,6 +675,16 @@ namespace Martium.FuneralServiceHistory.Forms
             this.SaveFuneralServiceChangesButton.TabIndex = 15;
             this.SaveFuneralServiceChangesButton.Text = "Išsaugoti pakeitimus";
             this.SaveFuneralServiceChangesButton.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(139, 201);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 19);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Error text";
             // 
             // ManageFuneralServiceForm
             // 
@@ -729,5 +756,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.Label AdditionalInfoLabel;
         private System.Windows.Forms.RichTextBox ServiceDescriptionRichTextBox;
         private System.Windows.Forms.ComboBox ServicePaymentCurrencyCodeComboBox;
+        private System.Windows.Forms.Label OrderDateErrorMessageLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
