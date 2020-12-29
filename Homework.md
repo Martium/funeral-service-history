@@ -1,10 +1,5 @@
-# 2020-12-27 Homework
+# 2020-12-29 Homework
 
-create_form branch:
-- finish manage form desing
-
-new branch:
-- Insert 3 new data into initial database
-- Display confession in the list
-- Read data from database instead of fake data
-- Remove Review stuff from DB & Code
+- validate customer phone numbers is required
+- update database with nvarchars
+- remove currency code dropdown
