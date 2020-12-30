@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel;
 
 namespace Martium.FuneralServiceHistory.Forms
@@ -120,6 +121,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.OrderDateTextBox.Name = "OrderDateTextBox";
             this.OrderDateTextBox.Size = new System.Drawing.Size(328, 31);
             this.OrderDateTextBox.TabIndex = 3;
+            this.OrderDateTextBox.TextChanged += new System.EventHandler(this.OrderDateTextBox_TextChanged);
             this.OrderDateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OrderDateTextBox_Validating);
             // 
             // CustomerInformationLabel
@@ -181,6 +183,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerPhoneNumbersRichTextBox.Size = new System.Drawing.Size(143, 45);
             this.CustomerPhoneNumbersRichTextBox.TabIndex = 9;
             this.CustomerPhoneNumbersRichTextBox.Text = "";
+            this.CustomerPhoneNumbersRichTextBox.TextChanged += new System.EventHandler(this.CustomerPhoneNumbersRichTextBox_TextChanged);
             this.CustomerPhoneNumbersRichTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CustomerPhoneNumbersRichTextBox_Validating);
             // 
             // CustomerEmailsLabel
@@ -668,6 +671,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.SaveFuneralServiceChangesButton.TabIndex = 15;
             this.SaveFuneralServiceChangesButton.Text = "Išsaugoti pakeitimus";
             this.SaveFuneralServiceChangesButton.UseVisualStyleBackColor = true;
+            this.SaveFuneralServiceChangesButton.Click += new System.EventHandler(this.SaveFuneralServiceChangesButton_Click);
             // 
             // ManageFuneralServiceForm
             // 

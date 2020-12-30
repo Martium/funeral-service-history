@@ -47,5 +47,31 @@ namespace Martium.FuneralServiceHistory.Repositories
                 return biggestOrderNumber;
             }
         }
+
+        public bool CreateNewFuneralService(FuneralServiceModel newService)
+        {
+            using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
+            {
+                dbConnection.Open();
+
+                string createNewFuneralServiceCommand =
+                    @"INSERT INTO 'FuneralServiceHistory' 
+	                    VALUES (NULL, @OrderDate , @CustomerNames , @CustomerPhoneNumbers , @CustomerEmails , @CustomerAddresses , @ServiceDates , @ServicePlaces , @ServiceTypes , 
+                                @ServiceDuration , @ServiceMusiciansCount , @ServiceMusicProgram, @DepartedInfo , @DepartedConfession , @DepartedRemainsType , @ServiceMusicianUnitPrices , 
+                                @ServiceDiscountPercentage , @ServicePaymentAmount , @ServicePaymentType , @ServiceDescription);";
+
+                object queryParameters = new
+                {
+                    newService.OrderDate, newService.CustomerNames, newService.CustomerPhoneNumbers, newService.CustomerEmails, newService.CustomerAddresses, 
+                    newService.ServiceDates, newService.ServicePlaces, newService.ServiceTypes, newService.ServiceDuration, newService.ServiceMusiciansCount, 
+                    newService.ServiceMusicProgram, newService.DepartedInfo, newService.DepartedConfession, newService.DepartedRemainsType, newService.ServiceMusicianUnitPrices, 
+                    newService.ServiceDiscountPercentage, newService.ServicePaymentAmount, newService.ServicePaymentType, newService.ServiceDescription
+                };
+
+                int affectedRows = dbConnection.Execute(createNewFuneralServiceCommand, queryParameters);
+
+                return affectedRows == 1;
+            }
+        }
     }
 }

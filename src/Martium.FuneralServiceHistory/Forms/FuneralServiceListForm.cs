@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Enums;
@@ -32,6 +33,8 @@ namespace Martium.FuneralServiceHistory.Forms
         {
             var createForm = new ManageFuneralServiceForm(FuneralServiceOperation.Create);
 
+            createForm.Closed += RefreshList;
+
             createForm.Show(this);
         }
 
@@ -41,8 +44,22 @@ namespace Martium.FuneralServiceHistory.Forms
 
             var editForm = new ManageFuneralServiceForm(FuneralServiceOperation.Edit, selectedOrderNumber);
 
+            editForm.Closed += RefreshList;
+
             editForm.Show(this);
         }
+
+        private void CopyFuneralServiceButton_Click(object sender, System.EventArgs e)
+        {
+            int selectedOrderNumber = (int)FuneralServiceDataGridView.SelectedRows[0].Cells[0].Value;
+
+            var copyForm = new ManageFuneralServiceForm(FuneralServiceOperation.Copy, selectedOrderNumber);
+
+            copyForm.Closed += RefreshList;
+
+            copyForm.Show(this);
+        }
+
 
         #region Helpers
 
@@ -54,6 +71,11 @@ namespace Martium.FuneralServiceHistory.Forms
 
             FuneralServiceSearchTextBox.Text = SearchTextBoxPlaceholderText;
             FuneralServiceSearchButton.Enabled = false;
+        }
+
+        private void RefreshList(object sender, EventArgs e)
+        {
+            LoadFuneralServiceList();
         }
 
         private void LoadFuneralServiceList()
@@ -80,13 +102,6 @@ namespace Martium.FuneralServiceHistory.Forms
 
         #endregion
 
-        private void CopyFuneralServiceButton_Click(object sender, System.EventArgs e)
-        {
-            int selectedOrderNumber = (int)FuneralServiceDataGridView.SelectedRows[0].Cells[0].Value;
 
-            var copyForm = new ManageFuneralServiceForm(FuneralServiceOperation.Copy, selectedOrderNumber);
-
-            copyForm.Show(this);
-        }
     }
 }
