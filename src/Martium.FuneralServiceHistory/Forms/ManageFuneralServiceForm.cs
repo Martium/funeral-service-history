@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using Martium.FuneralServiceHistory.Constants;
 using Martium.FuneralServiceHistory.Enums;
 
 namespace Martium.FuneralServiceHistory.Forms
@@ -20,6 +21,7 @@ namespace Martium.FuneralServiceHistory.Forms
             InitializeComponent();
 
             SetControlsInitialState();
+            SetTextBoxMaxLengths();
         }
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
@@ -29,27 +31,27 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void OrderDateTextBox_Validating(object sender, CancelEventArgs e)
         {
-            // if empty or not XXXX-XX-XX format 
+            string sampleDateFormat = "yyyy-MM-dd";
+
             if (string.IsNullOrWhiteSpace(OrderDateTextBox.Text))
             {
                 e.Cancel = true;
-                DisplayLabelAndTextBoxError($"Negali būti tuščias! pvz {DateTime.Now.ToString("yyyy - MM - dd")}", OrderDateTextBox, OrderDateErrorMessageLabel);
+                DisplayLabelAndTextBoxError($"Negali būti tuščias! pvz.: {DateTime.Now.ToString(sampleDateFormat)}", OrderDateTextBox, OrderDateErrorMessageLabel);
             }
-            else if (!DateTime.TryParseExact(OrderDateTextBox.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            else if (!DateTime.TryParseExact(OrderDateTextBox.Text, sampleDateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {
                 e.Cancel = true;
-                DisplayLabelAndTextBoxError($"Įveskite teisingą datą pvz {DateTime.Now.ToString("yyyy-MM-dd")}", OrderDateTextBox, OrderDateErrorMessageLabel);
+                DisplayLabelAndTextBoxError($"Įveskite teisingą datą! pvz.: {DateTime.Now.ToString(sampleDateFormat)}", OrderDateTextBox, OrderDateErrorMessageLabel);
             }
             else
             {
                 e.Cancel = false;
-                DisplayCorrectLabelAndTextBox(OrderDateErrorMessageLabel, OrderDateTextBox);
+                HideLabelAndTextBoxError(OrderDateErrorMessageLabel, OrderDateTextBox);
             }
         }
 
         private void CustomerPhoneNumbersRichTextBox_Validating(object sender, CancelEventArgs e)
         {
-            // TODO: validate if phone number is not empty or white space
             if (string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text))
             {
                 e.Cancel = true;
@@ -58,7 +60,7 @@ namespace Martium.FuneralServiceHistory.Forms
             else
             {
                 e.Cancel = false;
-                DisplayCorrectLabelAndTextBox(CustomerPhoneNumbersErrorMessageLabel, CustomerPhoneNumbersRichTextBox);
+                HideLabelAndTextBoxError(CustomerPhoneNumbersErrorMessageLabel, CustomerPhoneNumbersRichTextBox);
             }
         }
 
@@ -77,6 +79,31 @@ namespace Martium.FuneralServiceHistory.Forms
             OrderDateErrorMessageLabel.Visible = false;
 
             CustomerPhoneNumbersErrorMessageLabel.Visible = false;
+        }
+
+        private void SetTextBoxMaxLengths()
+        {
+            CustomerNamesRichTextBox.MaxLength = FormSettings.TextBoxLengths.CustomerNames;
+            CustomerPhoneNumbersRichTextBox.MaxLength = FormSettings.TextBoxLengths.CustomerPhoneNumbers;
+            CustomerEmailsRichTextBox.MaxLength = FormSettings.TextBoxLengths.CustomerEmails;
+            CustomerAddressesRichTextBox.MaxLength = FormSettings.TextBoxLengths.CustomerAddresses;
+
+            ServiceDatesRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceDates;
+            ServicePlacesRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServicePlaces;
+            ServiceTypesRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceTypes;
+            ServiceDurationRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceDuration;
+            ServiceMusiciansCountRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceMusiciansCount;
+            ServiceMusicProgramRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceMusicProgram;
+
+            DepartedInfoRichTextBox.MaxLength = FormSettings.TextBoxLengths.DepartedInfo;
+            DepartedConfessionRichTextBox.MaxLength = FormSettings.TextBoxLengths.DepartedConfession;
+            DepartedRemainsTypeRichTextBox.MaxLength = FormSettings.TextBoxLengths.DepartedRemainsType;
+
+            ServicePaymentAmountRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServicePaymentAmount;
+            ServiceDiscountPercentageRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceDiscountPercentage;
+            ServicePaymentTypeRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServicePaymentType;
+            ServiceMusicianUnitPricesRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceMusicianUnitPrices;
+            ServiceDescriptionRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceDescription;
         }
 
         private void ResolveFormText()
@@ -99,14 +126,14 @@ namespace Martium.FuneralServiceHistory.Forms
             }
         }
 
-        private void DisplayLabelAndTextBoxError(string errorText,TextBoxBase textBoxBase, Label label) // use same method for both text boxes: TextBoxBase
+        private void DisplayLabelAndTextBoxError(string errorText,TextBoxBase textBoxBase, Label label)
         {
             textBoxBase.BackColor = Color.Red;
             label.Visible = true;
             label.Text = errorText;
         }
 
-        private void DisplayCorrectLabelAndTextBox(Label label, TextBoxBase textBoxBase)
+        private void HideLabelAndTextBoxError(Label label, TextBoxBase textBoxBase)
         {
             label.Visible = false;
             textBoxBase.BackColor = Color.White;

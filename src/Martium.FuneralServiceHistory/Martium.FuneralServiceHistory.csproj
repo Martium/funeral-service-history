@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfiguration.cs" />
+    <Compile Include="Constants\FormSettings.cs" />
     <Compile Include="Enums\FuneralServiceOperation.cs" />
     <Compile Include="Forms\ManageFuneralServiceForm.cs">
       <SubType>Form</SubType>

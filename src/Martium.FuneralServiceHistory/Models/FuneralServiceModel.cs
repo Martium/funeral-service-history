@@ -19,9 +19,8 @@ namespace Martium.FuneralServiceHistory.Models
         public string DepartedConfession { get; set; }
         public string DepartedRemainsType { get; set; }
         public string ServiceMusicianUnitPrices { get; set; }
-        public int ServiceDiscountPercentage { get; set; }
-        public decimal ServicePaymentAmount { get; set; }
-        public string ServicePaymentCurrencyCode { get; set; }
+        public string ServiceDiscountPercentage { get; set; }
+        public string ServicePaymentAmount { get; set; }
         public string ServicePaymentType { get; set; }
         public string ServiceDescription { get; set; }
     }
