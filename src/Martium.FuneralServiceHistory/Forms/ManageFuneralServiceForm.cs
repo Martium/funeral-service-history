@@ -86,15 +86,18 @@ namespace Martium.FuneralServiceHistory.Forms
             var funeralServiceModel = new FuneralServiceModel
             {
                 OrderDate = DateTime.ParseExact(OrderDateTextBox.Text, OrderDateFormat, CultureInfo.InvariantCulture),
+                CustomerNames = CustomerNamesRichTextBox.Text,
                 CustomerPhoneNumbers = CustomerPhoneNumbersRichTextBox.Text,
                 CustomerEmails = CustomerEmailsRichTextBox.Text,
                 CustomerAddresses = CustomerAddressesRichTextBox.Text,
                 ServiceDates = ServiceDatesRichTextBox.Text,
+                ServicePlaces = ServicePlacesRichTextBox.Text,
                 ServiceTypes = ServiceTypesRichTextBox.Text,
                 ServiceDuration = ServiceDurationRichTextBox.Text,
                 ServiceMusiciansCount = ServiceMusiciansCountRichTextBox.Text,
                 ServiceMusicProgram = ServiceMusicProgramRichTextBox.Text,
                 DepartedInfo = DepartedInfoRichTextBox.Text,
+                DepartedConfession = DepartedConfessionRichTextBox.Text,
                 DepartedRemainsType = DepartedRemainsTypeRichTextBox.Text,
                 ServiceMusicianUnitPrices = ServiceMusicianUnitPricesRichTextBox.Text,
                 ServiceDiscountPercentage = ServiceDiscountPercentageRichTextBox.Text,
@@ -103,15 +106,25 @@ namespace Martium.FuneralServiceHistory.Forms
                 ServiceDescription = ServiceDescriptionRichTextBox.Text
             };
 
+            bool success;
+
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
-                // call update here
+                success = true;
             }
             else
             {
-                bool success = _funeralServiceRepository.CreateNewFuneralService(funeralServiceModel);
+                success = _funeralServiceRepository.CreateNewFuneralService(funeralServiceModel);
             }
 
+            if (success)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nepavyko išsaugoti pakeitimų, bandykite dar kart!", "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #region Helpers
