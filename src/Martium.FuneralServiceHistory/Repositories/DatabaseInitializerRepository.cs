@@ -1,5 +1,6 @@
 ﻿using System.Data.SQLite;
 using System.IO;
+using Martium.FuneralServiceHistory.Constants;
 
 namespace Martium.FuneralServiceHistory.Repositories
 {
@@ -19,7 +20,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             }
             else
             {
-                DeleteLeftoverFilesAndFoldersBeforeDbCreate();
+                DeleteLeftoverFilesAndFolders();
             }
 
             SQLiteConnection.CreateFile(AppConfiguration.DatabaseFile);
@@ -34,7 +35,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             }
         }
 
-        private void DeleteLeftoverFilesAndFoldersBeforeDbCreate()
+        private void DeleteLeftoverFilesAndFolders()
         {
             var directory = new DirectoryInfo(AppConfiguration.DatabaseFolder);
 
@@ -55,32 +56,29 @@ namespace Martium.FuneralServiceHistory.Repositories
             SQLiteCommand dropAFuneralServiceHistoryTableCommand = new SQLiteCommand(dropFuneralServiceHistoryTableQuery, dbConnection);
             dropAFuneralServiceHistoryTableCommand.ExecuteNonQuery();
 
-            const string createFuneralServiceHistoryTableQuery =
-                @"                  
+            string createFuneralServiceHistoryTableQuery =
+                $@"                  
                   CREATE TABLE [FuneralServiceHistory] (
-                     [OrderNumber] [INTEGER] PRIMARY KEY AUTOINCREMENT,
-                     [OrderDate] [Date] NOT NULL,
-                     [CustomerNames] [nvarchar](800) NULL,
-                     [CustomerPhoneNumbers] [nvarchar](100) NOT NULL,
-                     [CustomerEmails] [nvarchar](800) NULL,
-                     [CustomerAddresses] [nvarchar](800) NULL,
-                     [ServiceDates] [nvarchar](150) NULL,
-                     [ServicePlaces] [nvarchar](300) NULL,
-                     [ServiceTypes] [nvarchar](300) NULL,
-                     [ServiceDuration] [decimal](18, 1) NULL,
-                     [ServiceMusiciansCount] [int] NULL,
-                     [ServiceMusicProgram] [nvarchar](200) NULL,
-                     [DepartedInfo] [nvarchar](810) NULL,
-                     [DepartedConfession] [nvarchar](100) NULL,
-                     [DepartedRemainsType] [nvarchar](50) NULL,
-                     [ServiceMusicianUnitPrices] [nvarchar](200) NULL,
-                     [ServiceDiscountPercentage] [int] NULL,
-                     [ServicePaymentAmount] [decimal](18, 2) NULL,
-                     [ServicePaymentCurrencyCode] [nvarchar](3) NULL,
-                     [ServicePaymentType] [nvarchar](100) NULL,
-                     [ServiceDescription] [nvarchar](1000) NULL,
-                     [ServiceReviewScore] [nvarchar](50) NULL,
-                     [ServiceReviewComments] [nvarchar](800) NULL
+                    [OrderNumber] [INTEGER] PRIMARY KEY AUTOINCREMENT,
+                    [OrderDate] [Date] NOT NULL,
+                    [CustomerNames] [nvarchar]({FormSettings.TextBoxLengths.CustomerNames}) NULL,
+                    [CustomerPhoneNumbers] [nvarchar]({FormSettings.TextBoxLengths.CustomerPhoneNumbers}) NOT NULL,
+                    [CustomerEmails] [nvarchar]({FormSettings.TextBoxLengths.CustomerEmails}) NULL,
+                    [CustomerAddresses] [nvarchar]({FormSettings.TextBoxLengths.CustomerAddresses}) NULL,
+                    [ServiceDates] [nvarchar]({FormSettings.TextBoxLengths.ServiceDates}) NULL,
+                    [ServicePlaces] [nvarchar]({FormSettings.TextBoxLengths.ServicePlaces}) NULL,
+                    [ServiceTypes] [nvarchar]({FormSettings.TextBoxLengths.ServiceTypes}) NULL,
+                    [ServiceDuration] [nvarchar]({FormSettings.TextBoxLengths.ServiceDuration}) NULL,
+                    [ServiceMusiciansCount] [nvarchar]({FormSettings.TextBoxLengths.ServiceMusiciansCount}) NULL,
+                    [ServiceMusicProgram] [nvarchar]({FormSettings.TextBoxLengths.ServiceMusicProgram}) NULL,
+                    [DepartedInfo] [nvarchar]({FormSettings.TextBoxLengths.DepartedInfo}) NULL,
+                    [DepartedConfession] [nvarchar]({FormSettings.TextBoxLengths.DepartedConfession}) NULL,
+                    [DepartedRemainsType] [nvarchar]({FormSettings.TextBoxLengths.DepartedRemainsType}) NULL,
+                    [ServiceMusicianUnitPrices] [nvarchar]({FormSettings.TextBoxLengths.ServiceMusicianUnitPrices}) NULL,
+                    [ServiceDiscountPercentage] [nvarchar]({FormSettings.TextBoxLengths.ServiceDiscountPercentage}) NULL,
+                    [ServicePaymentAmount] [nvarchar]({FormSettings.TextBoxLengths.ServicePaymentAmount}) NULL,
+                    [ServicePaymentType] [nvarchar]({FormSettings.TextBoxLengths.ServicePaymentType}) NULL,
+                    [ServiceDescription] [nvarchar]({FormSettings.TextBoxLengths.ServiceDescription}) NULL
                   );
                 ";
             SQLiteCommand createFuneralServiceHistoryTableCommand = new SQLiteCommand(createFuneralServiceHistoryTableQuery, dbConnection);
@@ -92,14 +90,13 @@ namespace Martium.FuneralServiceHistory.Repositories
             const string fillFuneralServiceHistoryTableQuery =
                 @"BEGIN TRANSACTION;
 	                INSERT INTO 'FuneralServiceHistory' 
-		                   (OrderDate, ServiceDates, CustomerNames, CustomerPhoneNumbers, DepartedInfo)
-	                VALUES ('2020-05-23 10:09:03', '2020-12-22 10:09:03', 'Martynas Gedutis', '+37064432380', 'Balandis Petras');
-	                INSERT INTO 'FuneralServiceHistory' 
-		                   (OrderDate, ServiceDates, CustomerNames, CustomerPhoneNumbers, DepartedInfo)
-	                VALUES ('2020-06-23 12:09:03', '2020-12-22 10:09:03', 'Erikas Neverdauskas', '+37062505181', 'Katė Smiltė');
-	                INSERT INTO 'FuneralServiceHistory' 
-		                   (OrderDate, ServiceDates, CustomerNames, CustomerPhoneNumbers, DepartedInfo)
-	                VALUES ('2020-12-23 10:09:03', '2020-12-22 10:09:03', 'Erikas Neverdauskas, Martynas Gedutis', '+37062505181, +37064432380', 'Katė Smiltė (2015-2020), Balandis Petras (2019-2020)');
+		                (OrderDate, CustomerNames, CustomerPhoneNumbers, CustomerEmails, CustomerAddresses, ServiceDates, ServicePlaces, ServiceTypes, ServiceDuration, ServiceMusiciansCount, ServiceMusicProgram,
+                         DepartedInfo, DepartedConfession, DepartedRemainsType, ServiceMusicianUnitPrices, ServiceDiscountPercentage, ServicePaymentAmount, ServicePaymentType, ServiceDescription)
+	                    VALUES ('2020-05-23 10:09:03', 'Bazinga Bombas', '+370645858222', 'bazinga@bazinga.com', 'Kaimuks', '2020-10-10 10:00, 2020-10-11 11:00', 'Kaimuks kaimo g 1', 'muzikavimas laidotuvese', '3h', '2 muzikantai', 'klasikos programa', 'balandis bazinga', 'katalikas', 'karastas', '200 EUR', '50%', '400 EUR', 'Saskaita faktura', 'bla balas basd hasd gasd ahsdb asjdaf ajsdajf asjhas asjdbasf');
+	                INSERT INTO 'FuneralServiceHistory'
+                        (OrderDate, CustomerNames, CustomerPhoneNumbers, CustomerEmails, CustomerAddresses, ServiceDates, ServicePlaces, ServiceTypes, ServiceDuration, ServiceMusiciansCount, ServiceMusicProgram,
+                         DepartedInfo, DepartedConfession, DepartedRemainsType, ServiceMusicianUnitPrices, ServiceDiscountPercentage, ServicePaymentAmount, ServicePaymentType, ServiceDescription)
+                        VALUES ('2020-06-23 10:09:03', 'Bazinge Bombe', '+370645858111', 'bazinge@bazinge.com', 'Kaimuks', '2020-10-10 10:00, 2020-10-11 11:00', 'Kaimuks kaimo g 1', 'muzikavimas laidotuvese', '3h', '2 muzikantai', 'klasikos programa', 'balandis bazinga', 'katalikas', 'karastas', '200 EUR', '50%', '400 EUR', 'Saskaita faktura', 'bla balas basd hasd gasd ahsdb asjdaf ajsdajf asjhas asjdbasf');
                 COMMIT;";
             SQLiteCommand fillFuneralServiceHistoryTableCommand = new SQLiteCommand(fillFuneralServiceHistoryTableQuery, dbConnection);
             fillFuneralServiceHistoryTableCommand.ExecuteNonQuery();
