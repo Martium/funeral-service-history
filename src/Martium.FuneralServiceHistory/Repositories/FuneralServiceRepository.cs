@@ -27,5 +27,25 @@ namespace Martium.FuneralServiceHistory.Repositories
                 return funeralServices;
             }
         }
+
+        public int GetNextOrderNumber()
+        {
+            using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
+            {
+                dbConnection.Open();
+
+                object queryParameters = new { };
+
+                string getAllWordsQuery =
+                    @"SELECT  
+                        MAX(FSH.OrderNumber)
+                      FROM FuneralServiceHistory FSH
+                    ";
+
+                int biggestOrderNumber = dbConnection.QuerySingle<int>(getAllWordsQuery, queryParameters);
+
+                return biggestOrderNumber + 1;
+            }
+        }
     }
 }

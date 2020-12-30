@@ -5,16 +5,21 @@ using System.Globalization;
 using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Constants;
 using Martium.FuneralServiceHistory.Enums;
+using Martium.FuneralServiceHistory.Repositories;
 
 namespace Martium.FuneralServiceHistory.Forms
 {
     public partial class ManageFuneralServiceForm : Form
     {
+        private readonly FuneralServiceRepository _funeralServiceRepository;
+
         private readonly FuneralServiceOperation _funeralServiceOperation;
         private readonly int? _orderNumber;
 
         public ManageFuneralServiceForm(FuneralServiceOperation funeralServiceOperation, int? orderNumber = null)
         {
+            _funeralServiceRepository = new FuneralServiceRepository();
+
             _funeralServiceOperation = funeralServiceOperation;
             _orderNumber = orderNumber;
 
@@ -26,7 +31,8 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
         {
-            ResolveFormText();
+            ResolveFormOperation();
+            ResolveOrderNumber();
         }
 
         private void OrderDateTextBox_Validating(object sender, CancelEventArgs e)
@@ -106,7 +112,7 @@ namespace Martium.FuneralServiceHistory.Forms
             ServiceDescriptionRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceDescription;
         }
 
-        private void ResolveFormText()
+        private void ResolveFormOperation()
         {
             if (_funeralServiceOperation == FuneralServiceOperation.Create)
             {
@@ -124,6 +130,13 @@ namespace Martium.FuneralServiceHistory.Forms
             {
                 throw new Exception($"Paslaugų valdymo formoje gauta nežinoma opercija: '{_funeralServiceOperation}'");
             }
+        }
+
+        private void ResolveOrderNumber()
+        {
+            OrderNumberTextBox.Text = _funeralServiceOperation == FuneralServiceOperation.Edit 
+                ? _orderNumber.Value.ToString() 
+                : _funeralServiceRepository.GetNextOrderNumber().ToString();
         }
 
         private void DisplayLabelAndTextBoxError(string errorText,TextBoxBase textBoxBase, Label label)
