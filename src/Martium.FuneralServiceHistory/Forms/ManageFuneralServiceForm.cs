@@ -134,9 +134,15 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void ResolveOrderNumber()
         {
-            OrderNumberTextBox.Text = _funeralServiceOperation == FuneralServiceOperation.Edit 
-                ? _orderNumber.Value.ToString() 
-                : _funeralServiceRepository.GetNextOrderNumber().ToString();
+            if (_funeralServiceOperation == FuneralServiceOperation.Edit)
+            {
+                OrderNumberTextBox.Text = _orderNumber.Value.ToString();
+            }
+            else
+            {
+                int nextOrderNumber = _funeralServiceRepository.GetMaxOrderNumber() + 1;
+                OrderNumberTextBox.Text = nextOrderNumber.ToString();
+            }
         }
 
         private void DisplayLabelAndTextBoxError(string errorText,TextBoxBase textBoxBase, Label label)

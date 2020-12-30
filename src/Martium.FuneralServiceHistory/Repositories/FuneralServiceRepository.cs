@@ -28,7 +28,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             }
         }
 
-        public int GetNextOrderNumber()
+        public int GetMaxOrderNumber()
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
@@ -44,7 +44,7 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 int biggestOrderNumber = dbConnection.QuerySingle<int>(getAllWordsQuery, queryParameters);
 
-                return biggestOrderNumber + 1;
+                return biggestOrderNumber;
             }
         }
     }
