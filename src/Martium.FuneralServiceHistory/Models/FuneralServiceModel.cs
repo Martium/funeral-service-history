@@ -13,7 +13,7 @@ namespace Martium.FuneralServiceHistory.Models
         public string ServicePlaces { get; set; }
         public string ServiceTypes { get; set; }
         public string ServiceDuration { get; set; }
-        public int ServiceMusiciansCount { get; set; }
+        public string ServiceMusiciansCount { get; set; }
         public string ServiceMusicProgram { get; set; }
         public string DepartedInfo { get; set; }
         public string DepartedConfession { get; set; }

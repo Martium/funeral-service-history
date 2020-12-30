@@ -5,16 +5,24 @@ using System.Globalization;
 using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Constants;
 using Martium.FuneralServiceHistory.Enums;
+using Martium.FuneralServiceHistory.Models;
+using Martium.FuneralServiceHistory.Repositories;
 
 namespace Martium.FuneralServiceHistory.Forms
 {
     public partial class ManageFuneralServiceForm : Form
     {
+        private readonly FuneralServiceRepository _funeralServiceRepository;
+
         private readonly FuneralServiceOperation _funeralServiceOperation;
         private readonly int? _orderNumber;
 
+        private const string OrderDateFormat = "yyyy-MM-dd";
+
         public ManageFuneralServiceForm(FuneralServiceOperation funeralServiceOperation, int? orderNumber = null)
         {
+            _funeralServiceRepository = new FuneralServiceRepository();
+
             _funeralServiceOperation = funeralServiceOperation;
             _orderNumber = orderNumber;
 
@@ -26,28 +34,32 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
         {
-            ResolveFormText();
+            ResolveFormOperation();
+            ResolveOrderData();
         }
 
         private void OrderDateTextBox_Validating(object sender, CancelEventArgs e)
         {
-            string sampleDateFormat = "yyyy-MM-dd";
-
             if (string.IsNullOrWhiteSpace(OrderDateTextBox.Text))
             {
                 e.Cancel = true;
-                DisplayLabelAndTextBoxError($"Negali būti tuščias! pvz.: {DateTime.Now.ToString(sampleDateFormat)}", OrderDateTextBox, OrderDateErrorMessageLabel);
+                DisplayLabelAndTextBoxError($"Negali būti tuščias! pvz.: {DateTime.Now.ToString(OrderDateFormat)}", OrderDateTextBox, OrderDateErrorMessageLabel);
             }
-            else if (!DateTime.TryParseExact(OrderDateTextBox.Text, sampleDateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            else if (!DateTime.TryParseExact(OrderDateTextBox.Text, OrderDateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {
                 e.Cancel = true;
-                DisplayLabelAndTextBoxError($"Įveskite teisingą datą! pvz.: {DateTime.Now.ToString(sampleDateFormat)}", OrderDateTextBox, OrderDateErrorMessageLabel);
+                DisplayLabelAndTextBoxError($"Įveskite teisingą datą! pvz.: {DateTime.Now.ToString(OrderDateFormat)}", OrderDateTextBox, OrderDateErrorMessageLabel);
             }
             else
             {
                 e.Cancel = false;
                 HideLabelAndTextBoxError(OrderDateErrorMessageLabel, OrderDateTextBox);
             }
+        }
+        
+        private void OrderDateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButtonIfPossible();
         }
 
         private void CustomerPhoneNumbersRichTextBox_Validating(object sender, CancelEventArgs e)
@@ -61,6 +73,57 @@ namespace Martium.FuneralServiceHistory.Forms
             {
                 e.Cancel = false;
                 HideLabelAndTextBoxError(CustomerPhoneNumbersErrorMessageLabel, CustomerPhoneNumbersRichTextBox);
+            }
+        }
+
+        private void CustomerPhoneNumbersRichTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButtonIfPossible();
+        }
+
+        private void SaveFuneralServiceChangesButton_Click(object sender, EventArgs e)
+        {
+            var funeralServiceModel = new FuneralServiceModel
+            {
+                OrderDate = DateTime.ParseExact(OrderDateTextBox.Text, OrderDateFormat, CultureInfo.InvariantCulture),
+                CustomerNames = CustomerNamesRichTextBox.Text,
+                CustomerPhoneNumbers = CustomerPhoneNumbersRichTextBox.Text,
+                CustomerEmails = CustomerEmailsRichTextBox.Text,
+                CustomerAddresses = CustomerAddressesRichTextBox.Text,
+                ServiceDates = ServiceDatesRichTextBox.Text,
+                ServicePlaces = ServicePlacesRichTextBox.Text,
+                ServiceTypes = ServiceTypesRichTextBox.Text,
+                ServiceDuration = ServiceDurationRichTextBox.Text,
+                ServiceMusiciansCount = ServiceMusiciansCountRichTextBox.Text,
+                ServiceMusicProgram = ServiceMusicProgramRichTextBox.Text,
+                DepartedInfo = DepartedInfoRichTextBox.Text,
+                DepartedConfession = DepartedConfessionRichTextBox.Text,
+                DepartedRemainsType = DepartedRemainsTypeRichTextBox.Text,
+                ServiceMusicianUnitPrices = ServiceMusicianUnitPricesRichTextBox.Text,
+                ServiceDiscountPercentage = ServiceDiscountPercentageRichTextBox.Text,
+                ServicePaymentAmount = ServicePaymentAmountRichTextBox.Text,
+                ServicePaymentType = ServicePaymentTypeRichTextBox.Text,
+                ServiceDescription = ServiceDescriptionRichTextBox.Text
+            };
+
+            bool success;
+
+            if (_funeralServiceOperation == FuneralServiceOperation.Edit)
+            {
+                success = true;
+            }
+            else
+            {
+                success = _funeralServiceRepository.CreateNewFuneralService(funeralServiceModel);
+            }
+
+            if (success)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nepavyko išsaugoti pakeitimų, bandykite dar kart!", "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -106,7 +169,7 @@ namespace Martium.FuneralServiceHistory.Forms
             ServiceDescriptionRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceDescription;
         }
 
-        private void ResolveFormText()
+        private void ResolveFormOperation()
         {
             if (_funeralServiceOperation == FuneralServiceOperation.Create)
             {
@@ -126,6 +189,21 @@ namespace Martium.FuneralServiceHistory.Forms
             }
         }
 
+        private void ResolveOrderData()
+        {
+            if (_funeralServiceOperation == FuneralServiceOperation.Edit)
+            {
+                OrderNumberTextBox.Text = _orderNumber.Value.ToString();
+            }
+            else
+            {
+                int nextOrderNumber = _funeralServiceRepository.GetMaxOrderNumber() + 1;
+                OrderNumberTextBox.Text = nextOrderNumber.ToString();
+
+                OrderDateTextBox.Text = DateTime.Now.ToString(OrderDateFormat);
+            }
+        }
+
         private void DisplayLabelAndTextBoxError(string errorText,TextBoxBase textBoxBase, Label label)
         {
             textBoxBase.BackColor = Color.Red;
@@ -139,6 +217,13 @@ namespace Martium.FuneralServiceHistory.Forms
             textBoxBase.BackColor = Color.White;
         }
 
+        private void EnableSaveButtonIfPossible()
+        {
+            SaveFuneralServiceChangesButton.Enabled = (!string.IsNullOrWhiteSpace(OrderDateTextBox.Text) && !string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text));
+        }
+
         #endregion
+
+        
     }
 }
