@@ -111,20 +111,29 @@ namespace Martium.FuneralServiceHistory.Forms
 
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
-                success = true;
+                success = _funeralServiceRepository.EditFuneralService(_orderNumber.Value, funeralServiceModel);
+
+                if (success)
+                {
+                    MessageBox.Show("Pakeitimai išsaugoti sėkmingai.", "Info pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    ShowManageFormErrorDialog();
+                }
             }
             else
             {
                 success = _funeralServiceRepository.CreateNewFuneralService(funeralServiceModel);
-            }
 
-            if (success)
-            {
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Nepavyko išsaugoti pakeitimų, bandykite dar kart!", "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (success)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    ShowManageFormErrorDialog();
+                }
             }
         }
 
@@ -250,6 +259,11 @@ namespace Martium.FuneralServiceHistory.Forms
         private void EnableSaveButtonIfPossible()
         {
             SaveFuneralServiceChangesButton.Enabled = (!string.IsNullOrWhiteSpace(OrderDateTextBox.Text) && !string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text));
+        }
+
+        private static void ShowManageFormErrorDialog()
+        {
+            MessageBox.Show("Nepavyko išsaugoti pakeitimų, bandykite dar kart!", "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #endregion
