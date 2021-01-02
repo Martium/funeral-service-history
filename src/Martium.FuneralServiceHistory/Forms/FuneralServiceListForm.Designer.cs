@@ -37,6 +37,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceDataGridView = new System.Windows.Forms.DataGridView();
             this.EditFuneralServiceButton = new System.Windows.Forms.Button();
             this.CopyFuneralServiceButton = new System.Windows.Forms.Button();
+            this.CancelFuneralServiceSearchButton = new System.Windows.Forms.Button();
             this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDatesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNamesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +55,9 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceSearchTextBox.Name = "FuneralServiceSearchTextBox";
             this.FuneralServiceSearchTextBox.Size = new System.Drawing.Size(178, 23);
             this.FuneralServiceSearchTextBox.TabIndex = 0;
+            this.FuneralServiceSearchTextBox.TextChanged += new System.EventHandler(this.FuneralServiceSearchTextBox_TextChanged);
             this.FuneralServiceSearchTextBox.GotFocus += new System.EventHandler(this.FuneralServiceSearchTextBox_GotFocus);
             this.FuneralServiceSearchTextBox.LostFocus += new System.EventHandler(this.FuneralServiceSearchTextBox_LostFocus);
-            this.FuneralServiceSearchTextBox.TextChanged += new System.EventHandler(this.FuneralServiceSearchTextBox_TextChanged);
             // 
             // FuneralServiceSearchButton
             // 
@@ -68,6 +69,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceSearchButton.TabIndex = 1;
             this.FuneralServiceSearchButton.Text = "Ieškoti";
             this.FuneralServiceSearchButton.UseVisualStyleBackColor = true;
+            this.FuneralServiceSearchButton.Click += new System.EventHandler(this.FuneralServiceSearchButton_Click);
             // 
             // CreateNewFuneralServiceButton
             // 
@@ -130,6 +132,18 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CopyFuneralServiceButton.UseVisualStyleBackColor = true;
             this.CopyFuneralServiceButton.Click += new System.EventHandler(this.CopyFuneralServiceButton_Click);
             // 
+            // CancelFuneralServiceSearchButton
+            // 
+            this.CancelFuneralServiceSearchButton.Enabled = false;
+            this.CancelFuneralServiceSearchButton.Location = new System.Drawing.Point(256, 19);
+            this.CancelFuneralServiceSearchButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CancelFuneralServiceSearchButton.Name = "CancelFuneralServiceSearchButton";
+            this.CancelFuneralServiceSearchButton.Size = new System.Drawing.Size(61, 30);
+            this.CancelFuneralServiceSearchButton.TabIndex = 6;
+            this.CancelFuneralServiceSearchButton.Text = "Atšaukti";
+            this.CancelFuneralServiceSearchButton.UseVisualStyleBackColor = true;
+            this.CancelFuneralServiceSearchButton.Click += new System.EventHandler(this.CancelFuneralServiceSearchButton_Click);
+            // 
             // orderNumberDataGridViewTextBoxColumn
             // 
             this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
@@ -178,6 +192,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 1001);
+            this.Controls.Add(this.CancelFuneralServiceSearchButton);
             this.Controls.Add(this.CopyFuneralServiceButton);
             this.Controls.Add(this.EditFuneralServiceButton);
             this.Controls.Add(this.FuneralServiceDataGridView);
@@ -213,6 +228,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNamesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerPhoneNumbersDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departedInfoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button CancelFuneralServiceSearchButton;
     }
 }
 
