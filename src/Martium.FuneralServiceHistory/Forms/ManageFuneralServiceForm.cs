@@ -223,7 +223,5 @@ namespace Martium.FuneralServiceHistory.Forms
         }
 
         #endregion
-
-        
     }
 }
