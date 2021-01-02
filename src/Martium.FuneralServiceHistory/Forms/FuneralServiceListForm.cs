@@ -11,6 +11,7 @@ namespace Martium.FuneralServiceHistory.Forms
     public partial class FuneralServiceListForm : Form
     {
         private readonly FuneralServiceRepository _funeralServiceRepository;
+        private IEnumerable<FuneralServiceListModel> funeralServiceListModels;
 
         private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
         private bool searchActive = false;
@@ -99,15 +100,20 @@ namespace Martium.FuneralServiceHistory.Forms
         private void CancelFuneralServiceSearchButton_Click(object sender, EventArgs e)
         {
             searchActive = false;
+
             LoadFuneralServiceList();
 
             SetControlsInitialState();
+
+
         }
 
         #region Helpers
 
         private void SetControlsInitialState()
         {
+            funeralServiceListModels = _funeralServiceRepository.GetList();
+
             this.StartPosition = FormStartPosition.CenterScreen;
 
             ActiveControl = CreateNewFuneralServiceButton;
@@ -115,11 +121,17 @@ namespace Martium.FuneralServiceHistory.Forms
             FuneralServiceSearchTextBox.Text = SearchTextBoxPlaceholderText;
             FuneralServiceSearchButton.Enabled = false;
             CancelFuneralServiceSearchButton.Enabled = false;
+
+            if (funeralServiceListModels.Any())
+            {
+                EditFuneralServiceButton.Enabled = true;
+                CopyFuneralServiceButton.Enabled = true;
+            }
         }
 
         private void RefreshList(object sender, EventArgs e)
         {
-            searchActive = false;
+            searchActive = true;
             LoadFuneralServiceList();
 
             SetControlsInitialState();
@@ -132,11 +144,32 @@ namespace Martium.FuneralServiceHistory.Forms
                 CancelFuneralServiceSearchButton.Enabled = true;
             }
 
-            IEnumerable<FuneralServiceListModel> funeralServiceListModels = _funeralServiceRepository.GetList(searchPhrase);
+            funeralServiceListModels = _funeralServiceRepository.GetList(searchPhrase);
 
             if (!funeralServiceListModels.Any())
             {
                 DisableExistingListManaging(searchPhrase);
+            }
+
+            FuneralServiceBindingSource.DataSource = funeralServiceListModels;
+
+            FuneralServiceDataGridView.DataSource = FuneralServiceBindingSource;
+        }
+
+        private void LoadFuneralServiceListAfterCancelButton()
+        {
+            string searchPhrase = null;
+
+            if (searchActive)
+            {
+                CancelFuneralServiceSearchButton.Enabled = true;
+            }
+
+            IEnumerable<FuneralServiceListModel> funeralServiceListModels = _funeralServiceRepository.GetList();
+
+            if (!funeralServiceListModels.Any())
+            {
+               DisableExistingListManaging(searchPhrase);
             }
 
             FuneralServiceBindingSource.DataSource = funeralServiceListModels;
@@ -155,8 +188,6 @@ namespace Martium.FuneralServiceHistory.Forms
             EditFuneralServiceButton.Enabled = false;
             CopyFuneralServiceButton.Enabled = false;
         }
-
-
         #endregion
     }
 }
