@@ -99,9 +99,10 @@ namespace Martium.FuneralServiceHistory.Forms
         private void CancelFuneralServiceSearchButton_Click(object sender, EventArgs e)
         {
             searchActive = false;
-            LoadFuneralServiceList();
 
             SetControlsInitialState();
+
+            LoadFuneralServiceList();
         }
 
         #region Helpers
@@ -120,9 +121,10 @@ namespace Martium.FuneralServiceHistory.Forms
         private void RefreshList(object sender, EventArgs e)
         {
             searchActive = false;
-            LoadFuneralServiceList();
 
             SetControlsInitialState();
+
+            LoadFuneralServiceList();
         }
 
         private void LoadFuneralServiceList(string searchPhrase = null)
@@ -134,26 +136,23 @@ namespace Martium.FuneralServiceHistory.Forms
 
             IEnumerable<FuneralServiceListModel> funeralServiceListModels = _funeralServiceRepository.GetList(searchPhrase);
 
-            if (!funeralServiceListModels.Any())
-            {
-                DisableExistingListManaging(searchPhrase);
-            }
+            ToggleExistingListManaging(enabled: funeralServiceListModels.Any(), searchPhrase);
 
             FuneralServiceBindingSource.DataSource = funeralServiceListModels;
 
             FuneralServiceDataGridView.DataSource = FuneralServiceBindingSource;
         }
 
-        private void DisableExistingListManaging(string searchPhrase)
+        private void ToggleExistingListManaging(bool enabled, string searchPhrase)
         {
             if (string.IsNullOrWhiteSpace(searchPhrase))
             {
-                FuneralServiceSearchTextBox.Enabled = false;
-                FuneralServiceSearchButton.Enabled = false;
+                FuneralServiceSearchTextBox.Enabled = enabled;
+                FuneralServiceSearchButton.Enabled = false; // Search button needs to be disabled in case search is not used regardless if items returned or not
             }
 
-            EditFuneralServiceButton.Enabled = false;
-            CopyFuneralServiceButton.Enabled = false;
+            EditFuneralServiceButton.Enabled = enabled;
+            CopyFuneralServiceButton.Enabled = enabled;
         }
 
 
