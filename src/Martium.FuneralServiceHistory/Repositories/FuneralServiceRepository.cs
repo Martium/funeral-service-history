@@ -7,22 +7,36 @@ namespace Martium.FuneralServiceHistory.Repositories
 {
     public class FuneralServiceRepository
     {
-        public IEnumerable<FuneralServiceListModel> GetAll()
+        public IEnumerable<FuneralServiceListModel> GetList(string searchPhrase = null)
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
                 dbConnection.Open();
 
-                object queryParameters = new { };
+                object queryParameters = new {};
 
                 string getAllWordsQuery =
                     @"SELECT  
                         FSH.ServiceDates, FSH.OrderNumber, FSH.CustomerNames, FSH.CustomerPhoneNumbers, FSH.DepartedInfo
                       FROM FuneralServiceHistory FSH
-                      ORDER BY FSH.OrderNumber DESC";
+                    ";
 
-                IEnumerable<FuneralServiceListModel> funeralServices =
-                    dbConnection.Query<FuneralServiceListModel>(getAllWordsQuery, queryParameters);
+                if (!string.IsNullOrWhiteSpace(searchPhrase))
+                {
+                    getAllWordsQuery += @" WHERE 
+                                                FSH.ServiceDates LIKE @SearchPhrase OR FSH.OrderNumber LIKE @SearchPhrase OR FSH.CustomerNames LIKE @SearchPhrase
+                                                OR FSH.CustomerPhoneNumbers LIKE @SearchPhrase OR FSH.DepartedInfo LIKE @SearchPhrase";
+
+                    queryParameters = new
+                    {
+                        SearchPhrase = $"%{searchPhrase}%"
+                    };
+                }
+
+                getAllWordsQuery += @" ORDER BY 
+                                               FSH.OrderNumber DESC";
+
+                IEnumerable <FuneralServiceListModel> funeralServices = dbConnection.Query<FuneralServiceListModel>(getAllWordsQuery, queryParameters);
 
                 return funeralServices;
             }

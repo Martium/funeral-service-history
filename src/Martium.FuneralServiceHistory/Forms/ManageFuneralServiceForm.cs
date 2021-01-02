@@ -116,6 +116,7 @@ namespace Martium.FuneralServiceHistory.Forms
                 if (success)
                 {
                     MessageBox.Show("Pakeitimai išsaugoti sėkmingai.", "Info pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
