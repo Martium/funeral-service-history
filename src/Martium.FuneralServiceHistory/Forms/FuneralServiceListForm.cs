@@ -60,6 +60,34 @@ namespace Martium.FuneralServiceHistory.Forms
             copyForm.Show(this);
         }
 
+        private void FuneralServiceSearchTextBox_GotFocus(object sender, EventArgs e)
+        {
+            if (FuneralServiceSearchTextBox.Text == SearchTextBoxPlaceholderText)
+            {
+                FuneralServiceSearchTextBox.Text = string.Empty;
+            }
+        }
+
+        private void FuneralServiceSearchTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(FuneralServiceSearchTextBox.Text))
+            {
+                FuneralServiceSearchTextBox.Text = SearchTextBoxPlaceholderText;
+            }
+        }
+
+        private void FuneralServiceSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(FuneralServiceSearchTextBox.Text))
+            {
+                FuneralServiceSearchButton.Enabled = true;
+            }
+            else
+            {
+                FuneralServiceSearchButton.Enabled = false;
+            }
+        }
+
 
         #region Helpers
 
