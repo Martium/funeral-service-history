@@ -100,8 +100,7 @@ namespace Martium.FuneralServiceHistory.Forms
             CopyFuneralServiceButton.Enabled = false;
         }
 
+
         #endregion
-
-
     }
 }

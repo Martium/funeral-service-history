@@ -35,7 +35,8 @@ namespace Martium.FuneralServiceHistory.Forms
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
         {
             ResolveFormOperation();
-            ResolveOrderData();
+            ResolveOrderNumberText();
+            LoadFormDataForEditOrCopy();
         }
 
         private void OrderDateTextBox_Validating(object sender, CancelEventArgs e)
@@ -189,7 +190,7 @@ namespace Martium.FuneralServiceHistory.Forms
             }
         }
 
-        private void ResolveOrderData()
+        private void ResolveOrderNumberText()
         {
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
@@ -201,6 +202,35 @@ namespace Martium.FuneralServiceHistory.Forms
                 OrderNumberTextBox.Text = nextOrderNumber.ToString();
 
                 OrderDateTextBox.Text = DateTime.Now.ToString(OrderDateFormat);
+            }
+        }
+
+        private void LoadFormDataForEditOrCopy()
+        {
+            if (_funeralServiceOperation == FuneralServiceOperation.Edit ||
+                _funeralServiceOperation == FuneralServiceOperation.Copy)
+            {
+                FuneralServiceModel funeralServiceModel = _funeralServiceRepository.GetByOrderNumber(_orderNumber.Value);
+
+                OrderDateTextBox.Text = funeralServiceModel.OrderDate.ToString(OrderDateFormat);
+                CustomerNamesRichTextBox.Text = funeralServiceModel.CustomerNames;
+                CustomerPhoneNumbersRichTextBox.Text = funeralServiceModel.CustomerPhoneNumbers;
+                CustomerEmailsRichTextBox.Text = funeralServiceModel.CustomerEmails;
+                CustomerAddressesRichTextBox.Text = funeralServiceModel.CustomerAddresses;
+                ServiceDatesRichTextBox.Text = funeralServiceModel.ServiceDates;
+                ServicePlacesRichTextBox.Text = funeralServiceModel.ServicePlaces;
+                ServiceTypesRichTextBox.Text = funeralServiceModel.ServiceTypes;
+                ServiceDurationRichTextBox.Text = funeralServiceModel.ServiceDuration;
+                ServiceMusiciansCountRichTextBox.Text = funeralServiceModel.ServiceMusiciansCount;
+                ServiceMusicProgramRichTextBox.Text = funeralServiceModel.ServiceMusicProgram;
+                DepartedInfoRichTextBox.Text = funeralServiceModel.DepartedInfo;
+                DepartedConfessionRichTextBox.Text = funeralServiceModel.DepartedConfession;
+                DepartedRemainsTypeRichTextBox.Text = funeralServiceModel.DepartedRemainsType;
+                ServiceMusicianUnitPricesRichTextBox.Text = funeralServiceModel.ServiceMusicianUnitPrices;
+                ServiceDiscountPercentageRichTextBox.Text = funeralServiceModel.ServiceDiscountPercentage;
+                ServicePaymentAmountRichTextBox.Text = funeralServiceModel.ServicePaymentAmount;
+                ServicePaymentTypeRichTextBox.Text = funeralServiceModel.ServicePaymentType;
+                ServiceDescriptionRichTextBox.Text = funeralServiceModel.ServiceDescription;
             }
         }
 
@@ -223,7 +253,5 @@ namespace Martium.FuneralServiceHistory.Forms
         }
 
         #endregion
-
-        
     }
 }
