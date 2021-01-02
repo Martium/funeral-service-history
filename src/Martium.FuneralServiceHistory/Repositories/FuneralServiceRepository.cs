@@ -28,6 +28,31 @@ namespace Martium.FuneralServiceHistory.Repositories
             }
         }
 
+        public FuneralServiceModel GetByOrderNumber(int orderNumber)
+        {
+            using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
+            {
+                dbConnection.Open();
+
+                string getByOrderNumberQuery =
+                    @"SELECT  
+                        FSH.OrderDate , FSH.CustomerNames , FSH.CustomerPhoneNumbers , FSH.CustomerEmails , FSH.CustomerAddresses , FSH.ServiceDates , FSH.ServicePlaces , FSH.ServiceTypes , 
+                        FSH.ServiceDuration , FSH.ServiceMusiciansCount , FSH.ServiceMusicProgram, FSH.DepartedInfo , FSH.DepartedConfession , FSH.DepartedRemainsType , FSH.ServiceMusicianUnitPrices , 
+                        FSH.ServiceDiscountPercentage , FSH.ServicePaymentAmount , FSH.ServicePaymentType , FSH.ServiceDescription
+                      FROM FuneralServiceHistory FSH
+                      WHERE FSH.OrderNumber = @OrderNumber";
+
+                object queryParameters = new
+                {
+                   OrderNumber = orderNumber
+                };
+
+                FuneralServiceModel funeralService = dbConnection.QuerySingle<FuneralServiceModel>(getByOrderNumberQuery, queryParameters);
+
+                return funeralService;
+            }
+        }
+
         public int GetMaxOrderNumber()
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
