@@ -108,34 +108,27 @@ namespace Martium.FuneralServiceHistory.Forms
             };
 
             bool success;
+            string successMessage;
 
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
                 success = _funeralServiceRepository.EditFuneralService(_orderNumber.Value, funeralServiceModel);
-
-                if (success)
-                {
-                    ShowDataSaveMessage("Pakeitimai išsaugoti sėkmingai.");
-                    this.Close();
-                }
-                else
-                {
-                    ShowManageFormErrorDialog();
-                }
+                successMessage = "Pakeitimai išsaugoti sėkmingai.";
             }
             else
             {
                 success = _funeralServiceRepository.CreateNewFuneralService(funeralServiceModel);
+                successMessage = "Naujas įrašas sukurtas sekmingai.";
+            }
 
-                if (success)
-                {
-                    ShowDataSaveMessage("Naujas įrašas sukurtas sekmingai.");
-                    this.Close();
-                }
-                else
-                {
-                    ShowManageFormErrorDialog();
-                }
+            if (success)
+            {
+                ShowDataSaveMessage(successMessage);
+                this.Close();
+            }
+            else
+            {
+                ShowManageFormErrorDialog();
             }
         }
 
