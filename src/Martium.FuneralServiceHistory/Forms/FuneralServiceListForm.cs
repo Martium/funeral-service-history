@@ -25,12 +25,12 @@ namespace Martium.FuneralServiceHistory.Forms
             SetControlsInitialState();
         }
 
-        private void ServiceListForm_Load(object sender, System.EventArgs e)
+        private void ServiceListForm_Load(object sender, EventArgs e)
         {
             LoadFuneralServiceList();
         }
 
-        private void CreateNewFuneralServiceButton_Click(object sender, System.EventArgs e)
+        private void CreateNewFuneralServiceButton_Click(object sender, EventArgs e)
         {
             var createForm = new ManageFuneralServiceForm(FuneralServiceOperation.Create);
 
@@ -39,7 +39,7 @@ namespace Martium.FuneralServiceHistory.Forms
             createForm.Show(this);
         }
 
-        private void EditFuneralServiceButton_Click(object sender, System.EventArgs e)
+        private void EditFuneralServiceButton_Click(object sender, EventArgs e)
         {
             int selectedOrderNumber = (int) FuneralServiceDataGridView.SelectedRows[0].Cells[0].Value;
 
@@ -121,6 +121,8 @@ namespace Martium.FuneralServiceHistory.Forms
         {
             searchActive = false;
             LoadFuneralServiceList();
+
+            SetControlsInitialState();
         }
 
         private void LoadFuneralServiceList(string searchPhrase = null)
