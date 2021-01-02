@@ -77,7 +77,10 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 string getAllWordsQuery =
                     @"SELECT  
-                        MAX(FSH.OrderNumber)
+                        CASE COUNT(FSH.OrderNumber) 
+                            WHEN 0 THEN 0 
+                            ELSE MAX(FSH.OrderNumber) 
+                        END as BiggestOrderNumber
                       FROM FuneralServiceHistory FSH
                     ";
 
