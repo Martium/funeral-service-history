@@ -13,7 +13,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private readonly FuneralServiceRepository _funeralServiceRepository;
 
         private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
-        private bool searchActive = false;
+        private bool _searchActive;
         
 
         public FuneralServiceListForm()
@@ -92,13 +92,13 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void FuneralServiceSearchButton_Click(object sender, EventArgs e)
         {
-            searchActive = true;
+            _searchActive = true;
             LoadFuneralServiceList(FuneralServiceSearchTextBox.Text);
         }
 
         private void CancelFuneralServiceSearchButton_Click(object sender, EventArgs e)
         {
-            searchActive = false;
+            _searchActive = false;
 
             SetControlsInitialState();
 
@@ -120,7 +120,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void RefreshList(object sender, EventArgs e)
         {
-            searchActive = false;
+            _searchActive = false;
 
             SetControlsInitialState();
 
@@ -129,7 +129,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void LoadFuneralServiceList(string searchPhrase = null)
         {
-            if (searchActive)
+            if (_searchActive)
             {
                 CancelFuneralServiceSearchButton.Enabled = true;
             }
@@ -154,7 +154,6 @@ namespace Martium.FuneralServiceHistory.Forms
             EditFuneralServiceButton.Enabled = enabled;
             CopyFuneralServiceButton.Enabled = enabled;
         }
-
 
         #endregion
     }
