@@ -178,7 +178,7 @@ namespace Martium.FuneralServiceHistory.Forms
                 graphics.DrawString(
                     reason,
                     new Font("Times New Roman", 12),
-                    Brushes.DarkOrange,
+                    Brushes.DarkGray,
                     new PointF(leftPadding, topPadding));
             }
         }
