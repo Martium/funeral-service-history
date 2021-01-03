@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Martium.FuneralServiceHistory.Forms
 {
     partial class FuneralServiceListForm
@@ -111,6 +113,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FuneralServiceDataGridView.Size = new System.Drawing.Size(1036, 868);
             this.FuneralServiceDataGridView.TabIndex = 3;
+            this.FuneralServiceDataGridView.Paint += new PaintEventHandler(FuneralServiceDataGridView_Paint);
             // 
             // EditFuneralServiceButton
             // 
