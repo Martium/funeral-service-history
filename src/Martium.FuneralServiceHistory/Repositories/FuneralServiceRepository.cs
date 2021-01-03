@@ -75,16 +75,13 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 string getBiggestOrderNumberQuery =
                     @"SELECT  
-                        CASE COUNT(FSH.OrderNumber) 
-                            WHEN 0 THEN 0 
-                            ELSE MAX(FSH.OrderNumber) 
-                        END as BiggestOrderNumber
+                        MAX(FSH.OrderNumber)
                       FROM FuneralServiceHistory FSH
                     ";
 
-                int biggestOrderNumber = dbConnection.QuerySingle<int>(getBiggestOrderNumberQuery);
+                int? biggestOrderNumber = dbConnection.QuerySingleOrDefault<int?>(getBiggestOrderNumberQuery) ?? 0;
 
-                return biggestOrderNumber;
+                return biggestOrderNumber.Value;
             }
         }
 
