@@ -26,6 +26,8 @@ namespace Martium.FuneralServiceHistory.Forms
             _funeralServiceOperation = funeralServiceOperation;
             _orderNumber = orderNumber;
 
+            ResolveFormOperationDesign();
+
             InitializeComponent();
 
             SetControlsInitialState();
@@ -34,7 +36,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
         {
-            ResolveFormOperationDesign();
+            
             ResolveOrderNumberText();
             LoadFormDataForEditOrCopy();
         }

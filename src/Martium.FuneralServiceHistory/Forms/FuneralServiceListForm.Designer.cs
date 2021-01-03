@@ -209,7 +209,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.MaximizeBox = false;
             this.Name = "FuneralServiceListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Muzikavimo paslaugos istorija";
+            this.Text = "Deprofundis™ - muzikavimo paslaugų istorija";
             this.Load += new System.EventHandler(this.ServiceListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceBindingSource)).EndInit();
