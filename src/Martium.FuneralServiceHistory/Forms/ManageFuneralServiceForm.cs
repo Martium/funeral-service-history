@@ -34,7 +34,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
         {
-            ResolveFormOperation();
+            ResolveFormOperationDesign();
             ResolveOrderNumberText();
             LoadFormDataForEditOrCopy();
         }
@@ -174,19 +174,22 @@ namespace Martium.FuneralServiceHistory.Forms
             ServiceDescriptionRichTextBox.MaxLength = FormSettings.TextBoxLengths.ServiceDescription;
         }
 
-        private void ResolveFormOperation()
+        private void ResolveFormOperationDesign()
         {
             if (_funeralServiceOperation == FuneralServiceOperation.Create)
             {
                 this.Text = "Naujos paslaugos kūrimas";
+                this.Icon = Properties.Resources.CreateIcon;
             }
             else if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
                 this.Text = "Esamos paslaugos keitimas";
+                this.Icon = Properties.Resources.EditIcon;
             }
             else if (_funeralServiceOperation == FuneralServiceOperation.Copy)
             {
                 this.Text = "Esamos paslaugos kopijavimas (sukurti naują)";
+                this.Icon = Properties.Resources.CopyIcon;
             }
             else
             {

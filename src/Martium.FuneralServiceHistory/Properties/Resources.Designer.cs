@@ -63,9 +63,9 @@ namespace Martium.FuneralServiceHistory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon AddIcon {
+        internal static System.Drawing.Icon CopyIcon {
             get {
-                object obj = ResourceManager.GetObject("AddIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("CopyIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Martium.FuneralServiceHistory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon CopyIcon {
+        internal static System.Drawing.Icon CreateIcon {
             get {
-                object obj = ResourceManager.GetObject("CopyIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("CreateIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

@@ -109,7 +109,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Icons\AddIcon.ico" />
+    <Content Include="Icons\CreateIcon.ico" />
     <Content Include="Icons\CopyIcon.ico" />
     <Content Include="Icons\EditIcon.ico" />
   </ItemGroup>
