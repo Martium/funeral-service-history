@@ -15,7 +15,7 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 object queryParameters = new {};
 
-                string getAllWordsQuery =
+                string getServiceListQuery =
                     @"SELECT  
                         FSH.ServiceDates, FSH.OrderNumber, FSH.CustomerNames, FSH.CustomerPhoneNumbers, FSH.DepartedInfo
                       FROM FuneralServiceHistory FSH
@@ -23,7 +23,7 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 if (!string.IsNullOrWhiteSpace(searchPhrase))
                 {
-                    getAllWordsQuery += @" WHERE 
+                    getServiceListQuery += @" WHERE 
                                                 FSH.ServiceDates LIKE @SearchPhrase OR FSH.OrderNumber LIKE @SearchPhrase OR FSH.CustomerNames LIKE @SearchPhrase
                                                 OR FSH.CustomerPhoneNumbers LIKE @SearchPhrase OR FSH.DepartedInfo LIKE @SearchPhrase";
 
@@ -33,10 +33,10 @@ namespace Martium.FuneralServiceHistory.Repositories
                     };
                 }
 
-                getAllWordsQuery += @" ORDER BY 
+                getServiceListQuery += @" ORDER BY 
                                                FSH.OrderNumber DESC";
 
-                IEnumerable <FuneralServiceListModel> funeralServices = dbConnection.Query<FuneralServiceListModel>(getAllWordsQuery, queryParameters);
+                IEnumerable <FuneralServiceListModel> funeralServices = dbConnection.Query<FuneralServiceListModel>(getServiceListQuery, queryParameters);
 
                 return funeralServices;
             }
@@ -48,7 +48,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             {
                 dbConnection.Open();
 
-                string getByOrderNumberQuery =
+                string getServiceByOrderNumberQuery =
                     @"SELECT  
                         FSH.OrderDate , FSH.CustomerNames , FSH.CustomerPhoneNumbers , FSH.CustomerEmails , FSH.CustomerAddresses , FSH.ServiceDates , FSH.ServicePlaces , FSH.ServiceTypes , 
                         FSH.ServiceDuration , FSH.ServiceMusiciansCount , FSH.ServiceMusicProgram, FSH.DepartedInfo , FSH.DepartedConfession , FSH.DepartedRemainsType , FSH.ServiceMusicianUnitPrices , 
@@ -61,7 +61,7 @@ namespace Martium.FuneralServiceHistory.Repositories
                    OrderNumber = orderNumber
                 };
 
-                FuneralServiceModel funeralService = dbConnection.QuerySingle<FuneralServiceModel>(getByOrderNumberQuery, queryParameters);
+                FuneralServiceModel funeralService = dbConnection.QuerySingle<FuneralServiceModel>(getServiceByOrderNumberQuery, queryParameters);
 
                 return funeralService;
             }
@@ -73,17 +73,15 @@ namespace Martium.FuneralServiceHistory.Repositories
             {
                 dbConnection.Open();
 
-                object queryParameters = new { };
-
-                string getAllWordsQuery =
+                string getBiggestOrderNumberQuery =
                     @"SELECT  
                         MAX(FSH.OrderNumber)
                       FROM FuneralServiceHistory FSH
                     ";
 
-                int biggestOrderNumber = dbConnection.QuerySingle<int>(getAllWordsQuery, queryParameters);
+                int? biggestOrderNumber = dbConnection.QuerySingleOrDefault<int?>(getBiggestOrderNumberQuery) ?? 0;
 
-                return biggestOrderNumber;
+                return biggestOrderNumber.Value;
             }
         }
 
@@ -136,24 +134,15 @@ namespace Martium.FuneralServiceHistory.Repositories
                 object queryParameters = new
                 {
                     OrderNumber = orderNumber,
-                    updatedService.OrderDate,
-                    updatedService.CustomerNames,
-                    updatedService.CustomerPhoneNumbers,
-                    updatedService.CustomerEmails,
-                    updatedService.CustomerAddresses,
-                    updatedService.ServiceDates,
-                    updatedService.ServicePlaces,
-                    updatedService.ServiceTypes,
-                    updatedService.ServiceDuration,
-                    updatedService.ServiceMusiciansCount,
-                    updatedService.ServiceMusicProgram,
-                    updatedService.DepartedInfo,
-                    updatedService.DepartedConfession,
-                    updatedService.DepartedRemainsType,
-                    updatedService.ServiceMusicianUnitPrices,
-                    updatedService.ServiceDiscountPercentage,
-                    updatedService.ServicePaymentAmount,
-                    updatedService.ServicePaymentType,
+                    updatedService.OrderDate, updatedService.CustomerNames,
+                    updatedService.CustomerPhoneNumbers, updatedService.CustomerEmails,
+                    updatedService.CustomerAddresses, updatedService.ServiceDates,
+                    updatedService.ServicePlaces, updatedService.ServiceTypes,
+                    updatedService.ServiceDuration, updatedService.ServiceMusiciansCount,
+                    updatedService.ServiceMusicProgram, updatedService.DepartedInfo,
+                    updatedService.DepartedConfession, updatedService.DepartedRemainsType,
+                    updatedService.ServiceMusicianUnitPrices, updatedService.ServiceDiscountPercentage,
+                    updatedService.ServicePaymentAmount, updatedService.ServicePaymentType,
                     updatedService.ServiceDescription
                 };
 

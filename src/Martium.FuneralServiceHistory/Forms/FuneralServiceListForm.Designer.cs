@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Martium.FuneralServiceHistory.Forms
 {
     partial class FuneralServiceListForm
@@ -35,15 +37,15 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceSearchButton = new System.Windows.Forms.Button();
             this.CreateNewFuneralServiceButton = new System.Windows.Forms.Button();
             this.FuneralServiceDataGridView = new System.Windows.Forms.DataGridView();
-            this.EditFuneralServiceButton = new System.Windows.Forms.Button();
-            this.CopyFuneralServiceButton = new System.Windows.Forms.Button();
-            this.CancelFuneralServiceSearchButton = new System.Windows.Forms.Button();
             this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDatesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNamesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerPhoneNumbersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departedInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FuneralServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EditFuneralServiceButton = new System.Windows.Forms.Button();
+            this.CopyFuneralServiceButton = new System.Windows.Forms.Button();
+            this.CancelFuneralServiceSearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +113,51 @@ namespace Martium.FuneralServiceHistory.Forms
             this.FuneralServiceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FuneralServiceDataGridView.Size = new System.Drawing.Size(1036, 868);
             this.FuneralServiceDataGridView.TabIndex = 3;
+            this.FuneralServiceDataGridView.Paint += new System.Windows.Forms.PaintEventHandler(this.FuneralServiceDataGridView_Paint);
+            // 
+            // orderNumberDataGridViewTextBoxColumn
+            // 
+            this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
+            this.orderNumberDataGridViewTextBoxColumn.HeaderText = "Užsakymo numeris";
+            this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
+            this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orderNumberDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // serviceDatesDataGridViewTextBoxColumn
+            // 
+            this.serviceDatesDataGridViewTextBoxColumn.DataPropertyName = "ServiceDates";
+            this.serviceDatesDataGridViewTextBoxColumn.HeaderText = "Paslaugos data (-os)";
+            this.serviceDatesDataGridViewTextBoxColumn.Name = "serviceDatesDataGridViewTextBoxColumn";
+            this.serviceDatesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.serviceDatesDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // customerNamesDataGridViewTextBoxColumn
+            // 
+            this.customerNamesDataGridViewTextBoxColumn.DataPropertyName = "CustomerNames";
+            this.customerNamesDataGridViewTextBoxColumn.HeaderText = "Užsakovo vardas (-ai) / Įmonės pavadinimas (-ai)";
+            this.customerNamesDataGridViewTextBoxColumn.Name = "customerNamesDataGridViewTextBoxColumn";
+            this.customerNamesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerNamesDataGridViewTextBoxColumn.Width = 330;
+            // 
+            // customerPhoneNumbersDataGridViewTextBoxColumn
+            // 
+            this.customerPhoneNumbersDataGridViewTextBoxColumn.DataPropertyName = "CustomerPhoneNumbers";
+            this.customerPhoneNumbersDataGridViewTextBoxColumn.HeaderText = "Telefono numeris (-iai)";
+            this.customerPhoneNumbersDataGridViewTextBoxColumn.Name = "customerPhoneNumbersDataGridViewTextBoxColumn";
+            this.customerPhoneNumbersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerPhoneNumbersDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // departedInfoDataGridViewTextBoxColumn
+            // 
+            this.departedInfoDataGridViewTextBoxColumn.DataPropertyName = "DepartedInfo";
+            this.departedInfoDataGridViewTextBoxColumn.HeaderText = "Mirusiojo (-ių)  informacija";
+            this.departedInfoDataGridViewTextBoxColumn.Name = "departedInfoDataGridViewTextBoxColumn";
+            this.departedInfoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.departedInfoDataGridViewTextBoxColumn.Width = 315;
+            // 
+            // FuneralServiceBindingSource
+            // 
+            this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
             // 
             // EditFuneralServiceButton
             // 
@@ -135,57 +182,14 @@ namespace Martium.FuneralServiceHistory.Forms
             // CancelFuneralServiceSearchButton
             // 
             this.CancelFuneralServiceSearchButton.Enabled = false;
-            this.CancelFuneralServiceSearchButton.Location = new System.Drawing.Point(256, 19);
+            this.CancelFuneralServiceSearchButton.Location = new System.Drawing.Point(254, 18);
             this.CancelFuneralServiceSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelFuneralServiceSearchButton.Name = "CancelFuneralServiceSearchButton";
-            this.CancelFuneralServiceSearchButton.Size = new System.Drawing.Size(61, 30);
+            this.CancelFuneralServiceSearchButton.Size = new System.Drawing.Size(61, 29);
             this.CancelFuneralServiceSearchButton.TabIndex = 6;
             this.CancelFuneralServiceSearchButton.Text = "Atšaukti";
             this.CancelFuneralServiceSearchButton.UseVisualStyleBackColor = true;
             this.CancelFuneralServiceSearchButton.Click += new System.EventHandler(this.CancelFuneralServiceSearchButton_Click);
-            // 
-            // orderNumberDataGridViewTextBoxColumn
-            // 
-            this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
-            this.orderNumberDataGridViewTextBoxColumn.HeaderText = "Užsakymo numeris";
-            this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
-            this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.orderNumberDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // serviceDatesDataGridViewTextBoxColumn
-            // 
-            this.serviceDatesDataGridViewTextBoxColumn.DataPropertyName = "ServiceDates";
-            this.serviceDatesDataGridViewTextBoxColumn.HeaderText = "Paslaugos data(-os)";
-            this.serviceDatesDataGridViewTextBoxColumn.Name = "serviceDatesDataGridViewTextBoxColumn";
-            this.serviceDatesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.serviceDatesDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // customerNamesDataGridViewTextBoxColumn
-            // 
-            this.customerNamesDataGridViewTextBoxColumn.DataPropertyName = "CustomerNames";
-            this.customerNamesDataGridViewTextBoxColumn.HeaderText = "Užsakovo vardas(-ai) / Įmonės pavadinimas(-ai)";
-            this.customerNamesDataGridViewTextBoxColumn.Name = "customerNamesDataGridViewTextBoxColumn";
-            this.customerNamesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerNamesDataGridViewTextBoxColumn.Width = 330;
-            // 
-            // customerPhoneNumbersDataGridViewTextBoxColumn
-            // 
-            this.customerPhoneNumbersDataGridViewTextBoxColumn.DataPropertyName = "CustomerPhoneNumbers";
-            this.customerPhoneNumbersDataGridViewTextBoxColumn.HeaderText = "Telefono numeris(-iai)";
-            this.customerPhoneNumbersDataGridViewTextBoxColumn.Name = "customerPhoneNumbersDataGridViewTextBoxColumn";
-            this.customerPhoneNumbersDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departedInfoDataGridViewTextBoxColumn
-            // 
-            this.departedInfoDataGridViewTextBoxColumn.DataPropertyName = "DepartedInfo";
-            this.departedInfoDataGridViewTextBoxColumn.HeaderText = "Mirusiojo(-ių) informacija";
-            this.departedInfoDataGridViewTextBoxColumn.Name = "departedInfoDataGridViewTextBoxColumn";
-            this.departedInfoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.departedInfoDataGridViewTextBoxColumn.Width = 330;
-            // 
-            // FuneralServiceBindingSource
-            // 
-            this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
             // 
             // FuneralServiceListForm
             // 
@@ -205,7 +209,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.MaximizeBox = false;
             this.Name = "FuneralServiceListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Laidojimo paslaugų istorija";
+            this.Text = "Deprofundis™ - muzikavimo paslaugų istorija";
             this.Load += new System.EventHandler(this.ServiceListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceBindingSource)).EndInit();
@@ -223,12 +227,12 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.DataGridView FuneralServiceDataGridView;
         private System.Windows.Forms.Button EditFuneralServiceButton;
         private System.Windows.Forms.Button CopyFuneralServiceButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serviceDatesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNamesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerPhoneNumbersDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn departedInfoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button CancelFuneralServiceSearchButton;
+        private DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn serviceDatesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn customerNamesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn customerPhoneNumbersDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn departedInfoDataGridViewTextBoxColumn;
     }
 }
 

@@ -31,7 +31,7 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 CreateFuneralServiceHistoryTable(dbConnection);
 
-                FillDefaultFuneralServices(dbConnection);
+                //FillDefaultFuneralServices(dbConnection);
             }
         }
 

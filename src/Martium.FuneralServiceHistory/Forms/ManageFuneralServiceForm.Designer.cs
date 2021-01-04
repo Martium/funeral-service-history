@@ -148,7 +148,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerNamesRichTextBox.Name = "CustomerNamesRichTextBox";
             this.CustomerNamesRichTextBox.Size = new System.Drawing.Size(511, 45);
             this.CustomerNamesRichTextBox.TabIndex = 6;
-            this.CustomerNamesRichTextBox.Text = "\n";
+            this.CustomerNamesRichTextBox.Text = "";
             // 
             // CustomerNamesLabel
             // 
@@ -515,7 +515,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusicProgramRichTextBox.Name = "ServiceMusicProgramRichTextBox";
             this.ServiceMusicProgramRichTextBox.Size = new System.Drawing.Size(616, 82);
             this.ServiceMusicProgramRichTextBox.TabIndex = 26;
-            this.ServiceMusicProgramRichTextBox.Text = "\n";
+            this.ServiceMusicProgramRichTextBox.Text = "";
             // 
             // ServiceMusicProgramLabel
             // 
@@ -625,7 +625,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDatesRichTextBox.Name = "ServiceDatesRichTextBox";
             this.ServiceDatesRichTextBox.Size = new System.Drawing.Size(204, 66);
             this.ServiceDatesRichTextBox.TabIndex = 16;
-            this.ServiceDatesRichTextBox.Text = "\n";
+            this.ServiceDatesRichTextBox.Text = "";
             // 
             // ServiceDatesLabel
             // 
