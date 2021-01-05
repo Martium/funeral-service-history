@@ -251,8 +251,7 @@ namespace Martium.FuneralServiceHistory.Forms
             }
             else
             {
-                int nextOrderNumber = _funeralServiceRepository.GetMaxOrderNumber() + 1;
-                OrderNumberTextBox.Text = nextOrderNumber.ToString();
+                OrderNumberTextBox.Text = _funeralServiceRepository.GetNextOrderNumber().ToString();
 
                 OrderDateTextBox.Text = DateTime.Now.ToString(OrderDateFormat);
             }

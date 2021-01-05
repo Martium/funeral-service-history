@@ -60,6 +60,7 @@ namespace Martium.FuneralServiceHistory.Repositories
                 $@"                  
                   CREATE TABLE [FuneralServiceHistory] (
                     [OrderNumber] [INTEGER] PRIMARY KEY AUTOINCREMENT,
+                    [OrderCreationYear] [INTEGER] NOT NULL,
                     [OrderDate] [Date] NOT NULL,
                     [CustomerNames] [nvarchar]({FormSettings.TextBoxLengths.CustomerNames}) NULL,
                     [CustomerPhoneNumbers] [nvarchar]({FormSettings.TextBoxLengths.CustomerPhoneNumbers}) NOT NULL,

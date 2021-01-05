@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using Dapper;
 using Martium.FuneralServiceHistory.Models;
@@ -17,7 +18,7 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 string getServiceListQuery =
                     @"SELECT  
-                        FSH.ServiceDates, FSH.OrderNumber, FSH.CustomerNames, FSH.CustomerPhoneNumbers, FSH.DepartedInfo
+                        FSH.OrderCreationYear, FSH.ServiceDates, FSH.OrderNumber, FSH.CustomerNames, FSH.CustomerPhoneNumbers, FSH.DepartedInfo
                       FROM FuneralServiceHistory FSH
                     ";
 
@@ -34,7 +35,7 @@ namespace Martium.FuneralServiceHistory.Repositories
                 }
 
                 getServiceListQuery += @" ORDER BY 
-                                               FSH.OrderNumber DESC";
+                                               FSH.OrderCreationYear DESC, FSH.OrderNumber DESC";
 
                 IEnumerable <FuneralServiceListModel> funeralServices = dbConnection.Query<FuneralServiceListModel>(getServiceListQuery, queryParameters);
 
@@ -67,7 +68,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             }
         }
 
-        public int GetMaxOrderNumber()
+        public int GetNextOrderNumber()
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
@@ -77,11 +78,17 @@ namespace Martium.FuneralServiceHistory.Repositories
                     @"SELECT  
                         MAX(FSH.OrderNumber)
                       FROM FuneralServiceHistory FSH
+                      WHERE FSH.OrderCreationYear = @OrderCreationYear
                     ";
 
-                int? biggestOrderNumber = dbConnection.QuerySingleOrDefault<int?>(getBiggestOrderNumberQuery) ?? 0;
+                object queryParameters = new
+                {
+                    OrderCreationYear = DateTime.Now.Year
+                };
 
-                return biggestOrderNumber.Value;
+                int? biggestOrderNumber = dbConnection.QuerySingleOrDefault<int?>(getBiggestOrderNumberQuery, queryParameters) ?? 0;
+
+                return biggestOrderNumber.Value + 1;
             }
         }
 
@@ -93,14 +100,18 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 string createNewFuneralServiceCommand =
                     @"INSERT INTO 'FuneralServiceHistory' 
-	                    VALUES (NULL, @OrderDate , @CustomerNames , @CustomerPhoneNumbers , @CustomerEmails , @CustomerAddresses , @ServiceDates , @ServicePlaces , @ServiceTypes , 
-                                @ServiceDuration , @ServiceMusiciansCount , @ServiceMusicProgram, @DepartedInfo , @DepartedConfession , @DepartedRemainsType , @ServiceMusicianUnitPrices , 
-                                @ServiceDiscountPercentage , @ServicePaymentAmount , @ServicePaymentType , @ServiceDescription)";
+	                    VALUES (
+                            NULL, @OrderCreationYear, @OrderDate, @CustomerNames, @CustomerPhoneNumbers, @CustomerEmails,
+                            @CustomerAddresses, @ServiceDates, @ServicePlaces, @ServiceTypes, 
+                            @ServiceDuration, @ServiceMusiciansCount, @ServiceMusicProgram, @DepartedInfo, @DepartedConfession, 
+                            @DepartedRemainsType, @ServiceMusicianUnitPrices, @ServiceDiscountPercentage, @ServicePaymentAmount, 
+                            @ServicePaymentType, @ServiceDescription
+                        )";
 
                 object queryParameters = new
                 {
-                    newService.OrderDate, newService.CustomerNames, newService.CustomerPhoneNumbers,
-                    newService.CustomerEmails, newService.CustomerAddresses,
+                    newService.OrderCreationYear, newService.OrderDate, newService.CustomerNames, 
+                    newService.CustomerPhoneNumbers, newService.CustomerEmails, newService.CustomerAddresses,
                     newService.ServiceDates, newService.ServicePlaces, newService.ServiceTypes,
                     newService.ServiceDuration, newService.ServiceMusiciansCount,
                     newService.ServiceMusicProgram, newService.DepartedInfo, newService.DepartedConfession,

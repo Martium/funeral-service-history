@@ -40,12 +40,13 @@ namespace Martium.FuneralServiceHistory.Forms
             this.EditButton = new System.Windows.Forms.Button();
             this.CopyButton = new System.Windows.Forms.Button();
             this.CancelSearchButton = new System.Windows.Forms.Button();
+            this.FuneralServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OrderCreationYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDatesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNamesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerPhoneNumbersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departedInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FuneralServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ServiceHistoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +94,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceHistoryDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.ServiceHistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ServiceHistoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OrderCreationYear,
             this.orderNumberDataGridViewTextBoxColumn,
             this.serviceDatesDataGridViewTextBoxColumn,
             this.customerNamesDataGridViewTextBoxColumn,
@@ -148,9 +150,23 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CancelSearchButton.UseVisualStyleBackColor = true;
             this.CancelSearchButton.Click += new System.EventHandler(this.CancelFuneralServiceSearchButton_Click);
             // 
+            // FuneralServiceBindingSource
+            // 
+            this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
+            // 
+            // OrderCreationYear
+            // 
+            this.OrderCreationYear.DataPropertyName = "OrderCreationYear";
+            this.OrderCreationYear.Frozen = true;
+            this.OrderCreationYear.HeaderText = "Metai";
+            this.OrderCreationYear.Name = "OrderCreationYear";
+            this.OrderCreationYear.ReadOnly = true;
+            this.OrderCreationYear.Width = 45;
+            // 
             // orderNumberDataGridViewTextBoxColumn
             // 
             this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
+            this.orderNumberDataGridViewTextBoxColumn.Frozen = true;
             this.orderNumberDataGridViewTextBoxColumn.HeaderText = "Užsakymo numeris";
             this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
             this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
@@ -170,7 +186,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.customerNamesDataGridViewTextBoxColumn.HeaderText = "Užsakovo vardas (-ai) / Įmonės pavadinimas (-ai)";
             this.customerNamesDataGridViewTextBoxColumn.Name = "customerNamesDataGridViewTextBoxColumn";
             this.customerNamesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerNamesDataGridViewTextBoxColumn.Width = 330;
+            this.customerNamesDataGridViewTextBoxColumn.Width = 305;
             // 
             // customerPhoneNumbersDataGridViewTextBoxColumn
             // 
@@ -186,11 +202,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.departedInfoDataGridViewTextBoxColumn.HeaderText = "Mirusiojo (-ių)  informacija";
             this.departedInfoDataGridViewTextBoxColumn.Name = "departedInfoDataGridViewTextBoxColumn";
             this.departedInfoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.departedInfoDataGridViewTextBoxColumn.Width = 315;
-            // 
-            // FuneralServiceBindingSource
-            // 
-            this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
+            this.departedInfoDataGridViewTextBoxColumn.Width = 295;
             // 
             // ListForm
             // 
@@ -230,6 +242,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button CopyButton;
         private System.Windows.Forms.Button CancelSearchButton;
+        private DataGridViewTextBoxColumn OrderCreationYear;
         private DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn serviceDatesDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn customerNamesDataGridViewTextBoxColumn;

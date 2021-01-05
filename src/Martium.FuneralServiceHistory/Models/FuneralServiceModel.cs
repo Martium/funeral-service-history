@@ -4,6 +4,7 @@ namespace Martium.FuneralServiceHistory.Models
 {
     public class FuneralServiceModel
     {
+        public int OrderCreationYear => DateTime.Now.Year;
         public DateTime OrderDate { get; set; }
         public string CustomerNames { get; set; }
         public string CustomerPhoneNumbers { get; set; }
