@@ -75,7 +75,7 @@ namespace Martium.FuneralServiceHistory.Forms
         
         private void OrderDateTextBox_TextChanged(object sender, EventArgs e)
         {
-            EnableSaveButtonIfPossible();
+            EnableButtonsIfPossible();
         }
 
         private void CustomerPhoneNumbersRichTextBox_Validating(object sender, CancelEventArgs e)
@@ -94,7 +94,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CustomerPhoneNumbersRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            EnableSaveButtonIfPossible();
+            EnableButtonsIfPossible();
         }
 
         private void SaveFuneralServiceChangesButton_Click(object sender, EventArgs e)
@@ -286,9 +286,12 @@ namespace Martium.FuneralServiceHistory.Forms
             textBoxBase.BackColor = Color.White;
         }
 
-        private void EnableSaveButtonIfPossible()
+        private void EnableButtonsIfPossible()
         {
-            SaveFuneralServiceChangesButton.Enabled = (!string.IsNullOrWhiteSpace(OrderDateTextBox.Text) && !string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text));
+            bool enabled = (!string.IsNullOrWhiteSpace(OrderDateTextBox.Text) && !string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text));
+
+            SaveFuneralServiceChangesButton.Enabled = enabled;
+            PrintButton.Enabled = enabled;
         }
 
         private static void ShowDataSaveMessage(string message)
