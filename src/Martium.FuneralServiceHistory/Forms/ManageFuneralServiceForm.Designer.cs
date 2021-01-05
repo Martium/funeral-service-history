@@ -82,6 +82,8 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceInformationLabel = new System.Windows.Forms.Label();
             this.OrderNumberTextBox = new System.Windows.Forms.TextBox();
             this.SaveFuneralServiceChangesButton = new System.Windows.Forms.Button();
+            this.PrintPreviewButton = new System.Windows.Forms.Button();
+            this.PrintButton = new System.Windows.Forms.Button();
             this.FuneralSericePrintPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -673,12 +675,32 @@ namespace Martium.FuneralServiceHistory.Forms
             this.SaveFuneralServiceChangesButton.UseVisualStyleBackColor = true;
             this.SaveFuneralServiceChangesButton.Click += new System.EventHandler(this.SaveFuneralServiceChangesButton_Click);
             // 
+            // PrintPreviewButton
+            // 
+            this.PrintPreviewButton.Location = new System.Drawing.Point(147, 944);
+            this.PrintPreviewButton.Name = "PrintPreviewButton";
+            this.PrintPreviewButton.Size = new System.Drawing.Size(95, 48);
+            this.PrintPreviewButton.TabIndex = 16;
+            this.PrintPreviewButton.Text = "Spausdinimo peržiūra";
+            this.PrintPreviewButton.UseVisualStyleBackColor = true;
+            // 
+            // PrintButton
+            // 
+            this.PrintButton.Location = new System.Drawing.Point(248, 944);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(80, 48);
+            this.PrintButton.TabIndex = 17;
+            this.PrintButton.Text = "Spausdinti";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            // 
             // ManageFuneralServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1064, 1001);
+            this.Controls.Add(this.PrintButton);
+            this.Controls.Add(this.PrintPreviewButton);
             this.Controls.Add(this.SaveFuneralServiceChangesButton);
             this.Controls.Add(this.FuneralSericePrintPanel);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -744,5 +766,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.Label CustomerPhoneNumbersErrorMessageLabel;
         private System.Windows.Forms.Label ServicePaymentAmountLabel;
         private System.Windows.Forms.TextBox OrderNumberTextBox;
+        private System.Windows.Forms.Button PrintPreviewButton;
+        private System.Windows.Forms.Button PrintButton;
     }
 }
