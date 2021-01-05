@@ -19,6 +19,8 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private const string OrderDateFormat = "yyyy-MM-dd";
 
+        private Bitmap memoryPrintFuneralserviceForm;
+
         public ManageFuneralServiceForm(FuneralServiceOperation funeralServiceOperation, int? orderNumber = null)
         {
             _funeralServiceRepository = new FuneralServiceRepository();
@@ -132,6 +134,16 @@ namespace Martium.FuneralServiceHistory.Forms
             {
                 ShowManageFormErrorDialog();
             }
+        }
+        private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            
+        }
+
+
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            
         }
 
         #region Helpers
@@ -270,6 +282,16 @@ namespace Martium.FuneralServiceHistory.Forms
         {
             MessageBox.Show("Nepavyko išsaugoti, bandykite dar kart!", "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void CaptureFuneralServiceFormScreen()
+        {
+            Graphics funeralServiceFormGraphics = this.CreateGraphics();
+            Size funeralServiceFormSize = this.Size;
+            memoryPrintFuneralserviceForm = new Bitmap(funeralServiceFormSize.Width, funeralServiceFormSize.Height, funeralServiceFormGraphics);
+            Graphics memoryGraphics = Graphics.FromImage(memoryPrintFuneralserviceForm);
+            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, funeralServiceFormSize);
+        }
+
 
         #endregion
     }

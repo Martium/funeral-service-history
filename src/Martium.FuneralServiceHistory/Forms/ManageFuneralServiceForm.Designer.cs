@@ -695,6 +695,11 @@ namespace Martium.FuneralServiceHistory.Forms
             this.PrintButton.TabIndex = 17;
             this.PrintButton.Text = "Spausdinti";
             this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+            // 
+            // PrintManageFuneralServiceForm
+            // 
+            this.PrintManageFuneralServiceForm.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintManageFuneralServiceForm_PrintPage);
             // 
             // PrintPreviewManageFuneralServiceForm
             // 
