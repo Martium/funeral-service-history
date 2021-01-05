@@ -3,12 +3,12 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using Martium.FuneralServiceHistory.Constants;
-using Martium.FuneralServiceHistory.Enums;
-using Martium.FuneralServiceHistory.Models;
-using Martium.FuneralServiceHistory.Repositories;
+using Martium.DeprofundisHistory.Constants;
+using Martium.DeprofundisHistory.Enums;
+using Martium.DeprofundisHistory.Models;
+using Martium.DeprofundisHistory.Repositories;
 
-namespace Martium.FuneralServiceHistory.Forms
+namespace Martium.DeprofundisHistory.Forms
 {
     public partial class ManageForm : Form
     {

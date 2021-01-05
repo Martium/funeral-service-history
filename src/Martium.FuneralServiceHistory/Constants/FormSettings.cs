@@ -1,4 +1,4 @@
-﻿namespace Martium.FuneralServiceHistory.Constants
+﻿namespace Martium.DeprofundisHistory.Constants
 {
     public static class FormSettings
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-using Martium.FuneralServiceHistory.Forms;
-using Martium.FuneralServiceHistory.Repositories;
+using Martium.DeprofundisHistory.Forms;
+using Martium.DeprofundisHistory.Repositories;
 
-namespace Martium.FuneralServiceHistory
+namespace Martium.DeprofundisHistory
 {
     static class Program
     {

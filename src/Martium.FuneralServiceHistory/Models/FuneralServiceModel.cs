@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Martium.FuneralServiceHistory.Models
+namespace Martium.DeprofundisHistory.Models
 {
     public class FuneralServiceModel
     {

@@ -1,7 +1,8 @@
 ﻿
 using System.Windows.Forms;
+using Martium.DeprofundisHistory.Models;
 
-namespace Martium.FuneralServiceHistory.Forms
+namespace Martium.DeprofundisHistory.Forms
 {
     partial class ListForm
     {
@@ -152,7 +153,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // FuneralServiceBindingSource
             // 
-            this.FuneralServiceBindingSource.DataSource = typeof(Martium.FuneralServiceHistory.Models.FuneralServiceListModel);
+            this.FuneralServiceBindingSource.DataSource = typeof(FuneralServiceListModel);
             // 
             // OrderCreationYear
             // 

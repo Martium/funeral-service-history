@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.IO;
-using Martium.FuneralServiceHistory.Constants;
+using Martium.DeprofundisHistory.Constants;
 
-namespace Martium.FuneralServiceHistory.Repositories
+namespace Martium.DeprofundisHistory.Repositories
 {
     public class DatabaseInitializerRepository
     {

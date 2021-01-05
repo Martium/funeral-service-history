@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace Martium.FuneralServiceHistory
+namespace Martium.DeprofundisHistory
 {
     public static class AppConfiguration
     {

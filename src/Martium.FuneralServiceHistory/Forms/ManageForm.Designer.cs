@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.ComponentModel;
-
-namespace Martium.FuneralServiceHistory.Forms
+﻿namespace Martium.DeprofundisHistory.Forms
 {
     partial class ManageForm
     {

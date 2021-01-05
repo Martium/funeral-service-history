@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
 using Dapper;
-using Martium.FuneralServiceHistory.Models;
+using Martium.DeprofundisHistory.Models;
 
-namespace Martium.FuneralServiceHistory.Repositories
+namespace Martium.DeprofundisHistory.Repositories
 {
     public class FuneralServiceRepository
     {

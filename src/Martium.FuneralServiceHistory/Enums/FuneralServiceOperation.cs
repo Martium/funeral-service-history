@@ -1,4 +1,4 @@
-﻿namespace Martium.FuneralServiceHistory.Enums
+﻿namespace Martium.DeprofundisHistory.Enums
 {
     public enum FuneralServiceOperation
     {

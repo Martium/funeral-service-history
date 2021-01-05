@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Martium.FuneralServiceHistory.Enums;
-using Martium.FuneralServiceHistory.Models;
-using Martium.FuneralServiceHistory.Repositories;
+using Martium.DeprofundisHistory.Enums;
+using Martium.DeprofundisHistory.Models;
+using Martium.DeprofundisHistory.Repositories;
 
-namespace Martium.FuneralServiceHistory.Forms
+namespace Martium.DeprofundisHistory.Forms
 {
     public partial class ListForm : Form
     {
