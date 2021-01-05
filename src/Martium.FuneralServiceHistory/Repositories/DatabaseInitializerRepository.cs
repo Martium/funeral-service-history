@@ -1,4 +1,5 @@
-﻿using System.Data.SQLite;
+﻿using System;
+using System.Data.SQLite;
 using System.IO;
 using Martium.FuneralServiceHistory.Constants;
 
@@ -31,7 +32,7 @@ namespace Martium.FuneralServiceHistory.Repositories
 
                 CreateFuneralServiceHistoryTable(dbConnection);
 
-                //FillDefaultFuneralServices(dbConnection);
+                FillDefaultFuneralServices(dbConnection);
             }
         }
 
@@ -59,7 +60,7 @@ namespace Martium.FuneralServiceHistory.Repositories
             string createFuneralServiceHistoryTableQuery =
                 $@"                  
                   CREATE TABLE [FuneralServiceHistory] (
-                    [OrderNumber] [INTEGER] PRIMARY KEY AUTOINCREMENT,
+                    [OrderNumber] [INTEGER] NOT NULL,
                     [OrderCreationYear] [INTEGER] NOT NULL,
                     [OrderDate] [Date] NOT NULL,
                     [CustomerNames] [nvarchar]({FormSettings.TextBoxLengths.CustomerNames}) NULL,
@@ -79,7 +80,8 @@ namespace Martium.FuneralServiceHistory.Repositories
                     [ServiceDiscountPercentage] [nvarchar]({FormSettings.TextBoxLengths.ServiceDiscountPercentage}) NULL,
                     [ServicePaymentAmount] [nvarchar]({FormSettings.TextBoxLengths.ServicePaymentAmount}) NULL,
                     [ServicePaymentType] [nvarchar]({FormSettings.TextBoxLengths.ServicePaymentType}) NULL,
-                    [ServiceDescription] [nvarchar]({FormSettings.TextBoxLengths.ServiceDescription}) NULL
+                    [ServiceDescription] [nvarchar]({FormSettings.TextBoxLengths.ServiceDescription}) NULL,
+                    UNIQUE(OrderNumber, OrderCreationYear)
                   );
                 ";
             SQLiteCommand createFuneralServiceHistoryTableCommand = new SQLiteCommand(createFuneralServiceHistoryTableQuery, dbConnection);
@@ -88,16 +90,14 @@ namespace Martium.FuneralServiceHistory.Repositories
 
         private void FillDefaultFuneralServices(SQLiteConnection dbConnection)
         {
-            const string fillFuneralServiceHistoryTableQuery =
-                @"BEGIN TRANSACTION;
+            string fillFuneralServiceHistoryTableQuery =
+                $@"BEGIN TRANSACTION;
 	                INSERT INTO 'FuneralServiceHistory' 
-		                (OrderDate, CustomerNames, CustomerPhoneNumbers, CustomerEmails, CustomerAddresses, ServiceDates, ServicePlaces, ServiceTypes, ServiceDuration, ServiceMusiciansCount, ServiceMusicProgram,
-                         DepartedInfo, DepartedConfession, DepartedRemainsType, ServiceMusicianUnitPrices, ServiceDiscountPercentage, ServicePaymentAmount, ServicePaymentType, ServiceDescription)
-	                    VALUES ('2020-05-23 10:09:03', 'Bazinga Bombas', '+370645858222', 'bazinga@bazinga.com', 'Kaimuks', '2020-10-10 10:00, 2020-10-11 11:00', 'Kaimuks kaimo g 1', 'muzikavimas laidotuvese', '3h', '2 muzikantai', 'klasikos programa', 'balandis bazinga', 'katalikas', 'karastas', '200 EUR', '50%', '400 EUR', 'Saskaita faktura', 'bla balas basd hasd gasd ahsdb asjdaf ajsdajf asjhas asjdbasf');
+	                    VALUES (1, {DateTime.Now.Year}, '2020-05-23 10:09:03', 'Bazinga Bombas', '+370645858222', 'bazinga@bazinga.com', 'Kaimuks', '2020-10-10 10:00, 2020-10-11 11:00', 'Kaimuks kaimo g 1', 'muzikavimas laidotuvese', '3h', '2 muzikantai', 'klasikos programa', 'balandis bazinga', 'katalikas', 'karastas', '200 EUR', '50%', '400 EUR', 'Saskaita faktura', 'bla balas basd hasd gasd ahsdb asjdaf ajsdajf asjhas asjdbasf');
 	                INSERT INTO 'FuneralServiceHistory'
-                        (OrderDate, CustomerNames, CustomerPhoneNumbers, CustomerEmails, CustomerAddresses, ServiceDates, ServicePlaces, ServiceTypes, ServiceDuration, ServiceMusiciansCount, ServiceMusicProgram,
-                         DepartedInfo, DepartedConfession, DepartedRemainsType, ServiceMusicianUnitPrices, ServiceDiscountPercentage, ServicePaymentAmount, ServicePaymentType, ServiceDescription)
-                        VALUES ('2020-06-23 10:09:03', 'Bazinge Bombe', '+370645858111', 'bazinge@bazinge.com', 'Kaimuks', '2020-10-10 10:00, 2020-10-11 11:00', 'Kaimuks kaimo g 1', 'muzikavimas laidotuvese', '3h', '2 muzikantai', 'klasikos programa', 'balandis bazinga', 'katalikas', 'karastas', '200 EUR', '50%', '400 EUR', 'Saskaita faktura', 'bla balas basd hasd gasd ahsdb asjdaf ajsdajf asjhas asjdbasf');
+                        VALUES (2, {DateTime.Now.Year}, '2020-06-23 10:09:03', 'Bazinge Bombe', '+370645858111', 'bazinge@bazinge.com', 'Kaimuks', '2020-10-10 10:00, 2020-10-11 11:00', 'Kaimuks kaimo g 1', 'muzikavimas laidotuvese', '3h', '2 muzikantai', 'klasikos programa', 'balandis bazinga', 'katalikas', 'karastas', '200 EUR', '50%', '400 EUR', 'Saskaita faktura', 'bla balas basd hasd gasd ahsdb asjdaf ajsdajf asjhas asjdbasf');
+                    INSERT INTO 'FuneralServiceHistory' 
+	                    VALUES (1, {DateTime.Now.AddYears(-1).Year}, '2020-05-23 10:09:03', 'Bazinga Bombas praitu metu', '+370645858222', 'bazinga@bazinga.com', 'Kaimuks', '2020-10-10 10:00, 2020-10-11 11:00', 'Kaimuks kaimo g 1', 'muzikavimas laidotuvese', '3h', '2 muzikantai', 'klasikos programa', 'balandis bazinga', 'katalikas', 'karastas', '200 EUR', '50%', '400 EUR', 'Saskaita faktura', 'bla balas basd hasd gasd ahsdb asjdaf ajsdajf asjhas asjdbasf');
                 COMMIT;";
             SQLiteCommand fillFuneralServiceHistoryTableCommand = new SQLiteCommand(fillFuneralServiceHistoryTableQuery, dbConnection);
             fillFuneralServiceHistoryTableCommand.ExecuteNonQuery();

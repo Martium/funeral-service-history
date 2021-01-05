@@ -55,11 +55,12 @@ namespace Martium.FuneralServiceHistory.Repositories
                         FSH.ServiceDuration , FSH.ServiceMusiciansCount , FSH.ServiceMusicProgram, FSH.DepartedInfo , FSH.DepartedConfession , FSH.DepartedRemainsType , FSH.ServiceMusicianUnitPrices , 
                         FSH.ServiceDiscountPercentage , FSH.ServicePaymentAmount , FSH.ServicePaymentType , FSH.ServiceDescription
                       FROM FuneralServiceHistory FSH
-                      WHERE FSH.OrderNumber = @OrderNumber";
+                      WHERE FSH.OrderNumber = @OrderNumber AND OrderCreationYear = @OrderCreationYear";
 
                 object queryParameters = new
                 {
-                   OrderNumber = orderNumber
+                   OrderNumber = orderNumber,
+                   OrderCreationYear = DateTime.Now.Year
                 };
 
                 FuneralServiceModel funeralService = dbConnection.QuerySingle<FuneralServiceModel>(getServiceByOrderNumberQuery, queryParameters);
@@ -94,6 +95,8 @@ namespace Martium.FuneralServiceHistory.Repositories
 
         public bool CreateNewFuneralService(FuneralServiceModel newService)
         {
+            int nextOrderNumber = GetNextOrderNumber();
+
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
                 dbConnection.Open();
@@ -101,16 +104,16 @@ namespace Martium.FuneralServiceHistory.Repositories
                 string createNewFuneralServiceCommand =
                     @"INSERT INTO 'FuneralServiceHistory' 
 	                    VALUES (
-                            NULL, @OrderCreationYear, @OrderDate, @CustomerNames, @CustomerPhoneNumbers, @CustomerEmails,
-                            @CustomerAddresses, @ServiceDates, @ServicePlaces, @ServiceTypes, 
-                            @ServiceDuration, @ServiceMusiciansCount, @ServiceMusicProgram, @DepartedInfo, @DepartedConfession, 
-                            @DepartedRemainsType, @ServiceMusicianUnitPrices, @ServiceDiscountPercentage, @ServicePaymentAmount, 
-                            @ServicePaymentType, @ServiceDescription
+                            @OrderNumber, @OrderCreationYear, @OrderDate, @CustomerNames, @CustomerPhoneNumbers, @CustomerEmails,
+                            @CustomerAddresses, @ServiceDates, @ServicePlaces, @ServiceTypes, @ServiceDuration, @ServiceMusiciansCount, 
+                            @ServiceMusicProgram, @DepartedInfo, @DepartedConfession, @DepartedRemainsType, @ServiceMusicianUnitPrices, 
+                            @ServiceDiscountPercentage, @ServicePaymentAmount, @ServicePaymentType, @ServiceDescription
                         )";
 
                 object queryParameters = new
                 {
-                    newService.OrderCreationYear, newService.OrderDate, newService.CustomerNames, 
+                    OrderNumber = nextOrderNumber, OrderCreationYear = DateTime.Now.Year, 
+                    newService.OrderDate, newService.CustomerNames, 
                     newService.CustomerPhoneNumbers, newService.CustomerEmails, newService.CustomerAddresses,
                     newService.ServiceDates, newService.ServicePlaces, newService.ServiceTypes,
                     newService.ServiceDuration, newService.ServiceMusiciansCount,
@@ -140,11 +143,10 @@ namespace Martium.FuneralServiceHistory.Repositories
                             DepartedInfo = @DepartedInfo, DepartedConfession = @DepartedConfession, DepartedRemainsType = @DepartedRemainsType, 
                             ServiceMusicianUnitPrices = @ServiceMusicianUnitPrices, ServiceDiscountPercentage = @ServiceDiscountPercentage,
                             ServicePaymentAmount = @ServicePaymentAmount, ServicePaymentType = @ServicePaymentType, ServiceDescription = @ServiceDescription
-                     WHERE OrderNumber = @OrderNumber";
+                     WHERE OrderNumber = @OrderNumber AND OrderCreationYear = @OrderCreationYear";
 
                 object queryParameters = new
                 {
-                    OrderNumber = orderNumber,
                     updatedService.OrderDate, updatedService.CustomerNames,
                     updatedService.CustomerPhoneNumbers, updatedService.CustomerEmails,
                     updatedService.CustomerAddresses, updatedService.ServiceDates,
@@ -154,7 +156,8 @@ namespace Martium.FuneralServiceHistory.Repositories
                     updatedService.DepartedConfession, updatedService.DepartedRemainsType,
                     updatedService.ServiceMusicianUnitPrices, updatedService.ServiceDiscountPercentage,
                     updatedService.ServicePaymentAmount, updatedService.ServicePaymentType,
-                    updatedService.ServiceDescription
+                    updatedService.ServiceDescription,
+                    OrderNumber = orderNumber, OrderCreationYear = DateTime.Now.Year
                 };
 
                 int affectedRows = dbConnection.Execute(createNewFuneralServiceCommand, queryParameters);

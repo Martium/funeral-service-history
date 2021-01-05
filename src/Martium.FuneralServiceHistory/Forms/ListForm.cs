@@ -14,8 +14,9 @@ namespace Martium.FuneralServiceHistory.Forms
         private readonly FuneralServiceRepository _funeralServiceRepository;
 
         private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
+        private readonly int _OrderNumberColumnIndex = 1;
+
         private bool _searchActive;
-        
 
         public ListForm()
         {
@@ -56,7 +57,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void EditFuneralServiceButton_Click(object sender, EventArgs e)
         {
-            int selectedOrderNumber = (int) ServiceHistoryDataGridView.SelectedRows[0].Cells[0].Value;
+            int selectedOrderNumber = (int) ServiceHistoryDataGridView.SelectedRows[0].Cells[_OrderNumberColumnIndex].Value;
 
             var editForm = new ManageForm(FuneralServiceOperation.Edit, selectedOrderNumber);
 
@@ -67,7 +68,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CopyFuneralServiceButton_Click(object sender, System.EventArgs e)
         {
-            int selectedOrderNumber = (int)ServiceHistoryDataGridView.SelectedRows[0].Cells[0].Value;
+            int selectedOrderNumber = (int)ServiceHistoryDataGridView.SelectedRows[0].Cells[_OrderNumberColumnIndex].Value;
 
             var copyForm = new ManageForm(FuneralServiceOperation.Copy, selectedOrderNumber);
 
