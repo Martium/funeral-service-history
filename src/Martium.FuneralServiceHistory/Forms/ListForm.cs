@@ -49,9 +49,9 @@ namespace Martium.FuneralServiceHistory.Forms
         {
             var createForm = new ManageForm(FuneralServiceOperation.Create);
 
-            createForm.Closed += RefreshList;
+            createForm.Closed += ShowAndRefreshListForm;
 
-            createForm.Show(this);
+            HideListAndOpenManageForm(createForm);
         }
 
         private void EditFuneralServiceButton_Click(object sender, EventArgs e)
@@ -60,9 +60,9 @@ namespace Martium.FuneralServiceHistory.Forms
 
             var editForm = new ManageForm(FuneralServiceOperation.Edit, selectedOrderNumber);
 
-            editForm.Closed += RefreshList;
+            editForm.Closed += ShowAndRefreshListForm;
 
-            editForm.Show(this);
+            HideListAndOpenManageForm(editForm);
         }
 
         private void CopyFuneralServiceButton_Click(object sender, System.EventArgs e)
@@ -71,9 +71,9 @@ namespace Martium.FuneralServiceHistory.Forms
 
             var copyForm = new ManageForm(FuneralServiceOperation.Copy, selectedOrderNumber);
 
-            copyForm.Closed += RefreshList;
+            copyForm.Closed += ShowAndRefreshListForm;
 
-            copyForm.Show(this);
+            HideListAndOpenManageForm(copyForm);
         }
 
         private void FuneralServiceSearchTextBox_GotFocus(object sender, EventArgs e)
@@ -133,13 +133,22 @@ namespace Martium.FuneralServiceHistory.Forms
             CancelSearchButton.Enabled = false;
         }
 
-        private void RefreshList(object sender, EventArgs e)
+        private void ShowAndRefreshListForm(object sender, EventArgs e)
         {
             _searchActive = false;
 
             SetControlsInitialState();
 
             LoadFuneralServiceList();
+
+            this.Show();
+        }
+
+        private void HideListAndOpenManageForm(Form manageForm)
+        {
+            this.Hide();
+
+            manageForm.Show(this);
         }
 
         private void LoadFuneralServiceList(string searchPhrase = null)
