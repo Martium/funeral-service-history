@@ -1,10 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Globalization;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using Martium.FuneralServiceHistory.Constants;
 using Martium.FuneralServiceHistory.Enums;
 using Martium.FuneralServiceHistory.Models;
@@ -52,7 +50,6 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
         {
-            
             ResolveOrderNumberText();
             LoadFormDataForEditOrCopy();
         }
@@ -159,7 +156,6 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Rectangle pageArea = e.PageBounds;
             e.Graphics.DrawImage(
                 _funeralServiceMemoryImage, 
                 0, 
@@ -181,6 +177,8 @@ namespace Martium.FuneralServiceHistory.Forms
             OrderDateErrorMessageLabel.Visible = false;
 
             CustomerPhoneNumbersErrorMessageLabel.Visible = false;
+
+            (FuneralServicePrintPreviewDialog as Form).WindowState = FormWindowState.Maximized;
         }
 
         private void SetTextBoxMaxLengths()
