@@ -33,6 +33,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageFuneralServiceForm));
             this.OrderNumberLabel = new System.Windows.Forms.Label();
             this.OrderDateLabel = new System.Windows.Forms.Label();
             this.OrderDateTextBox = new System.Windows.Forms.TextBox();
@@ -84,6 +85,8 @@ namespace Martium.FuneralServiceHistory.Forms
             this.SaveFuneralServiceChangesButton = new System.Windows.Forms.Button();
             this.PrintPreviewButton = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
+            this.PrintManageFuneralServiceForm = new System.Drawing.Printing.PrintDocument();
+            this.PrintPreviewManageFuneralServiceForm = new System.Windows.Forms.PrintPreviewDialog();
             this.FuneralSericePrintPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -677,7 +680,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // PrintPreviewButton
             // 
-            this.PrintPreviewButton.Location = new System.Drawing.Point(147, 944);
+            this.PrintPreviewButton.Location = new System.Drawing.Point(137, 944);
             this.PrintPreviewButton.Name = "PrintPreviewButton";
             this.PrintPreviewButton.Size = new System.Drawing.Size(95, 48);
             this.PrintPreviewButton.TabIndex = 16;
@@ -686,12 +689,23 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(248, 944);
+            this.PrintButton.Location = new System.Drawing.Point(237, 944);
             this.PrintButton.Name = "PrintButton";
             this.PrintButton.Size = new System.Drawing.Size(80, 48);
             this.PrintButton.TabIndex = 17;
             this.PrintButton.Text = "Spausdinti";
             this.PrintButton.UseVisualStyleBackColor = true;
+            // 
+            // PrintPreviewManageFuneralServiceForm
+            // 
+            this.PrintPreviewManageFuneralServiceForm.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PrintPreviewManageFuneralServiceForm.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PrintPreviewManageFuneralServiceForm.ClientSize = new System.Drawing.Size(400, 300);
+            this.PrintPreviewManageFuneralServiceForm.Document = this.PrintManageFuneralServiceForm;
+            this.PrintPreviewManageFuneralServiceForm.Enabled = true;
+            this.PrintPreviewManageFuneralServiceForm.Icon = ((System.Drawing.Icon)(resources.GetObject("PrintPreviewManageFuneralServiceForm.Icon")));
+            this.PrintPreviewManageFuneralServiceForm.Name = "PrintPreviewManageFuneralServiceForm";
+            this.PrintPreviewManageFuneralServiceForm.Visible = false;
             // 
             // ManageFuneralServiceForm
             // 
@@ -768,5 +782,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.TextBox OrderNumberTextBox;
         private System.Windows.Forms.Button PrintPreviewButton;
         private System.Windows.Forms.Button PrintButton;
+        private System.Drawing.Printing.PrintDocument PrintManageFuneralServiceForm;
+        private System.Windows.Forms.PrintPreviewDialog PrintPreviewManageFuneralServiceForm;
     }
 }
