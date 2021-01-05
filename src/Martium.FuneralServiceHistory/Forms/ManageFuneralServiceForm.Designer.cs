@@ -686,6 +686,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.PrintPreviewButton.TabIndex = 16;
             this.PrintPreviewButton.Text = "Spausdinimo peržiūra";
             this.PrintPreviewButton.UseVisualStyleBackColor = true;
+            this.PrintPreviewButton.Click += new System.EventHandler(this.PrintPreviewButton_Click);
             // 
             // PrintButton
             // 

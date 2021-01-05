@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Windows.Forms;
 using Martium.FuneralServiceHistory.Constants;
@@ -137,13 +138,21 @@ namespace Martium.FuneralServiceHistory.Forms
         }
         private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            
+            e.Graphics.DrawImage(memoryPrintFuneralserviceForm, 0, 0);
+        }
+
+        private void PrintPreviewButton_Click(object sender, EventArgs e)
+        {
+            CaptureFuneralServiceFormScreen();
+            PrintPreviewManageFuneralServiceForm.ShowDialog();
         }
 
 
         private void PrintButton_Click(object sender, EventArgs e)
         {
-            
+            CaptureFuneralServiceFormScreen();
+            PrintManageFuneralServiceForm.Print();
+            PrintManageFuneralServiceForm.PrintPage += new PrintPageEventHandler(PrintManageFuneralServiceForm_PrintPage);
         }
 
         #region Helpers
@@ -291,7 +300,6 @@ namespace Martium.FuneralServiceHistory.Forms
             Graphics memoryGraphics = Graphics.FromImage(memoryPrintFuneralserviceForm);
             memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, funeralServiceFormSize);
         }
-
 
         #endregion
     }
