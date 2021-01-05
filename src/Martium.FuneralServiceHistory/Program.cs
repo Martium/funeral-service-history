@@ -29,7 +29,7 @@ namespace Martium.FuneralServiceHistory
                 bool success = InitializeDatabase();
                 if (success)
                 {
-                    Application.Run(new FuneralServiceListForm());
+                    Application.Run(new ListForm());
                 }
             }
         }
