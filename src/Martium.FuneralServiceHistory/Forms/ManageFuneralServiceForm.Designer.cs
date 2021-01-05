@@ -92,7 +92,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.OrderNumberLabel.BackColor = System.Drawing.SystemColors.Control;
             this.OrderNumberLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.OrderNumberLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderNumberLabel.Location = new System.Drawing.Point(5, 4);
+            this.OrderNumberLabel.Location = new System.Drawing.Point(4, 4);
             this.OrderNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OrderNumberLabel.Name = "OrderNumberLabel";
             this.OrderNumberLabel.Size = new System.Drawing.Size(204, 31);
@@ -105,7 +105,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.OrderDateLabel.BackColor = System.Drawing.SystemColors.Control;
             this.OrderDateLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.OrderDateLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderDateLabel.Location = new System.Drawing.Point(265, 4);
+            this.OrderDateLabel.Location = new System.Drawing.Point(262, 4);
             this.OrderDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OrderDateLabel.Name = "OrderDateLabel";
             this.OrderDateLabel.Size = new System.Drawing.Size(128, 31);
@@ -117,11 +117,11 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.OrderDateTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.OrderDateTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderDateTextBox.Location = new System.Drawing.Point(393, 4);
+            this.OrderDateTextBox.Location = new System.Drawing.Point(389, 4);
             this.OrderDateTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.OrderDateTextBox.Multiline = true;
             this.OrderDateTextBox.Name = "OrderDateTextBox";
-            this.OrderDateTextBox.Size = new System.Drawing.Size(236, 31);
+            this.OrderDateTextBox.Size = new System.Drawing.Size(245, 31);
             this.OrderDateTextBox.TabIndex = 3;
             this.OrderDateTextBox.TextChanged += new System.EventHandler(this.OrderDateTextBox_TextChanged);
             this.OrderDateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OrderDateTextBox_Validating);
@@ -140,10 +140,10 @@ namespace Martium.FuneralServiceHistory.Forms
             // CustomerNamesRichTextBox
             // 
             this.CustomerNamesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomerNamesRichTextBox.Location = new System.Drawing.Point(118, 82);
+            this.CustomerNamesRichTextBox.Location = new System.Drawing.Point(116, 82);
             this.CustomerNamesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerNamesRichTextBox.Name = "CustomerNamesRichTextBox";
-            this.CustomerNamesRichTextBox.Size = new System.Drawing.Size(511, 45);
+            this.CustomerNamesRichTextBox.Size = new System.Drawing.Size(518, 45);
             this.CustomerNamesRichTextBox.TabIndex = 6;
             this.CustomerNamesRichTextBox.Text = "";
             // 
@@ -198,7 +198,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // CustomerEmailsRichTextBox
             // 
             this.CustomerEmailsRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomerEmailsRichTextBox.Location = new System.Drawing.Point(265, 154);
+            this.CustomerEmailsRichTextBox.Location = new System.Drawing.Point(264, 154);
             this.CustomerEmailsRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerEmailsRichTextBox.Name = "CustomerEmailsRichTextBox";
             this.CustomerEmailsRichTextBox.Size = new System.Drawing.Size(307, 45);
@@ -210,7 +210,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerAddressesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.CustomerAddressesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CustomerAddressesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerAddressesLabel.Location = new System.Drawing.Point(573, 154);
+            this.CustomerAddressesLabel.Location = new System.Drawing.Point(570, 154);
             this.CustomerAddressesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerAddressesLabel.Name = "CustomerAddressesLabel";
             this.CustomerAddressesLabel.Size = new System.Drawing.Size(64, 45);
@@ -220,10 +220,10 @@ namespace Martium.FuneralServiceHistory.Forms
             // CustomerAddressesRichTextBox
             // 
             this.CustomerAddressesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomerAddressesRichTextBox.Location = new System.Drawing.Point(637, 154);
+            this.CustomerAddressesRichTextBox.Location = new System.Drawing.Point(633, 154);
             this.CustomerAddressesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerAddressesRichTextBox.Name = "CustomerAddressesRichTextBox";
-            this.CustomerAddressesRichTextBox.Size = new System.Drawing.Size(167, 45);
+            this.CustomerAddressesRichTextBox.Size = new System.Drawing.Size(179, 45);
             this.CustomerAddressesRichTextBox.TabIndex = 13;
             this.CustomerAddressesRichTextBox.Text = "";
             // 
@@ -285,7 +285,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.CustomerPhoneNumbersErrorMessageLabel.AutoSize = true;
             this.CustomerPhoneNumbersErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.CustomerPhoneNumbersErrorMessageLabel.Location = new System.Drawing.Point(71, 203);
+            this.CustomerPhoneNumbersErrorMessageLabel.Location = new System.Drawing.Point(70, 199);
             this.CustomerPhoneNumbersErrorMessageLabel.Name = "CustomerPhoneNumbersErrorMessageLabel";
             this.CustomerPhoneNumbersErrorMessageLabel.Size = new System.Drawing.Size(67, 19);
             this.CustomerPhoneNumbersErrorMessageLabel.TabIndex = 48;
@@ -307,7 +307,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDescriptionRichTextBox.Location = new System.Drawing.Point(4, 800);
             this.ServiceDescriptionRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDescriptionRichTextBox.Name = "ServiceDescriptionRichTextBox";
-            this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(799, 120);
+            this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(808, 120);
             this.ServiceDescriptionRichTextBox.TabIndex = 45;
             this.ServiceDescriptionRichTextBox.Text = "";
             // 
@@ -326,10 +326,10 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.ServicePaymentTypeRichTextBox.AutoWordSelection = true;
             this.ServicePaymentTypeRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(451, 647);
+            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(446, 648);
             this.ServicePaymentTypeRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePaymentTypeRichTextBox.Name = "ServicePaymentTypeRichTextBox";
-            this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(353, 47);
+            this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(366, 47);
             this.ServicePaymentTypeRichTextBox.TabIndex = 42;
             this.ServicePaymentTypeRichTextBox.Text = "";
             // 
@@ -338,10 +338,10 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePaymentTypeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServicePaymentTypeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServicePaymentTypeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServicePaymentTypeLabel.Location = new System.Drawing.Point(363, 647);
+            this.ServicePaymentTypeLabel.Location = new System.Drawing.Point(358, 648);
             this.ServicePaymentTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServicePaymentTypeLabel.Name = "ServicePaymentTypeLabel";
-            this.ServicePaymentTypeLabel.Size = new System.Drawing.Size(89, 47);
+            this.ServicePaymentTypeLabel.Size = new System.Drawing.Size(89, 46);
             this.ServicePaymentTypeLabel.TabIndex = 41;
             this.ServicePaymentTypeLabel.Text = "Atsiskaitymo rūšis\r\n";
             // 
@@ -352,7 +352,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusicianUnitPricesRichTextBox.Location = new System.Drawing.Point(137, 705);
             this.ServiceMusicianUnitPricesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceMusicianUnitPricesRichTextBox.Name = "ServiceMusicianUnitPricesRichTextBox";
-            this.ServiceMusicianUnitPricesRichTextBox.Size = new System.Drawing.Size(666, 47);
+            this.ServiceMusicianUnitPricesRichTextBox.Size = new System.Drawing.Size(675, 47);
             this.ServiceMusicianUnitPricesRichTextBox.TabIndex = 40;
             this.ServiceMusicianUnitPricesRichTextBox.Text = "";
             // 
@@ -372,7 +372,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.ServiceDiscountPercentageRichTextBox.AutoWordSelection = true;
             this.ServiceDiscountPercentageRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDiscountPercentageRichTextBox.Location = new System.Drawing.Point(286, 647);
+            this.ServiceDiscountPercentageRichTextBox.Location = new System.Drawing.Point(282, 648);
             this.ServiceDiscountPercentageRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDiscountPercentageRichTextBox.Name = "ServiceDiscountPercentageRichTextBox";
             this.ServiceDiscountPercentageRichTextBox.Size = new System.Drawing.Size(77, 47);
@@ -384,10 +384,10 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceDiscountPercentageLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceDiscountPercentageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceDiscountPercentageLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceDiscountPercentageLabel.Location = new System.Drawing.Point(209, 647);
+            this.ServiceDiscountPercentageLabel.Location = new System.Drawing.Point(206, 648);
             this.ServiceDiscountPercentageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceDiscountPercentageLabel.Name = "ServiceDiscountPercentageLabel";
-            this.ServiceDiscountPercentageLabel.Size = new System.Drawing.Size(77, 47);
+            this.ServiceDiscountPercentageLabel.Size = new System.Drawing.Size(77, 46);
             this.ServiceDiscountPercentageLabel.TabIndex = 37;
             this.ServiceDiscountPercentageLabel.Text = "Nuolaida";
             // 
@@ -395,7 +395,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.ServicePaymentAmountRichTextBox.AutoWordSelection = true;
             this.ServicePaymentAmountRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePaymentAmountRichTextBox.Location = new System.Drawing.Point(80, 648);
+            this.ServicePaymentAmountRichTextBox.Location = new System.Drawing.Point(79, 648);
             this.ServicePaymentAmountRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePaymentAmountRichTextBox.Name = "ServicePaymentAmountRichTextBox";
             this.ServicePaymentAmountRichTextBox.Size = new System.Drawing.Size(128, 47);
@@ -429,10 +429,10 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.DepartedRemainsTypeRichTextBox.AutoWordSelection = true;
             this.DepartedRemainsTypeRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DepartedRemainsTypeRichTextBox.Location = new System.Drawing.Point(716, 531);
+            this.DepartedRemainsTypeRichTextBox.Location = new System.Drawing.Point(710, 531);
             this.DepartedRemainsTypeRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DepartedRemainsTypeRichTextBox.Name = "DepartedRemainsTypeRichTextBox";
-            this.DepartedRemainsTypeRichTextBox.Size = new System.Drawing.Size(88, 65);
+            this.DepartedRemainsTypeRichTextBox.Size = new System.Drawing.Size(102, 65);
             this.DepartedRemainsTypeRichTextBox.TabIndex = 33;
             this.DepartedRemainsTypeRichTextBox.Text = "";
             // 
@@ -441,7 +441,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.DepartedRemainsTypeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.DepartedRemainsTypeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DepartedRemainsTypeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartedRemainsTypeLabel.Location = new System.Drawing.Point(649, 531);
+            this.DepartedRemainsTypeLabel.Location = new System.Drawing.Point(643, 531);
             this.DepartedRemainsTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartedRemainsTypeLabel.Name = "DepartedRemainsTypeLabel";
             this.DepartedRemainsTypeLabel.Size = new System.Drawing.Size(68, 65);
@@ -452,7 +452,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.DepartedConfessionRichTextBox.AutoWordSelection = true;
             this.DepartedConfessionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DepartedConfessionRichTextBox.Location = new System.Drawing.Point(492, 531);
+            this.DepartedConfessionRichTextBox.Location = new System.Drawing.Point(488, 531);
             this.DepartedConfessionRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DepartedConfessionRichTextBox.Name = "DepartedConfessionRichTextBox";
             this.DepartedConfessionRichTextBox.Size = new System.Drawing.Size(156, 65);
@@ -464,7 +464,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.DepartedConfessionLabel.BackColor = System.Drawing.SystemColors.Control;
             this.DepartedConfessionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DepartedConfessionLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartedConfessionLabel.Location = new System.Drawing.Point(420, 531);
+            this.DepartedConfessionLabel.Location = new System.Drawing.Point(417, 531);
             this.DepartedConfessionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartedConfessionLabel.Name = "DepartedConfessionLabel";
             this.DepartedConfessionLabel.Size = new System.Drawing.Size(72, 65);
@@ -475,7 +475,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.DepartedInfoRichTextBox.AutoWordSelection = true;
             this.DepartedInfoRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DepartedInfoRichTextBox.Location = new System.Drawing.Point(80, 531);
+            this.DepartedInfoRichTextBox.Location = new System.Drawing.Point(79, 532);
             this.DepartedInfoRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DepartedInfoRichTextBox.Name = "DepartedInfoRichTextBox";
             this.DepartedInfoRichTextBox.Size = new System.Drawing.Size(339, 65);
@@ -508,10 +508,10 @@ namespace Martium.FuneralServiceHistory.Forms
             // ServiceMusicProgramRichTextBox
             // 
             this.ServiceMusicProgramRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceMusicProgramRichTextBox.Location = new System.Drawing.Point(359, 394);
+            this.ServiceMusicProgramRichTextBox.Location = new System.Drawing.Point(352, 394);
             this.ServiceMusicProgramRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceMusicProgramRichTextBox.Name = "ServiceMusicProgramRichTextBox";
-            this.ServiceMusicProgramRichTextBox.Size = new System.Drawing.Size(444, 82);
+            this.ServiceMusicProgramRichTextBox.Size = new System.Drawing.Size(460, 82);
             this.ServiceMusicProgramRichTextBox.TabIndex = 26;
             this.ServiceMusicProgramRichTextBox.Text = "";
             // 
@@ -520,7 +520,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusicProgramLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceMusicProgramLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceMusicProgramLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceMusicProgramLabel.Location = new System.Drawing.Point(287, 394);
+            this.ServiceMusicProgramLabel.Location = new System.Drawing.Point(281, 394);
             this.ServiceMusicProgramLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceMusicProgramLabel.Name = "ServiceMusicProgramLabel";
             this.ServiceMusicProgramLabel.Size = new System.Drawing.Size(72, 82);
@@ -530,7 +530,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // ServiceMusiciansCountRichTextBox
             // 
             this.ServiceMusiciansCountRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceMusiciansCountRichTextBox.Location = new System.Drawing.Point(217, 394);
+            this.ServiceMusiciansCountRichTextBox.Location = new System.Drawing.Point(213, 394);
             this.ServiceMusiciansCountRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceMusiciansCountRichTextBox.Name = "ServiceMusiciansCountRichTextBox";
             this.ServiceMusiciansCountRichTextBox.Size = new System.Drawing.Size(69, 83);
@@ -542,7 +542,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceMusiciansCountLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceMusiciansCountLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceMusiciansCountLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceMusiciansCountLabel.Location = new System.Drawing.Point(152, 394);
+            this.ServiceMusiciansCountLabel.Location = new System.Drawing.Point(149, 394);
             this.ServiceMusiciansCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceMusiciansCountLabel.Name = "ServiceMusiciansCountLabel";
             this.ServiceMusiciansCountLabel.Size = new System.Drawing.Size(65, 83);
@@ -552,7 +552,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // ServiceDurationRichTextBox
             // 
             this.ServiceDurationRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDurationRichTextBox.Location = new System.Drawing.Point(61, 394);
+            this.ServiceDurationRichTextBox.Location = new System.Drawing.Point(60, 394);
             this.ServiceDurationRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDurationRichTextBox.Name = "ServiceDurationRichTextBox";
             this.ServiceDurationRichTextBox.Size = new System.Drawing.Size(90, 84);
@@ -577,7 +577,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceTypesRichTextBox.Location = new System.Drawing.Point(118, 345);
             this.ServiceTypesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceTypesRichTextBox.Name = "ServiceTypesRichTextBox";
-            this.ServiceTypesRichTextBox.Size = new System.Drawing.Size(686, 32);
+            this.ServiceTypesRichTextBox.Size = new System.Drawing.Size(694, 32);
             this.ServiceTypesRichTextBox.TabIndex = 20;
             this.ServiceTypesRichTextBox.Text = " ";
             // 
@@ -596,10 +596,10 @@ namespace Martium.FuneralServiceHistory.Forms
             // ServicePlacesRichTextBox
             // 
             this.ServicePlacesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePlacesRichTextBox.Location = new System.Drawing.Point(455, 261);
+            this.ServicePlacesRichTextBox.Location = new System.Drawing.Point(452, 261);
             this.ServicePlacesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePlacesRichTextBox.Name = "ServicePlacesRichTextBox";
-            this.ServicePlacesRichTextBox.Size = new System.Drawing.Size(349, 66);
+            this.ServicePlacesRichTextBox.Size = new System.Drawing.Size(360, 66);
             this.ServicePlacesRichTextBox.TabIndex = 18;
             this.ServicePlacesRichTextBox.Text = "";
             // 
@@ -608,7 +608,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServicePlacesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServicePlacesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServicePlacesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServicePlacesLabel.Location = new System.Drawing.Point(296, 261);
+            this.ServicePlacesLabel.Location = new System.Drawing.Point(294, 261);
             this.ServicePlacesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServicePlacesLabel.Name = "ServicePlacesLabel";
             this.ServicePlacesLabel.Size = new System.Drawing.Size(159, 66);
@@ -618,7 +618,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // ServiceDatesRichTextBox
             // 
             this.ServiceDatesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDatesRichTextBox.Location = new System.Drawing.Point(92, 261);
+            this.ServiceDatesRichTextBox.Location = new System.Drawing.Point(91, 261);
             this.ServiceDatesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDatesRichTextBox.Name = "ServiceDatesRichTextBox";
             this.ServiceDatesRichTextBox.Size = new System.Drawing.Size(204, 66);
@@ -652,7 +652,7 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             this.OrderNumberTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.OrderNumberTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderNumberTextBox.Location = new System.Drawing.Point(209, 4);
+            this.OrderNumberTextBox.Location = new System.Drawing.Point(207, 4);
             this.OrderNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.OrderNumberTextBox.Multiline = true;
             this.OrderNumberTextBox.Name = "OrderNumberTextBox";
@@ -663,9 +663,9 @@ namespace Martium.FuneralServiceHistory.Forms
             // SaveFuneralServiceChangesButton
             // 
             this.SaveFuneralServiceChangesButton.Enabled = false;
-            this.SaveFuneralServiceChangesButton.Location = new System.Drawing.Point(412, 944);
+            this.SaveFuneralServiceChangesButton.Location = new System.Drawing.Point(416, 944);
             this.SaveFuneralServiceChangesButton.Name = "SaveFuneralServiceChangesButton";
-            this.SaveFuneralServiceChangesButton.Size = new System.Drawing.Size(119, 48);
+            this.SaveFuneralServiceChangesButton.Size = new System.Drawing.Size(93, 48);
             this.SaveFuneralServiceChangesButton.TabIndex = 15;
             this.SaveFuneralServiceChangesButton.Text = "Išsaugoti pakeitimus";
             this.SaveFuneralServiceChangesButton.UseVisualStyleBackColor = true;
@@ -673,9 +673,9 @@ namespace Martium.FuneralServiceHistory.Forms
             // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(537, 944);
+            this.PrintButton.Location = new System.Drawing.Point(536, 944);
             this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(80, 48);
+            this.PrintButton.Size = new System.Drawing.Size(90, 48);
             this.PrintButton.TabIndex = 17;
             this.PrintButton.Text = "Spausdinti";
             this.PrintButton.UseVisualStyleBackColor = true;
