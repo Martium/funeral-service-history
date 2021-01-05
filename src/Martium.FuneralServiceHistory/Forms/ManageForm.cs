@@ -18,6 +18,7 @@ namespace Martium.FuneralServiceHistory.Forms
         private readonly int? _orderNumber;
 
         private const string OrderDateFormat = "yyyy-MM-dd";
+        private const string CustomerPhoneNumbersTextBoxErrorLabelText = "Kad išsaugoti duomenis būtina užpildyti šį langelį";
 
         private Bitmap _funeralServiceMemoryImage;
 
@@ -78,12 +79,17 @@ namespace Martium.FuneralServiceHistory.Forms
             EnableButtonsIfPossible();
         }
 
+        private void CustomerPhoneNumbersRichTextBox_GotFocus(object sender, EventArgs e)
+        {
+            HideLabelAndTextBoxError(CustomerPhoneNumbersErrorMessageLabel, CustomerPhoneNumbersRichTextBox);
+        }
+
         private void CustomerPhoneNumbersRichTextBox_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text))
             {
                 e.Cancel = true;
-                DisplayLabelAndTextBoxError("Kad išsaugoti duomenis būtina užpildyti šį langelį", CustomerPhoneNumbersRichTextBox, CustomerPhoneNumbersErrorMessageLabel);
+                DisplayLabelAndTextBoxError(CustomerPhoneNumbersTextBoxErrorLabelText, CustomerPhoneNumbersRichTextBox, CustomerPhoneNumbersErrorMessageLabel);
             }
             else
             {
@@ -168,13 +174,16 @@ namespace Martium.FuneralServiceHistory.Forms
         {
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            ActiveControl = OrderNumberLabel;
+
             if (_funeralServiceOperation == FuneralServiceOperation.Create)
             {
-                ActiveControl = CustomerPhoneNumbersRichTextBox;
+                DisplayLabelAndTextBoxError(CustomerPhoneNumbersTextBoxErrorLabelText, CustomerPhoneNumbersRichTextBox, CustomerPhoneNumbersErrorMessageLabel);
             }
             else
             {
-                ActiveControl = OrderNumberLabel;
+                CustomerPhoneNumbersErrorMessageLabel.Visible = false;
+                
             }
             
             OrderNumberTextBox.ReadOnly = true;
@@ -182,8 +191,6 @@ namespace Martium.FuneralServiceHistory.Forms
             SaveChangesButton.Enabled = false;
 
             OrderDateErrorMessageLabel.Visible = false;
-
-            CustomerPhoneNumbersErrorMessageLabel.Visible = false;
 
             (FuneralServicePrintPreviewDialog as Form).WindowState = FormWindowState.Maximized;
         }
@@ -283,8 +290,8 @@ namespace Martium.FuneralServiceHistory.Forms
         private void DisplayLabelAndTextBoxError(string errorText,TextBoxBase textBoxBase, Label label)
         {
             textBoxBase.BackColor = Color.Red;
-            label.Visible = true;
             label.Text = errorText;
+            label.Visible = true;
         }
 
         private void HideLabelAndTextBoxError(Label label, TextBoxBase textBoxBase)

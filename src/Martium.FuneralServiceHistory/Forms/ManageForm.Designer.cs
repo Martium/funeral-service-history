@@ -182,6 +182,7 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerPhoneNumbersRichTextBox.Text = "";
             this.CustomerPhoneNumbersRichTextBox.TextChanged += new System.EventHandler(this.CustomerPhoneNumbersRichTextBox_TextChanged);
             this.CustomerPhoneNumbersRichTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CustomerPhoneNumbersRichTextBox_Validating);
+            this.CustomerPhoneNumbersRichTextBox.GotFocus += new EventHandler(this.CustomerPhoneNumbersRichTextBox_GotFocus);
             // 
             // CustomerEmailsLabel
             // 
