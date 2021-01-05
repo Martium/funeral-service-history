@@ -168,8 +168,15 @@ namespace Martium.FuneralServiceHistory.Forms
         {
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            ActiveControl = OrderNumberLabel;
-
+            if (_funeralServiceOperation == FuneralServiceOperation.Create)
+            {
+                ActiveControl = CustomerPhoneNumbersRichTextBox;
+            }
+            else
+            {
+                ActiveControl = OrderNumberLabel;
+            }
+            
             OrderNumberTextBox.ReadOnly = true;
 
             SaveChangesButton.Enabled = false;
