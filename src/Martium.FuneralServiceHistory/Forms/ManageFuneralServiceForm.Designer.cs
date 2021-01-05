@@ -32,13 +32,11 @@ namespace Martium.FuneralServiceHistory.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageFuneralServiceForm));
             this.OrderNumberLabel = new System.Windows.Forms.Label();
             this.OrderDateLabel = new System.Windows.Forms.Label();
             this.OrderDateTextBox = new System.Windows.Forms.TextBox();
             this.CustomerInformationLabel = new System.Windows.Forms.Label();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.CustomerNamesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.CustomerNamesLabel = new System.Windows.Forms.Label();
             this.CustomerPhoneNumbersLabel = new System.Windows.Forms.Label();
@@ -83,10 +81,9 @@ namespace Martium.FuneralServiceHistory.Forms
             this.ServiceInformationLabel = new System.Windows.Forms.Label();
             this.OrderNumberTextBox = new System.Windows.Forms.TextBox();
             this.SaveFuneralServiceChangesButton = new System.Windows.Forms.Button();
-            this.PrintPreviewButton = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
-            this.PrintManageFuneralServiceForm = new System.Drawing.Printing.PrintDocument();
-            this.PrintPreviewManageFuneralServiceForm = new System.Windows.Forms.PrintPreviewDialog();
+            this.FuneralServicePrintDocument = new System.Drawing.Printing.PrintDocument();
+            this.FuneralServicePrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.FuneralSericePrintPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,11 +136,6 @@ namespace Martium.FuneralServiceHistory.Forms
             this.CustomerInformationLabel.Size = new System.Drawing.Size(339, 22);
             this.CustomerInformationLabel.TabIndex = 4;
             this.CustomerInformationLabel.Text = "1.    INFORMACIJA APIE UŽSAKOVĄ";
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
             // 
             // CustomerNamesRichTextBox
             // 
@@ -678,19 +670,9 @@ namespace Martium.FuneralServiceHistory.Forms
             this.SaveFuneralServiceChangesButton.UseVisualStyleBackColor = true;
             this.SaveFuneralServiceChangesButton.Click += new System.EventHandler(this.SaveFuneralServiceChangesButton_Click);
             // 
-            // PrintPreviewButton
-            // 
-            this.PrintPreviewButton.Location = new System.Drawing.Point(137, 944);
-            this.PrintPreviewButton.Name = "PrintPreviewButton";
-            this.PrintPreviewButton.Size = new System.Drawing.Size(95, 48);
-            this.PrintPreviewButton.TabIndex = 16;
-            this.PrintPreviewButton.Text = "Spausdinimo peržiūra";
-            this.PrintPreviewButton.UseVisualStyleBackColor = true;
-            this.PrintPreviewButton.Click += new System.EventHandler(this.PrintPreviewButton_Click);
-            // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(237, 944);
+            this.PrintButton.Location = new System.Drawing.Point(149, 944);
             this.PrintButton.Name = "PrintButton";
             this.PrintButton.Size = new System.Drawing.Size(80, 48);
             this.PrintButton.TabIndex = 17;
@@ -698,20 +680,20 @@ namespace Martium.FuneralServiceHistory.Forms
             this.PrintButton.UseVisualStyleBackColor = true;
             this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
-            // PrintManageFuneralServiceForm
+            // FuneralServicePrintDocument
             // 
-            this.PrintManageFuneralServiceForm.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintManageFuneralServiceForm_PrintPage);
+            this.FuneralServicePrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintManageFuneralServiceForm_PrintPage);
             // 
-            // PrintPreviewManageFuneralServiceForm
+            // FuneralServicePrintPreviewDialog
             // 
-            this.PrintPreviewManageFuneralServiceForm.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.PrintPreviewManageFuneralServiceForm.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.PrintPreviewManageFuneralServiceForm.ClientSize = new System.Drawing.Size(400, 300);
-            this.PrintPreviewManageFuneralServiceForm.Document = this.PrintManageFuneralServiceForm;
-            this.PrintPreviewManageFuneralServiceForm.Enabled = true;
-            this.PrintPreviewManageFuneralServiceForm.Icon = ((System.Drawing.Icon)(resources.GetObject("PrintPreviewManageFuneralServiceForm.Icon")));
-            this.PrintPreviewManageFuneralServiceForm.Name = "PrintPreviewManageFuneralServiceForm";
-            this.PrintPreviewManageFuneralServiceForm.Visible = false;
+            this.FuneralServicePrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.FuneralServicePrintPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.FuneralServicePrintPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.FuneralServicePrintPreviewDialog.Document = this.FuneralServicePrintDocument;
+            this.FuneralServicePrintPreviewDialog.Enabled = true;
+            this.FuneralServicePrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("FuneralServicePrintPreviewDialog.Icon")));
+            this.FuneralServicePrintPreviewDialog.Name = "PrintPreviewManageFuneralServiceForm";
+            this.FuneralServicePrintPreviewDialog.Visible = false;
             // 
             // ManageFuneralServiceForm
             // 
@@ -720,7 +702,6 @@ namespace Martium.FuneralServiceHistory.Forms
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1064, 1001);
             this.Controls.Add(this.PrintButton);
-            this.Controls.Add(this.PrintPreviewButton);
             this.Controls.Add(this.SaveFuneralServiceChangesButton);
             this.Controls.Add(this.FuneralSericePrintPanel);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -741,7 +722,6 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.Label CustomerInformationLabel;
         private System.Windows.Forms.TextBox OrderDateTextBox;
         private System.Windows.Forms.Label OrderDateLabel;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.RichTextBox CustomerNamesRichTextBox;
         private System.Windows.Forms.Label CustomerNamesLabel;
         private System.Windows.Forms.Label CustomerPhoneNumbersLabel;
@@ -786,9 +766,8 @@ namespace Martium.FuneralServiceHistory.Forms
         private System.Windows.Forms.Label CustomerPhoneNumbersErrorMessageLabel;
         private System.Windows.Forms.Label ServicePaymentAmountLabel;
         private System.Windows.Forms.TextBox OrderNumberTextBox;
-        private System.Windows.Forms.Button PrintPreviewButton;
         private System.Windows.Forms.Button PrintButton;
-        private System.Drawing.Printing.PrintDocument PrintManageFuneralServiceForm;
-        private System.Windows.Forms.PrintPreviewDialog PrintPreviewManageFuneralServiceForm;
+        private System.Drawing.Printing.PrintDocument FuneralServicePrintDocument;
+        private System.Windows.Forms.PrintPreviewDialog FuneralServicePrintPreviewDialog;
     }
 }

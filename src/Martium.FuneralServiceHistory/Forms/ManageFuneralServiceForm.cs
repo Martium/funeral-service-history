@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using Martium.FuneralServiceHistory.Constants;
 using Martium.FuneralServiceHistory.Enums;
 using Martium.FuneralServiceHistory.Models;
@@ -20,7 +21,7 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private const string OrderDateFormat = "yyyy-MM-dd";
 
-        private Bitmap memoryPrintFuneralserviceForm;
+        private Bitmap _funeralServiceMemoryImage;
 
         public ManageFuneralServiceForm(FuneralServiceOperation funeralServiceOperation, int? orderNumber = null)
         {
@@ -35,6 +36,18 @@ namespace Martium.FuneralServiceHistory.Forms
 
             SetControlsInitialState();
             SetTextBoxMaxLengths();
+
+            FuneralServicePrintDocument.PrintPage += PrintManageFuneralServiceForm_PrintPage;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (_funeralServiceMemoryImage != null)
+            {
+                e.Graphics.DrawImage(_funeralServiceMemoryImage, 0, 0);
+
+                base.OnPaint(e);
+            }
         }
 
         private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
@@ -136,23 +149,21 @@ namespace Martium.FuneralServiceHistory.Forms
                 ShowManageFormErrorDialog();
             }
         }
-        private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(memoryPrintFuneralserviceForm, 0, 0);
-        }
-
-        private void PrintPreviewButton_Click(object sender, EventArgs e)
-        {
-            CaptureFuneralServiceFormScreen();
-            PrintPreviewManageFuneralServiceForm.ShowDialog();
-        }
-
 
         private void PrintButton_Click(object sender, EventArgs e)
         {
             CaptureFuneralServiceFormScreen();
-            PrintManageFuneralServiceForm.Print();
-            PrintManageFuneralServiceForm.PrintPage += new PrintPageEventHandler(PrintManageFuneralServiceForm_PrintPage);
+            FuneralServicePrintPreviewDialog.Document = FuneralServicePrintDocument;
+            FuneralServicePrintPreviewDialog.ShowDialog();
+        }
+
+        private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Rectangle pageArea = e.PageBounds;
+            e.Graphics.DrawImage(
+                _funeralServiceMemoryImage, 
+                0, 
+                this.FuneralSericePrintPanel.Location.Y);
         }
 
         #region Helpers
@@ -294,11 +305,11 @@ namespace Martium.FuneralServiceHistory.Forms
 
         private void CaptureFuneralServiceFormScreen()
         {
-            Graphics funeralServiceFormGraphics = this.CreateGraphics();
-            Size funeralServiceFormSize = this.Size;
-            memoryPrintFuneralserviceForm = new Bitmap(funeralServiceFormSize.Width, funeralServiceFormSize.Height, funeralServiceFormGraphics);
-            Graphics memoryGraphics = Graphics.FromImage(memoryPrintFuneralserviceForm);
-            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, funeralServiceFormSize);
+            _funeralServiceMemoryImage = new Bitmap(1000, FuneralSericePrintPanel.Height);
+
+            FuneralSericePrintPanel.DrawToBitmap(
+                _funeralServiceMemoryImage, 
+                new Rectangle(0, 0, 1000, FuneralSericePrintPanel.Height));
         }
 
         #endregion
