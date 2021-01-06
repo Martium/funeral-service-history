@@ -14,7 +14,6 @@ namespace Martium.DeprofundisHistory.Forms
         private readonly FuneralServiceRepository _funeralServiceRepository;
 
         private static readonly string SearchTextBoxPlaceholderText = "Įveskite paieškos frazę...";
-        private readonly int _OrderNumberColumnIndex = 1;
 
         private bool _searchActive;
 
@@ -57,9 +56,10 @@ namespace Martium.DeprofundisHistory.Forms
 
         private void EditFuneralServiceButton_Click(object sender, EventArgs e)
         {
-            int selectedOrderNumber = (int) ServiceHistoryDataGridView.SelectedRows[0].Cells[_OrderNumberColumnIndex].Value;
+            int selectedOrderCreationYear = GetSelectedOrderCreationYear();
+            int selectedOrderNumber = GetSelectedOrderNumber();
 
-            var editForm = new ManageForm(FuneralServiceOperation.Edit, selectedOrderNumber);
+            var editForm = new ManageForm(FuneralServiceOperation.Edit, selectedOrderNumber, selectedOrderCreationYear);
 
             editForm.Closed += ShowAndRefreshListForm;
 
@@ -68,9 +68,10 @@ namespace Martium.DeprofundisHistory.Forms
 
         private void CopyFuneralServiceButton_Click(object sender, System.EventArgs e)
         {
-            int selectedOrderNumber = (int)ServiceHistoryDataGridView.SelectedRows[0].Cells[_OrderNumberColumnIndex].Value;
+            int selectedOrderCreationYear = GetSelectedOrderCreationYear();
+            int selectedOrderNumber = GetSelectedOrderNumber();
 
-            var copyForm = new ManageForm(FuneralServiceOperation.Copy, selectedOrderNumber);
+            var copyForm = new ManageForm(FuneralServiceOperation.Copy, selectedOrderNumber, selectedOrderCreationYear);
 
             copyForm.Closed += ShowAndRefreshListForm;
 
@@ -132,6 +133,20 @@ namespace Martium.DeprofundisHistory.Forms
             SearchTextBox.Text = SearchTextBoxPlaceholderText;
             SearchButton.Enabled = false;
             CancelSearchButton.Enabled = false;
+        }
+
+        private int GetSelectedOrderCreationYear()
+        {
+            int orderCreationYearColumnIndex = 0;
+
+            return (int) ServiceHistoryDataGridView.SelectedRows[0].Cells[orderCreationYearColumnIndex].Value;
+        }
+
+        private int GetSelectedOrderNumber()
+        {
+            int orderNumberColumnIndex = 1;
+
+            return (int)ServiceHistoryDataGridView.SelectedRows[0].Cells[orderNumberColumnIndex].Value;
         }
 
         private void ShowAndRefreshListForm(object sender, EventArgs e)

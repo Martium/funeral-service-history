@@ -43,7 +43,7 @@ namespace Martium.DeprofundisHistory.Repositories
             }
         }
 
-        public FuneralServiceModel GetByOrderNumber(int orderNumber)
+        public FuneralServiceModel GetByOrderNumber(int orderNumber, int orderCreationYear)
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
@@ -60,7 +60,7 @@ namespace Martium.DeprofundisHistory.Repositories
                 object queryParameters = new
                 {
                    OrderNumber = orderNumber,
-                   OrderCreationYear = DateTime.Now.Year
+                   OrderCreationYear = orderCreationYear
                 };
 
                 FuneralServiceModel funeralService = dbConnection.QuerySingle<FuneralServiceModel>(getServiceByOrderNumberQuery, queryParameters);
@@ -129,7 +129,7 @@ namespace Martium.DeprofundisHistory.Repositories
             }
         }
 
-        public bool EditFuneralService(int orderNumber, FuneralServiceModel updatedService)
+        public bool EditFuneralService(int orderNumber, int orderCreationYear, FuneralServiceModel updatedService)
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
@@ -157,7 +157,7 @@ namespace Martium.DeprofundisHistory.Repositories
                     updatedService.ServiceMusicianUnitPrices, updatedService.ServiceDiscountPercentage,
                     updatedService.ServicePaymentAmount, updatedService.ServicePaymentType,
                     updatedService.ServiceDescription,
-                    OrderNumber = orderNumber, OrderCreationYear = DateTime.Now.Year
+                    OrderNumber = orderNumber, OrderCreationYear = orderCreationYear
                 };
 
                 int affectedRows = dbConnection.Execute(createNewFuneralServiceCommand, queryParameters);

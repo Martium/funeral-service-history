@@ -15,19 +15,21 @@ namespace Martium.DeprofundisHistory.Forms
         private readonly FuneralServiceRepository _funeralServiceRepository;
 
         private readonly FuneralServiceOperation _funeralServiceOperation;
-        private readonly int? _orderNumber;
+        private readonly int? _selectedOrderNumber;
+        private readonly int? _selectedOrderCreationYear;
 
         private const string OrderDateFormat = "yyyy-MM-dd";
         private const string CustomerPhoneNumbersTextBoxErrorLabelText = "Kad išsaugoti duomenis būtina užpildyti šį langelį";
 
         private Bitmap _funeralServiceMemoryImage;
 
-        public ManageForm(FuneralServiceOperation funeralServiceOperation, int? orderNumber = null)
+        public ManageForm(FuneralServiceOperation funeralServiceOperation, int? selectedOrderNumber = null, int? selectedOrderCreationYear = null)
         {
             _funeralServiceRepository = new FuneralServiceRepository();
 
             _funeralServiceOperation = funeralServiceOperation;
-            _orderNumber = orderNumber;
+            _selectedOrderNumber = selectedOrderNumber;
+            _selectedOrderCreationYear = selectedOrderCreationYear;
 
             ResolveFormOperationDesign();
 
@@ -133,7 +135,7 @@ namespace Martium.DeprofundisHistory.Forms
 
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
-                success = _funeralServiceRepository.EditFuneralService(_orderNumber.Value, funeralServiceModel);
+                success = _funeralServiceRepository.EditFuneralService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value, funeralServiceModel);
                 successMessage = "Pakeitimai išsaugoti sėkmingai.";
             }
             else
@@ -247,7 +249,7 @@ namespace Martium.DeprofundisHistory.Forms
         {
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
-                OrderNumberTextBox.Text = _orderNumber.Value.ToString();
+                OrderNumberTextBox.Text = _selectedOrderNumber.Value.ToString();
             }
             else
             {
@@ -262,7 +264,8 @@ namespace Martium.DeprofundisHistory.Forms
             if (_funeralServiceOperation == FuneralServiceOperation.Edit ||
                 _funeralServiceOperation == FuneralServiceOperation.Copy)
             {
-                FuneralServiceModel funeralServiceModel = _funeralServiceRepository.GetByOrderNumber(_orderNumber.Value);
+                FuneralServiceModel funeralServiceModel = 
+                    _funeralServiceRepository.GetByOrderNumber(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
 
                 OrderDateTextBox.Text = funeralServiceModel.OrderDate.ToString(OrderDateFormat);
                 CustomerNamesRichTextBox.Text = funeralServiceModel.CustomerNames;
