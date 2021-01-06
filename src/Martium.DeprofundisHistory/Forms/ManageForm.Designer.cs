@@ -88,7 +88,7 @@
             this.OrderNumberLabel.BackColor = System.Drawing.SystemColors.Control;
             this.OrderNumberLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.OrderNumberLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderNumberLabel.Location = new System.Drawing.Point(4, 4);
+            this.OrderNumberLabel.Location = new System.Drawing.Point(43, 11);
             this.OrderNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OrderNumberLabel.Name = "OrderNumberLabel";
             this.OrderNumberLabel.Size = new System.Drawing.Size(204, 31);
@@ -101,7 +101,7 @@
             this.OrderDateLabel.BackColor = System.Drawing.SystemColors.Control;
             this.OrderDateLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.OrderDateLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderDateLabel.Location = new System.Drawing.Point(262, 4);
+            this.OrderDateLabel.Location = new System.Drawing.Point(302, 11);
             this.OrderDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OrderDateLabel.Name = "OrderDateLabel";
             this.OrderDateLabel.Size = new System.Drawing.Size(128, 31);
@@ -113,11 +113,11 @@
             // 
             this.OrderDateTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.OrderDateTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderDateTextBox.Location = new System.Drawing.Point(389, 4);
+            this.OrderDateTextBox.Location = new System.Drawing.Point(429, 11);
             this.OrderDateTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.OrderDateTextBox.Multiline = true;
             this.OrderDateTextBox.Name = "OrderDateTextBox";
-            this.OrderDateTextBox.Size = new System.Drawing.Size(245, 31);
+            this.OrderDateTextBox.Size = new System.Drawing.Size(354, 31);
             this.OrderDateTextBox.TabIndex = 3;
             this.OrderDateTextBox.TextChanged += new System.EventHandler(this.OrderDateTextBox_TextChanged);
             this.OrderDateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OrderDateTextBox_Validating);
@@ -126,7 +126,7 @@
             // 
             this.CustomerInformationLabel.AutoSize = true;
             this.CustomerInformationLabel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerInformationLabel.Location = new System.Drawing.Point(5, 55);
+            this.CustomerInformationLabel.Location = new System.Drawing.Point(39, 56);
             this.CustomerInformationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerInformationLabel.Name = "CustomerInformationLabel";
             this.CustomerInformationLabel.Size = new System.Drawing.Size(339, 22);
@@ -136,10 +136,10 @@
             // CustomerNamesRichTextBox
             // 
             this.CustomerNamesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomerNamesRichTextBox.Location = new System.Drawing.Point(116, 82);
+            this.CustomerNamesRichTextBox.Location = new System.Drawing.Point(206, 82);
             this.CustomerNamesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerNamesRichTextBox.Name = "CustomerNamesRichTextBox";
-            this.CustomerNamesRichTextBox.Size = new System.Drawing.Size(518, 45);
+            this.CustomerNamesRichTextBox.Size = new System.Drawing.Size(577, 45);
             this.CustomerNamesRichTextBox.TabIndex = 6;
             this.CustomerNamesRichTextBox.Text = "";
             // 
@@ -148,10 +148,10 @@
             this.CustomerNamesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.CustomerNamesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CustomerNamesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerNamesLabel.Location = new System.Drawing.Point(4, 82);
+            this.CustomerNamesLabel.Location = new System.Drawing.Point(43, 82);
             this.CustomerNamesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerNamesLabel.Name = "CustomerNamesLabel";
-            this.CustomerNamesLabel.Size = new System.Drawing.Size(114, 45);
+            this.CustomerNamesLabel.Size = new System.Drawing.Size(164, 28);
             this.CustomerNamesLabel.TabIndex = 7;
             this.CustomerNamesLabel.Text = "Vardas, pavardė / Įmonė";
             // 
@@ -160,17 +160,17 @@
             this.CustomerPhoneNumbersLabel.BackColor = System.Drawing.SystemColors.Control;
             this.CustomerPhoneNumbersLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CustomerPhoneNumbersLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerPhoneNumbersLabel.Location = new System.Drawing.Point(5, 154);
+            this.CustomerPhoneNumbersLabel.Location = new System.Drawing.Point(43, 153);
             this.CustomerPhoneNumbersLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerPhoneNumbersLabel.Name = "CustomerPhoneNumbersLabel";
-            this.CustomerPhoneNumbersLabel.Size = new System.Drawing.Size(66, 45);
+            this.CustomerPhoneNumbersLabel.Size = new System.Drawing.Size(94, 26);
             this.CustomerPhoneNumbersLabel.TabIndex = 8;
             this.CustomerPhoneNumbersLabel.Text = "Telefono Nr.";
             // 
             // CustomerPhoneNumbersRichTextBox
             // 
             this.CustomerPhoneNumbersRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomerPhoneNumbersRichTextBox.Location = new System.Drawing.Point(70, 154);
+            this.CustomerPhoneNumbersRichTextBox.Location = new System.Drawing.Point(136, 153);
             this.CustomerPhoneNumbersRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerPhoneNumbersRichTextBox.Name = "CustomerPhoneNumbersRichTextBox";
             this.CustomerPhoneNumbersRichTextBox.Size = new System.Drawing.Size(143, 45);
@@ -185,20 +185,20 @@
             this.CustomerEmailsLabel.BackColor = System.Drawing.SystemColors.Control;
             this.CustomerEmailsLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CustomerEmailsLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerEmailsLabel.Location = new System.Drawing.Point(211, 154);
+            this.CustomerEmailsLabel.Location = new System.Drawing.Point(281, 153);
             this.CustomerEmailsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerEmailsLabel.Name = "CustomerEmailsLabel";
-            this.CustomerEmailsLabel.Size = new System.Drawing.Size(54, 45);
+            this.CustomerEmailsLabel.Size = new System.Drawing.Size(72, 26);
             this.CustomerEmailsLabel.TabIndex = 10;
             this.CustomerEmailsLabel.Text = "El. paštas";
             // 
             // CustomerEmailsRichTextBox
             // 
             this.CustomerEmailsRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomerEmailsRichTextBox.Location = new System.Drawing.Point(264, 154);
+            this.CustomerEmailsRichTextBox.Location = new System.Drawing.Point(352, 153);
             this.CustomerEmailsRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerEmailsRichTextBox.Name = "CustomerEmailsRichTextBox";
-            this.CustomerEmailsRichTextBox.Size = new System.Drawing.Size(307, 45);
+            this.CustomerEmailsRichTextBox.Size = new System.Drawing.Size(219, 45);
             this.CustomerEmailsRichTextBox.TabIndex = 11;
             this.CustomerEmailsRichTextBox.Text = "";
             // 
@@ -207,20 +207,20 @@
             this.CustomerAddressesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.CustomerAddressesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CustomerAddressesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerAddressesLabel.Location = new System.Drawing.Point(570, 154);
+            this.CustomerAddressesLabel.Location = new System.Drawing.Point(571, 153);
             this.CustomerAddressesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerAddressesLabel.Name = "CustomerAddressesLabel";
-            this.CustomerAddressesLabel.Size = new System.Drawing.Size(64, 45);
+            this.CustomerAddressesLabel.Size = new System.Drawing.Size(64, 26);
             this.CustomerAddressesLabel.TabIndex = 12;
             this.CustomerAddressesLabel.Text = "Adresas";
             // 
             // CustomerAddressesRichTextBox
             // 
             this.CustomerAddressesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomerAddressesRichTextBox.Location = new System.Drawing.Point(633, 154);
+            this.CustomerAddressesRichTextBox.Location = new System.Drawing.Point(634, 153);
             this.CustomerAddressesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerAddressesRichTextBox.Name = "CustomerAddressesRichTextBox";
-            this.CustomerAddressesRichTextBox.Size = new System.Drawing.Size(179, 45);
+            this.CustomerAddressesRichTextBox.Size = new System.Drawing.Size(149, 45);
             this.CustomerAddressesRichTextBox.TabIndex = 13;
             this.CustomerAddressesRichTextBox.Text = "";
             // 
@@ -282,7 +282,7 @@
             // 
             this.CustomerPhoneNumbersErrorMessageLabel.AutoSize = true;
             this.CustomerPhoneNumbersErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.CustomerPhoneNumbersErrorMessageLabel.Location = new System.Drawing.Point(70, 199);
+            this.CustomerPhoneNumbersErrorMessageLabel.Location = new System.Drawing.Point(140, 202);
             this.CustomerPhoneNumbersErrorMessageLabel.Name = "CustomerPhoneNumbersErrorMessageLabel";
             this.CustomerPhoneNumbersErrorMessageLabel.Size = new System.Drawing.Size(67, 19);
             this.CustomerPhoneNumbersErrorMessageLabel.TabIndex = 48;
@@ -292,7 +292,7 @@
             // 
             this.OrderDateErrorMessageLabel.AutoSize = true;
             this.OrderDateErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.OrderDateErrorMessageLabel.Location = new System.Drawing.Point(389, 35);
+            this.OrderDateErrorMessageLabel.Location = new System.Drawing.Point(425, 46);
             this.OrderDateErrorMessageLabel.Name = "OrderDateErrorMessageLabel";
             this.OrderDateErrorMessageLabel.Size = new System.Drawing.Size(67, 19);
             this.OrderDateErrorMessageLabel.TabIndex = 47;
@@ -301,10 +301,10 @@
             // ServiceDescriptionRichTextBox
             // 
             this.ServiceDescriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDescriptionRichTextBox.Location = new System.Drawing.Point(4, 800);
+            this.ServiceDescriptionRichTextBox.Location = new System.Drawing.Point(43, 800);
             this.ServiceDescriptionRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDescriptionRichTextBox.Name = "ServiceDescriptionRichTextBox";
-            this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(808, 120);
+            this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(740, 120);
             this.ServiceDescriptionRichTextBox.TabIndex = 45;
             this.ServiceDescriptionRichTextBox.Text = "";
             // 
@@ -312,7 +312,7 @@
             // 
             this.AdditionalInfoLabel.AutoSize = true;
             this.AdditionalInfoLabel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdditionalInfoLabel.Location = new System.Drawing.Point(4, 767);
+            this.AdditionalInfoLabel.Location = new System.Drawing.Point(39, 774);
             this.AdditionalInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdditionalInfoLabel.Name = "AdditionalInfoLabel";
             this.AdditionalInfoLabel.Size = new System.Drawing.Size(301, 22);
@@ -323,10 +323,10 @@
             // 
             this.ServicePaymentTypeRichTextBox.AutoWordSelection = true;
             this.ServicePaymentTypeRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(446, 648);
+            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(556, 646);
             this.ServicePaymentTypeRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePaymentTypeRichTextBox.Name = "ServicePaymentTypeRichTextBox";
-            this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(366, 47);
+            this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(227, 47);
             this.ServicePaymentTypeRichTextBox.TabIndex = 42;
             this.ServicePaymentTypeRichTextBox.Text = "";
             // 
@@ -335,10 +335,10 @@
             this.ServicePaymentTypeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServicePaymentTypeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServicePaymentTypeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServicePaymentTypeLabel.Location = new System.Drawing.Point(358, 648);
+            this.ServicePaymentTypeLabel.Location = new System.Drawing.Point(435, 646);
             this.ServicePaymentTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServicePaymentTypeLabel.Name = "ServicePaymentTypeLabel";
-            this.ServicePaymentTypeLabel.Size = new System.Drawing.Size(89, 46);
+            this.ServicePaymentTypeLabel.Size = new System.Drawing.Size(122, 26);
             this.ServicePaymentTypeLabel.TabIndex = 41;
             this.ServicePaymentTypeLabel.Text = "Atsiskaitymo rūšis\r\n";
             // 
@@ -346,10 +346,10 @@
             // 
             this.ServiceMusicianUnitPricesRichTextBox.AutoWordSelection = true;
             this.ServiceMusicianUnitPricesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceMusicianUnitPricesRichTextBox.Location = new System.Drawing.Point(137, 705);
+            this.ServiceMusicianUnitPricesRichTextBox.Location = new System.Drawing.Point(193, 706);
             this.ServiceMusicianUnitPricesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceMusicianUnitPricesRichTextBox.Name = "ServiceMusicianUnitPricesRichTextBox";
-            this.ServiceMusicianUnitPricesRichTextBox.Size = new System.Drawing.Size(675, 47);
+            this.ServiceMusicianUnitPricesRichTextBox.Size = new System.Drawing.Size(590, 47);
             this.ServiceMusicianUnitPricesRichTextBox.TabIndex = 40;
             this.ServiceMusicianUnitPricesRichTextBox.Text = "";
             // 
@@ -358,18 +358,18 @@
             this.ServiceMusicianUnitPricesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceMusicianUnitPricesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceMusicianUnitPricesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceMusicianUnitPricesLabel.Location = new System.Drawing.Point(5, 705);
+            this.ServiceMusicianUnitPricesLabel.Location = new System.Drawing.Point(43, 706);
             this.ServiceMusicianUnitPricesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceMusicianUnitPricesLabel.Name = "ServiceMusicianUnitPricesLabel";
-            this.ServiceMusicianUnitPricesLabel.Size = new System.Drawing.Size(133, 47);
+            this.ServiceMusicianUnitPricesLabel.Size = new System.Drawing.Size(151, 28);
             this.ServiceMusicianUnitPricesLabel.TabIndex = 39;
-            this.ServiceMusicianUnitPricesLabel.Text = "Pajamų\r\npaskirstymas*";
+            this.ServiceMusicianUnitPricesLabel.Text = "Pajamų paskirstymas";
             // 
             // ServiceDiscountPercentageRichTextBox
             // 
             this.ServiceDiscountPercentageRichTextBox.AutoWordSelection = true;
             this.ServiceDiscountPercentageRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDiscountPercentageRichTextBox.Location = new System.Drawing.Point(282, 648);
+            this.ServiceDiscountPercentageRichTextBox.Location = new System.Drawing.Point(357, 646);
             this.ServiceDiscountPercentageRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDiscountPercentageRichTextBox.Name = "ServiceDiscountPercentageRichTextBox";
             this.ServiceDiscountPercentageRichTextBox.Size = new System.Drawing.Size(77, 47);
@@ -381,10 +381,10 @@
             this.ServiceDiscountPercentageLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceDiscountPercentageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceDiscountPercentageLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceDiscountPercentageLabel.Location = new System.Drawing.Point(206, 648);
+            this.ServiceDiscountPercentageLabel.Location = new System.Drawing.Point(281, 646);
             this.ServiceDiscountPercentageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceDiscountPercentageLabel.Name = "ServiceDiscountPercentageLabel";
-            this.ServiceDiscountPercentageLabel.Size = new System.Drawing.Size(77, 46);
+            this.ServiceDiscountPercentageLabel.Size = new System.Drawing.Size(77, 26);
             this.ServiceDiscountPercentageLabel.TabIndex = 37;
             this.ServiceDiscountPercentageLabel.Text = "Nuolaida";
             // 
@@ -392,7 +392,7 @@
             // 
             this.ServicePaymentAmountRichTextBox.AutoWordSelection = true;
             this.ServicePaymentAmountRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePaymentAmountRichTextBox.Location = new System.Drawing.Point(79, 648);
+            this.ServicePaymentAmountRichTextBox.Location = new System.Drawing.Point(155, 646);
             this.ServicePaymentAmountRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePaymentAmountRichTextBox.Name = "ServicePaymentAmountRichTextBox";
             this.ServicePaymentAmountRichTextBox.Size = new System.Drawing.Size(128, 47);
@@ -404,10 +404,10 @@
             this.ServicePaymentAmountLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServicePaymentAmountLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServicePaymentAmountLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServicePaymentAmountLabel.Location = new System.Drawing.Point(5, 648);
+            this.ServicePaymentAmountLabel.Location = new System.Drawing.Point(43, 646);
             this.ServicePaymentAmountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServicePaymentAmountLabel.Name = "ServicePaymentAmountLabel";
-            this.ServicePaymentAmountLabel.Size = new System.Drawing.Size(75, 47);
+            this.ServicePaymentAmountLabel.Size = new System.Drawing.Size(113, 26);
             this.ServicePaymentAmountLabel.TabIndex = 35;
             this.ServicePaymentAmountLabel.Text = "Sumokėta suma";
             // 
@@ -415,7 +415,7 @@
             // 
             this.PaymentsLabel.AutoSize = true;
             this.PaymentsLabel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PaymentsLabel.Location = new System.Drawing.Point(4, 612);
+            this.PaymentsLabel.Location = new System.Drawing.Point(39, 611);
             this.PaymentsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PaymentsLabel.Name = "PaymentsLabel";
             this.PaymentsLabel.Size = new System.Drawing.Size(188, 22);
@@ -426,10 +426,10 @@
             // 
             this.DepartedRemainsTypeRichTextBox.AutoWordSelection = true;
             this.DepartedRemainsTypeRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DepartedRemainsTypeRichTextBox.Location = new System.Drawing.Point(710, 531);
+            this.DepartedRemainsTypeRichTextBox.Location = new System.Drawing.Point(697, 533);
             this.DepartedRemainsTypeRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DepartedRemainsTypeRichTextBox.Name = "DepartedRemainsTypeRichTextBox";
-            this.DepartedRemainsTypeRichTextBox.Size = new System.Drawing.Size(102, 65);
+            this.DepartedRemainsTypeRichTextBox.Size = new System.Drawing.Size(86, 65);
             this.DepartedRemainsTypeRichTextBox.TabIndex = 33;
             this.DepartedRemainsTypeRichTextBox.Text = "";
             // 
@@ -438,21 +438,21 @@
             this.DepartedRemainsTypeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.DepartedRemainsTypeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DepartedRemainsTypeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartedRemainsTypeLabel.Location = new System.Drawing.Point(643, 531);
+            this.DepartedRemainsTypeLabel.Location = new System.Drawing.Point(581, 533);
             this.DepartedRemainsTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartedRemainsTypeLabel.Name = "DepartedRemainsTypeLabel";
-            this.DepartedRemainsTypeLabel.Size = new System.Drawing.Size(68, 65);
+            this.DepartedRemainsTypeLabel.Size = new System.Drawing.Size(117, 65);
             this.DepartedRemainsTypeLabel.TabIndex = 32;
-            this.DepartedRemainsTypeLabel.Text = "Palaikų\r\npavidalas";
+            this.DepartedRemainsTypeLabel.Text = "Palaikų pavidalas\r\n";
             // 
             // DepartedConfessionRichTextBox
             // 
             this.DepartedConfessionRichTextBox.AutoWordSelection = true;
             this.DepartedConfessionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DepartedConfessionRichTextBox.Location = new System.Drawing.Point(488, 531);
+            this.DepartedConfessionRichTextBox.Location = new System.Drawing.Point(444, 533);
             this.DepartedConfessionRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DepartedConfessionRichTextBox.Name = "DepartedConfessionRichTextBox";
-            this.DepartedConfessionRichTextBox.Size = new System.Drawing.Size(156, 65);
+            this.DepartedConfessionRichTextBox.Size = new System.Drawing.Size(138, 65);
             this.DepartedConfessionRichTextBox.TabIndex = 31;
             this.DepartedConfessionRichTextBox.Text = "";
             // 
@@ -461,10 +461,10 @@
             this.DepartedConfessionLabel.BackColor = System.Drawing.SystemColors.Control;
             this.DepartedConfessionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DepartedConfessionLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartedConfessionLabel.Location = new System.Drawing.Point(417, 531);
+            this.DepartedConfessionLabel.Location = new System.Drawing.Point(373, 533);
             this.DepartedConfessionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartedConfessionLabel.Name = "DepartedConfessionLabel";
-            this.DepartedConfessionLabel.Size = new System.Drawing.Size(72, 65);
+            this.DepartedConfessionLabel.Size = new System.Drawing.Size(72, 27);
             this.DepartedConfessionLabel.TabIndex = 30;
             this.DepartedConfessionLabel.Text = "Konfesija";
             // 
@@ -472,10 +472,10 @@
             // 
             this.DepartedInfoRichTextBox.AutoWordSelection = true;
             this.DepartedInfoRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DepartedInfoRichTextBox.Location = new System.Drawing.Point(79, 532);
+            this.DepartedInfoRichTextBox.Location = new System.Drawing.Point(117, 533);
             this.DepartedInfoRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DepartedInfoRichTextBox.Name = "DepartedInfoRichTextBox";
-            this.DepartedInfoRichTextBox.Size = new System.Drawing.Size(339, 65);
+            this.DepartedInfoRichTextBox.Size = new System.Drawing.Size(257, 65);
             this.DepartedInfoRichTextBox.TabIndex = 29;
             this.DepartedInfoRichTextBox.Text = "";
             // 
@@ -484,10 +484,10 @@
             this.DepartedInfoLabel.BackColor = System.Drawing.SystemColors.Control;
             this.DepartedInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DepartedInfoLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartedInfoLabel.Location = new System.Drawing.Point(5, 532);
+            this.DepartedInfoLabel.Location = new System.Drawing.Point(43, 533);
             this.DepartedInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartedInfoLabel.Name = "DepartedInfoLabel";
-            this.DepartedInfoLabel.Size = new System.Drawing.Size(75, 65);
+            this.DepartedInfoLabel.Size = new System.Drawing.Size(75, 27);
             this.DepartedInfoLabel.TabIndex = 28;
             this.DepartedInfoLabel.Text = "Mirusysis";
             // 
@@ -495,7 +495,7 @@
             // 
             this.DepartedInformationsLabel.AutoSize = true;
             this.DepartedInformationsLabel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartedInformationsLabel.Location = new System.Drawing.Point(4, 492);
+            this.DepartedInformationsLabel.Location = new System.Drawing.Point(39, 492);
             this.DepartedInformationsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartedInformationsLabel.Name = "DepartedInformationsLabel";
             this.DepartedInformationsLabel.Size = new System.Drawing.Size(380, 22);
@@ -505,10 +505,10 @@
             // ServiceMusicProgramRichTextBox
             // 
             this.ServiceMusicProgramRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceMusicProgramRichTextBox.Location = new System.Drawing.Point(352, 394);
+            this.ServiceMusicProgramRichTextBox.Location = new System.Drawing.Point(444, 393);
             this.ServiceMusicProgramRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceMusicProgramRichTextBox.Name = "ServiceMusicProgramRichTextBox";
-            this.ServiceMusicProgramRichTextBox.Size = new System.Drawing.Size(460, 82);
+            this.ServiceMusicProgramRichTextBox.Size = new System.Drawing.Size(339, 82);
             this.ServiceMusicProgramRichTextBox.TabIndex = 26;
             this.ServiceMusicProgramRichTextBox.Text = "";
             // 
@@ -517,17 +517,17 @@
             this.ServiceMusicProgramLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceMusicProgramLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceMusicProgramLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceMusicProgramLabel.Location = new System.Drawing.Point(281, 394);
+            this.ServiceMusicProgramLabel.Location = new System.Drawing.Point(373, 393);
             this.ServiceMusicProgramLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceMusicProgramLabel.Name = "ServiceMusicProgramLabel";
-            this.ServiceMusicProgramLabel.Size = new System.Drawing.Size(72, 82);
+            this.ServiceMusicProgramLabel.Size = new System.Drawing.Size(72, 29);
             this.ServiceMusicProgramLabel.TabIndex = 25;
             this.ServiceMusicProgramLabel.Text = "Programa";
             // 
             // ServiceMusiciansCountRichTextBox
             // 
             this.ServiceMusiciansCountRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceMusiciansCountRichTextBox.Location = new System.Drawing.Point(213, 394);
+            this.ServiceMusiciansCountRichTextBox.Location = new System.Drawing.Point(305, 393);
             this.ServiceMusiciansCountRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceMusiciansCountRichTextBox.Name = "ServiceMusiciansCountRichTextBox";
             this.ServiceMusiciansCountRichTextBox.Size = new System.Drawing.Size(69, 83);
@@ -539,20 +539,20 @@
             this.ServiceMusiciansCountLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceMusiciansCountLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceMusiciansCountLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceMusiciansCountLabel.Location = new System.Drawing.Point(149, 394);
+            this.ServiceMusiciansCountLabel.Location = new System.Drawing.Point(192, 393);
             this.ServiceMusiciansCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceMusiciansCountLabel.Name = "ServiceMusiciansCountLabel";
-            this.ServiceMusiciansCountLabel.Size = new System.Drawing.Size(65, 83);
+            this.ServiceMusiciansCountLabel.Size = new System.Drawing.Size(114, 29);
             this.ServiceMusiciansCountLabel.TabIndex = 23;
             this.ServiceMusiciansCountLabel.Text = "Atlikėjų skaičius";
             // 
             // ServiceDurationRichTextBox
             // 
             this.ServiceDurationRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDurationRichTextBox.Location = new System.Drawing.Point(60, 394);
+            this.ServiceDurationRichTextBox.Location = new System.Drawing.Point(99, 393);
             this.ServiceDurationRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDurationRichTextBox.Name = "ServiceDurationRichTextBox";
-            this.ServiceDurationRichTextBox.Size = new System.Drawing.Size(90, 84);
+            this.ServiceDurationRichTextBox.Size = new System.Drawing.Size(93, 84);
             this.ServiceDurationRichTextBox.TabIndex = 22;
             this.ServiceDurationRichTextBox.Text = "";
             // 
@@ -561,20 +561,20 @@
             this.ServiceDurationLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceDurationLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceDurationLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceDurationLabel.Location = new System.Drawing.Point(4, 394);
+            this.ServiceDurationLabel.Location = new System.Drawing.Point(43, 393);
             this.ServiceDurationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceDurationLabel.Name = "ServiceDurationLabel";
-            this.ServiceDurationLabel.Size = new System.Drawing.Size(57, 83);
+            this.ServiceDurationLabel.Size = new System.Drawing.Size(57, 29);
             this.ServiceDurationLabel.TabIndex = 21;
             this.ServiceDurationLabel.Text = "Trukmė";
             // 
             // ServiceTypesRichTextBox
             // 
             this.ServiceTypesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceTypesRichTextBox.Location = new System.Drawing.Point(118, 345);
+            this.ServiceTypesRichTextBox.Location = new System.Drawing.Point(156, 345);
             this.ServiceTypesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceTypesRichTextBox.Name = "ServiceTypesRichTextBox";
-            this.ServiceTypesRichTextBox.Size = new System.Drawing.Size(694, 32);
+            this.ServiceTypesRichTextBox.Size = new System.Drawing.Size(627, 32);
             this.ServiceTypesRichTextBox.TabIndex = 20;
             this.ServiceTypesRichTextBox.Text = " ";
             // 
@@ -583,7 +583,7 @@
             this.ServiceTypesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceTypesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceTypesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceTypesLabel.Location = new System.Drawing.Point(5, 345);
+            this.ServiceTypesLabel.Location = new System.Drawing.Point(43, 345);
             this.ServiceTypesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceTypesLabel.Name = "ServiceTypesLabel";
             this.ServiceTypesLabel.Size = new System.Drawing.Size(114, 32);
@@ -593,10 +593,10 @@
             // ServicePlacesRichTextBox
             // 
             this.ServicePlacesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePlacesRichTextBox.Location = new System.Drawing.Point(358, 261);
+            this.ServicePlacesRichTextBox.Location = new System.Drawing.Point(481, 262);
             this.ServicePlacesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePlacesRichTextBox.Name = "ServicePlacesRichTextBox";
-            this.ServicePlacesRichTextBox.Size = new System.Drawing.Size(454, 66);
+            this.ServicePlacesRichTextBox.Size = new System.Drawing.Size(302, 66);
             this.ServicePlacesRichTextBox.TabIndex = 18;
             this.ServicePlacesRichTextBox.Text = "";
             // 
@@ -605,20 +605,20 @@
             this.ServicePlacesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServicePlacesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServicePlacesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServicePlacesLabel.Location = new System.Drawing.Point(294, 261);
+            this.ServicePlacesLabel.Location = new System.Drawing.Point(417, 262);
             this.ServicePlacesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServicePlacesLabel.Name = "ServicePlacesLabel";
-            this.ServicePlacesLabel.Size = new System.Drawing.Size(65, 66);
+            this.ServicePlacesLabel.Size = new System.Drawing.Size(65, 27);
             this.ServicePlacesLabel.TabIndex = 17;
             this.ServicePlacesLabel.Text = "Adresas";
             // 
             // ServiceDatesRichTextBox
             // 
             this.ServiceDatesRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDatesRichTextBox.Location = new System.Drawing.Point(91, 261);
+            this.ServiceDatesRichTextBox.Location = new System.Drawing.Point(262, 262);
             this.ServiceDatesRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDatesRichTextBox.Name = "ServiceDatesRichTextBox";
-            this.ServiceDatesRichTextBox.Size = new System.Drawing.Size(204, 66);
+            this.ServiceDatesRichTextBox.Size = new System.Drawing.Size(156, 66);
             this.ServiceDatesRichTextBox.TabIndex = 16;
             this.ServiceDatesRichTextBox.Text = "";
             // 
@@ -627,10 +627,10 @@
             this.ServiceDatesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceDatesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceDatesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceDatesLabel.Location = new System.Drawing.Point(5, 261);
+            this.ServiceDatesLabel.Location = new System.Drawing.Point(43, 262);
             this.ServiceDatesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceDatesLabel.Name = "ServiceDatesLabel";
-            this.ServiceDatesLabel.Size = new System.Drawing.Size(87, 66);
+            this.ServiceDatesLabel.Size = new System.Drawing.Size(221, 27);
             this.ServiceDatesLabel.TabIndex = 15;
             this.ServiceDatesLabel.Text = "Paslaugos suteikimo data ir laikas";
             // 
@@ -638,7 +638,7 @@
             // 
             this.ServiceInformationLabel.AutoSize = true;
             this.ServiceInformationLabel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceInformationLabel.Location = new System.Drawing.Point(5, 222);
+            this.ServiceInformationLabel.Location = new System.Drawing.Point(39, 221);
             this.ServiceInformationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceInformationLabel.Name = "ServiceInformationLabel";
             this.ServiceInformationLabel.Size = new System.Drawing.Size(472, 22);
@@ -649,7 +649,7 @@
             // 
             this.OrderNumberTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.OrderNumberTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderNumberTextBox.Location = new System.Drawing.Point(207, 4);
+            this.OrderNumberTextBox.Location = new System.Drawing.Point(246, 11);
             this.OrderNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.OrderNumberTextBox.Multiline = true;
             this.OrderNumberTextBox.Name = "OrderNumberTextBox";
