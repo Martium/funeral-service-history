@@ -177,17 +177,7 @@ namespace Martium.DeprofundisHistory.Forms
 
             if (confirmationDialogResult == DialogResult.Yes)
             {
-                bool success = _funeralServiceRepository.DeleteExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
-
-                if (success)
-                {
-                    ShowInformationDialog("Paslauga ištrinta sėkmingai!");
-                    this.Close();
-                }
-                else
-                {
-                    ShowErrorDialog("Nepavyko ištrinti paslaugos, bandykite dar kart!");
-                }
+                DeleteService();
             }
         }
 
@@ -333,6 +323,30 @@ namespace Martium.DeprofundisHistory.Forms
             PrintButton.Enabled = enabled;
         }
 
+        private void CaptureFuneralServiceFormScreen()
+        {
+            _funeralServiceMemoryImage = new Bitmap(1000, FuneralSericePrintPanel.Height);
+
+            FuneralSericePrintPanel.DrawToBitmap(
+                _funeralServiceMemoryImage, 
+                new Rectangle(0, 0, 1000, FuneralSericePrintPanel.Height));
+        }
+
+        private void DeleteService()
+        {
+            bool success = _funeralServiceRepository.DeleteExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
+
+            if (success)
+            {
+                ShowInformationDialog("Paslauga ištrinta sėkmingai!");
+                this.Close();
+            }
+            else
+            {
+                ShowErrorDialog("Nepavyko ištrinti paslaugos, bandykite dar kart!");
+            }
+        }
+
         private static void ShowInformationDialog(string message)
         {
             MessageBox.Show(message, "Info pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -341,15 +355,6 @@ namespace Martium.DeprofundisHistory.Forms
         private static void ShowErrorDialog(string message)
         {
             MessageBox.Show(message, "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void CaptureFuneralServiceFormScreen()
-        {
-            _funeralServiceMemoryImage = new Bitmap(1000, FuneralSericePrintPanel.Height);
-
-            FuneralSericePrintPanel.DrawToBitmap(
-                _funeralServiceMemoryImage, 
-                new Rectangle(0, 0, 1000, FuneralSericePrintPanel.Height));
         }
 
         #endregion
