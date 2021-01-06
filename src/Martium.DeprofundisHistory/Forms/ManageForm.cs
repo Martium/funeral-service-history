@@ -143,23 +143,23 @@ namespace Martium.DeprofundisHistory.Forms
 
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
-                success = _funeralServiceRepository.EditFuneralService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value, funeralServiceModel);
+                success = _funeralServiceRepository.UpdateExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value, funeralServiceModel);
                 successMessage = "Pakeitimai išsaugoti sėkmingai.";
             }
             else
             {
-                success = _funeralServiceRepository.CreateNewFuneralService(funeralServiceModel);
+                success = _funeralServiceRepository.CreateNewService(funeralServiceModel);
                 successMessage = "Naujas įrašas sukurtas sekmingai.";
             }
 
             if (success)
             {
-                ShowDataSaveMessage(successMessage);
+                ShowInformationDialog(successMessage);
                 this.Close();
             }
             else
             {
-                ShowManageFormErrorDialog();
+                ShowErrorDialog("Nepavyko išsaugoti pakeitimų, bandykite dar kart!");
             }
         }
 
@@ -172,7 +172,23 @@ namespace Martium.DeprofundisHistory.Forms
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            DialogResult confirmationDialogResult = 
+                MessageBox.Show("Ar tikrai norite ištrinti šį užsakymą ? Ištrinti užsakymai negali būti atstatyti!", "Patvirtinimas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (confirmationDialogResult == DialogResult.Yes)
+            {
+                bool success = _funeralServiceRepository.DeleteExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
+
+                if (success)
+                {
+                    ShowInformationDialog("Paslauga ištrinta sėkmingai!");
+                    this.Close();
+                }
+                else
+                {
+                    ShowErrorDialog("Nepavyko ištrinti paslaugos, bandykite dar kart!");
+                }
+            }
         }
 
         #region Helpers
@@ -272,7 +288,7 @@ namespace Martium.DeprofundisHistory.Forms
                 _funeralServiceOperation == FuneralServiceOperation.Copy)
             {
                 FuneralServiceModel funeralServiceModel = 
-                    _funeralServiceRepository.GetByOrderNumber(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
+                    _funeralServiceRepository.GetExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
 
                 OrderDateTextBox.Text = funeralServiceModel.OrderDate.ToString(OrderDateFormat);
                 CustomerNamesRichTextBox.Text = funeralServiceModel.CustomerNames;
@@ -317,14 +333,14 @@ namespace Martium.DeprofundisHistory.Forms
             PrintButton.Enabled = enabled;
         }
 
-        private static void ShowDataSaveMessage(string message)
+        private static void ShowInformationDialog(string message)
         {
             MessageBox.Show(message, "Info pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private static void ShowManageFormErrorDialog()
+        private static void ShowErrorDialog(string message)
         {
-            MessageBox.Show("Nepavyko išsaugoti, bandykite dar kart!", "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(message, "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void CaptureFuneralServiceFormScreen()

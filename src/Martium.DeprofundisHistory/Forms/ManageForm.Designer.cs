@@ -660,7 +660,6 @@
             // 
             // SaveChangesButton
             // 
-            this.SaveChangesButton.Enabled = false;
             this.SaveChangesButton.Location = new System.Drawing.Point(125, 944);
             this.SaveChangesButton.Name = "SaveChangesButton";
             this.SaveChangesButton.Size = new System.Drawing.Size(93, 48);
@@ -696,7 +695,6 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Enabled = false;
             this.DeleteButton.Location = new System.Drawing.Point(852, 944);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(93, 48);
