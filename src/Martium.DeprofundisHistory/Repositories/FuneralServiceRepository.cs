@@ -165,28 +165,5 @@ namespace Martium.DeprofundisHistory.Repositories
                 return affectedRows == 1;
             }
         }
-
-        public bool DeleteExistingService(int orderNumber, int orderCreationYear)
-        {
-            using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
-            {
-                dbConnection.Open();
-
-                string deleteExistingServiceCommand =
-                    @"DELETE FROM 'FuneralServiceHistory' 
-                      WHERE OrderNumber = @OrderNumber AND OrderCreationYear = @OrderCreationYear";
-
-                object queryParameters = new
-                {
-                    OrderNumber = orderNumber,
-                    OrderCreationYear = orderCreationYear
-                };
-
-                int affectedRows = dbConnection.Execute(deleteExistingServiceCommand, queryParameters);
-
-                return affectedRows == 1;
-            }
-        }
-
     }
 }

@@ -80,7 +80,6 @@
             this.PrintButton = new System.Windows.Forms.Button();
             this.FuneralServicePrintDocument = new System.Drawing.Printing.PrintDocument();
             this.FuneralServicePrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.DeleteButton = new System.Windows.Forms.Button();
             this.FuneralSericePrintPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -693,23 +692,12 @@
             this.FuneralServicePrintPreviewDialog.Name = "PrintPreviewManageFuneralServiceForm";
             this.FuneralServicePrintPreviewDialog.Visible = false;
             // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Location = new System.Drawing.Point(852, 944);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(93, 48);
-            this.DeleteButton.TabIndex = 18;
-            this.DeleteButton.Text = "Ištrinti paslaugą";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1064, 1001);
-            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.PrintButton);
             this.Controls.Add(this.SaveChangesButton);
             this.Controls.Add(this.FuneralSericePrintPanel);
@@ -778,6 +766,5 @@
         private System.Windows.Forms.Button PrintButton;
         private System.Drawing.Printing.PrintDocument FuneralServicePrintDocument;
         private System.Windows.Forms.PrintPreviewDialog FuneralServicePrintPreviewDialog;
-        private System.Windows.Forms.Button DeleteButton;
     }
 }

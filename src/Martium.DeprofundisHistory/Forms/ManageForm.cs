@@ -170,17 +170,6 @@ namespace Martium.DeprofundisHistory.Forms
             FuneralServicePrintPreviewDialog.ShowDialog();
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            DialogResult confirmationDialogResult = 
-                MessageBox.Show("Ar tikrai norite ištrinti šį užsakymą ? Ištrinti užsakymai negali būti atstatyti!", "Patvirtinimas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirmationDialogResult == DialogResult.Yes)
-            {
-                DeleteService();
-            }
-        }
-
         #region Helpers
 
         private void SetControlsInitialState()
@@ -196,14 +185,12 @@ namespace Martium.DeprofundisHistory.Forms
             else
             {
                 CustomerPhoneNumbersErrorMessageLabel.Visible = false;
-                
             }
             
             OrderNumberTextBox.ReadOnly = true;
 
             SaveChangesButton.Enabled = false;
             PrintButton.Enabled = false;
-            DeleteButton.Visible = _funeralServiceOperation == FuneralServiceOperation.Edit;
 
             OrderDateErrorMessageLabel.Visible = false;
 
@@ -330,21 +317,6 @@ namespace Martium.DeprofundisHistory.Forms
             FuneralSericePrintPanel.DrawToBitmap(
                 _funeralServiceMemoryImage, 
                 new Rectangle(0, 0, 1000, FuneralSericePrintPanel.Height));
-        }
-
-        private void DeleteService()
-        {
-            bool success = _funeralServiceRepository.DeleteExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
-
-            if (success)
-            {
-                ShowInformationDialog("Paslauga ištrinta sėkmingai!");
-                this.Close();
-            }
-            else
-            {
-                ShowErrorDialog("Nepavyko ištrinti paslaugos, bandykite dar kart!");
-            }
         }
 
         private static void ShowInformationDialog(string message)
