@@ -41,6 +41,20 @@ namespace Martium.DeprofundisHistory.Forms
             FuneralServicePrintDocument.PrintPage += PrintManageFuneralServiceForm_PrintPage;
         }
 
+        private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
+        {
+            ResolveOrderNumberText();
+            LoadFormDataForEditOrCopy();
+        }
+
+        private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(
+                _funeralServiceMemoryImage,
+                0,
+                this.FuneralSericePrintPanel.Location.Y);
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             if (_funeralServiceMemoryImage != null)
@@ -49,12 +63,6 @@ namespace Martium.DeprofundisHistory.Forms
 
                 base.OnPaint(e);
             }
-        }
-
-        private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
-        {
-            ResolveOrderNumberText();
-            LoadFormDataForEditOrCopy();
         }
 
         private void OrderDateTextBox_Validating(object sender, CancelEventArgs e)
@@ -78,7 +86,7 @@ namespace Martium.DeprofundisHistory.Forms
         
         private void OrderDateTextBox_TextChanged(object sender, EventArgs e)
         {
-            EnableButtonsIfPossible();
+            EnableSaveAndPrintButtonsIfPossible();
         }
 
         private void CustomerPhoneNumbersRichTextBox_GotFocus(object sender, EventArgs e)
@@ -102,7 +110,7 @@ namespace Martium.DeprofundisHistory.Forms
 
         private void CustomerPhoneNumbersRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            EnableButtonsIfPossible();
+            EnableSaveAndPrintButtonsIfPossible();
         }
 
         private void SaveFuneralServiceChangesButton_Click(object sender, EventArgs e)
@@ -162,12 +170,9 @@ namespace Martium.DeprofundisHistory.Forms
             FuneralServicePrintPreviewDialog.ShowDialog();
         }
 
-        private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-            e.Graphics.DrawImage(
-                _funeralServiceMemoryImage, 
-                0, 
-                this.FuneralSericePrintPanel.Location.Y);
+
         }
 
         #region Helpers
@@ -191,6 +196,8 @@ namespace Martium.DeprofundisHistory.Forms
             OrderNumberTextBox.ReadOnly = true;
 
             SaveChangesButton.Enabled = false;
+            PrintButton.Enabled = false;
+            DeleteButton.Visible = _funeralServiceOperation == FuneralServiceOperation.Edit;
 
             OrderDateErrorMessageLabel.Visible = false;
 
@@ -302,7 +309,7 @@ namespace Martium.DeprofundisHistory.Forms
             textBoxBase.BackColor = Color.White;
         }
 
-        private void EnableButtonsIfPossible()
+        private void EnableSaveAndPrintButtonsIfPossible()
         {
             bool enabled = (!string.IsNullOrWhiteSpace(OrderDateTextBox.Text) && !string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text));
 
