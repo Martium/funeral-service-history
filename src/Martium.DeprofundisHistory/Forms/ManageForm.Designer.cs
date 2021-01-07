@@ -207,10 +207,10 @@
             this.CustomerAddressesLabel.BackColor = System.Drawing.SystemColors.Control;
             this.CustomerAddressesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CustomerAddressesLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerAddressesLabel.Location = new System.Drawing.Point(571, 153);
+            this.CustomerAddressesLabel.Location = new System.Drawing.Point(569, 153);
             this.CustomerAddressesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerAddressesLabel.Name = "CustomerAddressesLabel";
-            this.CustomerAddressesLabel.Size = new System.Drawing.Size(64, 25);
+            this.CustomerAddressesLabel.Size = new System.Drawing.Size(66, 25);
             this.CustomerAddressesLabel.TabIndex = 12;
             this.CustomerAddressesLabel.Text = "Adresas";
             // 
@@ -301,7 +301,7 @@
             // ServiceDescriptionRichTextBox
             // 
             this.ServiceDescriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDescriptionRichTextBox.Location = new System.Drawing.Point(43, 800);
+            this.ServiceDescriptionRichTextBox.Location = new System.Drawing.Point(43, 795);
             this.ServiceDescriptionRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDescriptionRichTextBox.Name = "ServiceDescriptionRichTextBox";
             this.ServiceDescriptionRichTextBox.Size = new System.Drawing.Size(740, 120);
@@ -312,7 +312,7 @@
             // 
             this.AdditionalInfoLabel.AutoSize = true;
             this.AdditionalInfoLabel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdditionalInfoLabel.Location = new System.Drawing.Point(39, 774);
+            this.AdditionalInfoLabel.Location = new System.Drawing.Point(39, 765);
             this.AdditionalInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdditionalInfoLabel.Name = "AdditionalInfoLabel";
             this.AdditionalInfoLabel.Size = new System.Drawing.Size(301, 22);
@@ -323,7 +323,7 @@
             // 
             this.ServicePaymentTypeRichTextBox.AutoWordSelection = true;
             this.ServicePaymentTypeRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(556, 646);
+            this.ServicePaymentTypeRichTextBox.Location = new System.Drawing.Point(547, 646);
             this.ServicePaymentTypeRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServicePaymentTypeRichTextBox.Name = "ServicePaymentTypeRichTextBox";
             this.ServicePaymentTypeRichTextBox.Size = new System.Drawing.Size(227, 45);
@@ -335,10 +335,10 @@
             this.ServicePaymentTypeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServicePaymentTypeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServicePaymentTypeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServicePaymentTypeLabel.Location = new System.Drawing.Point(435, 646);
+            this.ServicePaymentTypeLabel.Location = new System.Drawing.Point(428, 646);
             this.ServicePaymentTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServicePaymentTypeLabel.Name = "ServicePaymentTypeLabel";
-            this.ServicePaymentTypeLabel.Size = new System.Drawing.Size(122, 25);
+            this.ServicePaymentTypeLabel.Size = new System.Drawing.Size(120, 25);
             this.ServicePaymentTypeLabel.TabIndex = 41;
             this.ServicePaymentTypeLabel.Text = "Atsiskaitymo rūšis\r\n";
             // 
@@ -369,7 +369,7 @@
             // 
             this.ServiceDiscountPercentageRichTextBox.AutoWordSelection = true;
             this.ServiceDiscountPercentageRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServiceDiscountPercentageRichTextBox.Location = new System.Drawing.Point(357, 646);
+            this.ServiceDiscountPercentageRichTextBox.Location = new System.Drawing.Point(352, 646);
             this.ServiceDiscountPercentageRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ServiceDiscountPercentageRichTextBox.Name = "ServiceDiscountPercentageRichTextBox";
             this.ServiceDiscountPercentageRichTextBox.Size = new System.Drawing.Size(77, 45);
@@ -381,10 +381,10 @@
             this.ServiceDiscountPercentageLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ServiceDiscountPercentageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ServiceDiscountPercentageLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServiceDiscountPercentageLabel.Location = new System.Drawing.Point(281, 646);
+            this.ServiceDiscountPercentageLabel.Location = new System.Drawing.Point(282, 646);
             this.ServiceDiscountPercentageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ServiceDiscountPercentageLabel.Name = "ServiceDiscountPercentageLabel";
-            this.ServiceDiscountPercentageLabel.Size = new System.Drawing.Size(77, 25);
+            this.ServiceDiscountPercentageLabel.Size = new System.Drawing.Size(71, 25);
             this.ServiceDiscountPercentageLabel.TabIndex = 37;
             this.ServiceDiscountPercentageLabel.Text = "Nuolaida";
             // 
@@ -696,7 +696,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1064, 1001);
             this.Controls.Add(this.PrintButton);
             this.Controls.Add(this.SaveChangesButton);

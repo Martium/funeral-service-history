@@ -38,16 +38,16 @@ namespace Martium.DeprofundisHistory.Forms
             this.SearchButton = new System.Windows.Forms.Button();
             this.CreateNewButton = new System.Windows.Forms.Button();
             this.ServiceHistoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.OrderCreationYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditButton = new System.Windows.Forms.Button();
             this.CopyButton = new System.Windows.Forms.Button();
             this.CancelSearchButton = new System.Windows.Forms.Button();
-            this.FuneralServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.OrderCreationYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDatesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNamesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerPhoneNumbersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departedInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FuneralServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ServiceHistoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FuneralServiceBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -119,6 +119,15 @@ namespace Martium.DeprofundisHistory.Forms
             this.ServiceHistoryDataGridView.TabIndex = 3;
             this.ServiceHistoryDataGridView.Paint += new System.Windows.Forms.PaintEventHandler(this.FuneralServiceDataGridView_Paint);
             // 
+            // OrderCreationYear
+            // 
+            this.OrderCreationYear.DataPropertyName = "OrderCreationYear";
+            this.OrderCreationYear.Frozen = true;
+            this.OrderCreationYear.HeaderText = "Metai";
+            this.OrderCreationYear.Name = "OrderCreationYear";
+            this.OrderCreationYear.ReadOnly = true;
+            this.OrderCreationYear.Width = 45;
+            // 
             // EditButton
             // 
             this.EditButton.Location = new System.Drawing.Point(16, 939);
@@ -150,19 +159,6 @@ namespace Martium.DeprofundisHistory.Forms
             this.CancelSearchButton.Text = "Atšaukti";
             this.CancelSearchButton.UseVisualStyleBackColor = true;
             this.CancelSearchButton.Click += new System.EventHandler(this.CancelFuneralServiceSearchButton_Click);
-            // 
-            // FuneralServiceBindingSource
-            // 
-            this.FuneralServiceBindingSource.DataSource = typeof(FuneralServiceListModel);
-            // 
-            // OrderCreationYear
-            // 
-            this.OrderCreationYear.DataPropertyName = "OrderCreationYear";
-            this.OrderCreationYear.Frozen = true;
-            this.OrderCreationYear.HeaderText = "Metai";
-            this.OrderCreationYear.Name = "OrderCreationYear";
-            this.OrderCreationYear.ReadOnly = true;
-            this.OrderCreationYear.Width = 45;
             // 
             // orderNumberDataGridViewTextBoxColumn
             // 
@@ -205,11 +201,15 @@ namespace Martium.DeprofundisHistory.Forms
             this.departedInfoDataGridViewTextBoxColumn.ReadOnly = true;
             this.departedInfoDataGridViewTextBoxColumn.Width = 295;
             // 
+            // FuneralServiceBindingSource
+            // 
+            this.FuneralServiceBindingSource.DataSource = typeof(Martium.DeprofundisHistory.Models.FuneralServiceListModel);
+            // 
             // ListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1064, 1001);
             this.Controls.Add(this.CancelSearchButton);
             this.Controls.Add(this.CopyButton);
