@@ -41,6 +41,20 @@ namespace Martium.DeprofundisHistory.Forms
             FuneralServicePrintDocument.PrintPage += PrintManageFuneralServiceForm_PrintPage;
         }
 
+        private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
+        {
+            ResolveOrderNumberText();
+            LoadFormDataForEditOrCopy();
+        }
+
+        private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(
+                _funeralServiceMemoryImage,
+                0,
+                this.FuneralSericePrintPanel.Location.Y);
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             if (_funeralServiceMemoryImage != null)
@@ -49,12 +63,6 @@ namespace Martium.DeprofundisHistory.Forms
 
                 base.OnPaint(e);
             }
-        }
-
-        private void CreateFuneralServiceForm_Load(object sender, EventArgs e)
-        {
-            ResolveOrderNumberText();
-            LoadFormDataForEditOrCopy();
         }
 
         private void OrderDateTextBox_Validating(object sender, CancelEventArgs e)
@@ -78,7 +86,7 @@ namespace Martium.DeprofundisHistory.Forms
         
         private void OrderDateTextBox_TextChanged(object sender, EventArgs e)
         {
-            EnableButtonsIfPossible();
+            EnableSaveAndPrintButtonsIfPossible();
         }
 
         private void CustomerPhoneNumbersRichTextBox_GotFocus(object sender, EventArgs e)
@@ -102,7 +110,7 @@ namespace Martium.DeprofundisHistory.Forms
 
         private void CustomerPhoneNumbersRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            EnableButtonsIfPossible();
+            EnableSaveAndPrintButtonsIfPossible();
         }
 
         private void SaveFuneralServiceChangesButton_Click(object sender, EventArgs e)
@@ -135,23 +143,23 @@ namespace Martium.DeprofundisHistory.Forms
 
             if (_funeralServiceOperation == FuneralServiceOperation.Edit)
             {
-                success = _funeralServiceRepository.EditFuneralService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value, funeralServiceModel);
+                success = _funeralServiceRepository.UpdateExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value, funeralServiceModel);
                 successMessage = "Pakeitimai išsaugoti sėkmingai.";
             }
             else
             {
-                success = _funeralServiceRepository.CreateNewFuneralService(funeralServiceModel);
+                success = _funeralServiceRepository.CreateNewService(funeralServiceModel);
                 successMessage = "Naujas įrašas sukurtas sekmingai.";
             }
 
             if (success)
             {
-                ShowDataSaveMessage(successMessage);
+                ShowInformationDialog(successMessage);
                 this.Close();
             }
             else
             {
-                ShowManageFormErrorDialog();
+                ShowErrorDialog("Nepavyko išsaugoti pakeitimų, bandykite dar kart!");
             }
         }
 
@@ -160,14 +168,6 @@ namespace Martium.DeprofundisHistory.Forms
             CaptureFuneralServiceFormScreen();
             FuneralServicePrintPreviewDialog.Document = FuneralServicePrintDocument;
             FuneralServicePrintPreviewDialog.ShowDialog();
-        }
-
-        private void PrintManageFuneralServiceForm_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(
-                _funeralServiceMemoryImage, 
-                0, 
-                this.FuneralSericePrintPanel.Location.Y);
         }
 
         #region Helpers
@@ -185,12 +185,12 @@ namespace Martium.DeprofundisHistory.Forms
             else
             {
                 CustomerPhoneNumbersErrorMessageLabel.Visible = false;
-                
             }
             
             OrderNumberTextBox.ReadOnly = true;
 
             SaveChangesButton.Enabled = false;
+            PrintButton.Enabled = false;
 
             OrderDateErrorMessageLabel.Visible = false;
 
@@ -265,7 +265,7 @@ namespace Martium.DeprofundisHistory.Forms
                 _funeralServiceOperation == FuneralServiceOperation.Copy)
             {
                 FuneralServiceModel funeralServiceModel = 
-                    _funeralServiceRepository.GetByOrderNumber(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
+                    _funeralServiceRepository.GetExistingService(_selectedOrderNumber.Value, _selectedOrderCreationYear.Value);
 
                 OrderDateTextBox.Text = funeralServiceModel.OrderDate.ToString(OrderDateFormat);
                 CustomerNamesRichTextBox.Text = funeralServiceModel.CustomerNames;
@@ -302,22 +302,12 @@ namespace Martium.DeprofundisHistory.Forms
             textBoxBase.BackColor = Color.White;
         }
 
-        private void EnableButtonsIfPossible()
+        private void EnableSaveAndPrintButtonsIfPossible()
         {
             bool enabled = (!string.IsNullOrWhiteSpace(OrderDateTextBox.Text) && !string.IsNullOrWhiteSpace(CustomerPhoneNumbersRichTextBox.Text));
 
             SaveChangesButton.Enabled = enabled;
             PrintButton.Enabled = enabled;
-        }
-
-        private static void ShowDataSaveMessage(string message)
-        {
-            MessageBox.Show(message, "Info pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private static void ShowManageFormErrorDialog()
-        {
-            MessageBox.Show("Nepavyko išsaugoti, bandykite dar kart!", "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void CaptureFuneralServiceFormScreen()
@@ -327,6 +317,16 @@ namespace Martium.DeprofundisHistory.Forms
             FuneralSericePrintPanel.DrawToBitmap(
                 _funeralServiceMemoryImage, 
                 new Rectangle(0, 0, 1000, FuneralSericePrintPanel.Height));
+        }
+
+        private static void ShowInformationDialog(string message)
+        {
+            MessageBox.Show(message, "Info pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private static void ShowErrorDialog(string message)
+        {
+            MessageBox.Show(message, "Klaidos pranešimas", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #endregion

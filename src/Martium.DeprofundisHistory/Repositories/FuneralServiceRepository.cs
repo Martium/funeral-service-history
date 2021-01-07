@@ -8,7 +8,31 @@ namespace Martium.DeprofundisHistory.Repositories
 {
     public class FuneralServiceRepository
     {
-        public IEnumerable<FuneralServiceListModel> GetList(string searchPhrase = null)
+        public int GetNextOrderNumber()
+        {
+            using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
+            {
+                dbConnection.Open();
+
+                string getBiggestOrderNumberQuery =
+                    @"SELECT  
+                        MAX(FSH.OrderNumber)
+                      FROM FuneralServiceHistory FSH
+                      WHERE FSH.OrderCreationYear = @OrderCreationYear
+                    ";
+
+                object queryParameters = new
+                {
+                    OrderCreationYear = DateTime.Now.Year
+                };
+
+                int? biggestOrderNumber = dbConnection.QuerySingleOrDefault<int?>(getBiggestOrderNumberQuery, queryParameters) ?? 0;
+
+                return biggestOrderNumber.Value + 1;
+            }
+        }
+
+        public IEnumerable<FuneralServiceListModel> GetServicesList(string searchPhrase = null)
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
@@ -43,13 +67,13 @@ namespace Martium.DeprofundisHistory.Repositories
             }
         }
 
-        public FuneralServiceModel GetByOrderNumber(int orderNumber, int orderCreationYear)
+        public FuneralServiceModel GetExistingService(int orderNumber, int orderCreationYear)
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
                 dbConnection.Open();
 
-                string getServiceByOrderNumberQuery =
+                string getExistingServiceQuery =
                     @"SELECT  
                         FSH.OrderDate , FSH.CustomerNames , FSH.CustomerPhoneNumbers , FSH.CustomerEmails , FSH.CustomerAddresses , FSH.ServiceDates , FSH.ServicePlaces , FSH.ServiceTypes , 
                         FSH.ServiceDuration , FSH.ServiceMusiciansCount , FSH.ServiceMusicProgram, FSH.DepartedInfo , FSH.DepartedConfession , FSH.DepartedRemainsType , FSH.ServiceMusicianUnitPrices , 
@@ -63,37 +87,13 @@ namespace Martium.DeprofundisHistory.Repositories
                    OrderCreationYear = orderCreationYear
                 };
 
-                FuneralServiceModel funeralService = dbConnection.QuerySingle<FuneralServiceModel>(getServiceByOrderNumberQuery, queryParameters);
+                FuneralServiceModel funeralService = dbConnection.QuerySingle<FuneralServiceModel>(getExistingServiceQuery, queryParameters);
 
                 return funeralService;
             }
         }
 
-        public int GetNextOrderNumber()
-        {
-            using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
-            {
-                dbConnection.Open();
-
-                string getBiggestOrderNumberQuery =
-                    @"SELECT  
-                        MAX(FSH.OrderNumber)
-                      FROM FuneralServiceHistory FSH
-                      WHERE FSH.OrderCreationYear = @OrderCreationYear
-                    ";
-
-                object queryParameters = new
-                {
-                    OrderCreationYear = DateTime.Now.Year
-                };
-
-                int? biggestOrderNumber = dbConnection.QuerySingleOrDefault<int?>(getBiggestOrderNumberQuery, queryParameters) ?? 0;
-
-                return biggestOrderNumber.Value + 1;
-            }
-        }
-
-        public bool CreateNewFuneralService(FuneralServiceModel newService)
+        public bool CreateNewService(FuneralServiceModel newService)
         {
             int nextOrderNumber = GetNextOrderNumber();
 
@@ -101,7 +101,7 @@ namespace Martium.DeprofundisHistory.Repositories
             {
                 dbConnection.Open();
 
-                string createNewFuneralServiceCommand =
+                string createNewServiceCommand =
                     @"INSERT INTO 'FuneralServiceHistory' 
 	                    VALUES (
                             @OrderNumber, @OrderCreationYear, @OrderDate, @CustomerNames, @CustomerPhoneNumbers, @CustomerEmails,
@@ -123,19 +123,19 @@ namespace Martium.DeprofundisHistory.Repositories
                     newService.ServicePaymentType, newService.ServiceDescription
                 };
 
-                int affectedRows = dbConnection.Execute(createNewFuneralServiceCommand, queryParameters);
+                int affectedRows = dbConnection.Execute(createNewServiceCommand, queryParameters);
 
                 return affectedRows == 1;
             }
         }
 
-        public bool EditFuneralService(int orderNumber, int orderCreationYear, FuneralServiceModel updatedService)
+        public bool UpdateExistingService(int orderNumber, int orderCreationYear, FuneralServiceModel updatedService)
         {
             using (var dbConnection = new SQLiteConnection(AppConfiguration.ConnectionString))
             {
                 dbConnection.Open();
 
-                string createNewFuneralServiceCommand =
+                string updateExistingServiceCommand =
                     @"UPDATE 'FuneralServiceHistory' 
 	                    SET OrderDate = @OrderDate, CustomerNames = @CustomerNames , CustomerPhoneNumbers = @CustomerPhoneNumbers , CustomerEmails = @CustomerEmails, 
                             CustomerAddresses = @CustomerAddresses, ServiceDates = @ServiceDates, ServicePlaces = @ServicePlaces, ServiceTypes = @ServiceTypes, 
@@ -160,7 +160,7 @@ namespace Martium.DeprofundisHistory.Repositories
                     OrderNumber = orderNumber, OrderCreationYear = orderCreationYear
                 };
 
-                int affectedRows = dbConnection.Execute(createNewFuneralServiceCommand, queryParameters);
+                int affectedRows = dbConnection.Execute(updateExistingServiceCommand, queryParameters);
 
                 return affectedRows == 1;
             }

@@ -11,8 +11,11 @@ namespace Martium.DeprofundisHistory.Repositories
         {
             if (File.Exists(AppConfiguration.DatabaseFile))
             {
-                // TODO: uncomment return below before real testing
-                //return;
+#if DEBUG
+
+#else
+                return;
+#endif
             }
 
             if (!Directory.Exists(AppConfiguration.DatabaseFolder))
@@ -32,7 +35,10 @@ namespace Martium.DeprofundisHistory.Repositories
 
                 CreateFuneralServiceHistoryTable(dbConnection);
 
-                //FillDefaultFuneralServices(dbConnection);
+#if DEBUG
+                FillDefaultFuneralServices(dbConnection);
+#endif
+
             }
         }
 

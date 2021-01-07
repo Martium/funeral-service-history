@@ -174,7 +174,7 @@ namespace Martium.DeprofundisHistory.Forms
                 CancelSearchButton.Enabled = true;
             }
 
-            IEnumerable<FuneralServiceListModel> funeralServiceListModels = _funeralServiceRepository.GetList(searchPhrase);
+            IEnumerable<FuneralServiceListModel> funeralServiceListModels = _funeralServiceRepository.GetServicesList(searchPhrase);
 
             ToggleExistingListManaging(enabled: funeralServiceListModels.Any(), searchPhrase);
 
